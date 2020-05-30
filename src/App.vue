@@ -1,28 +1,67 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// @ is an alias to /src
 
 export default {
-  name: 'App',
+  name: 'Home',
   components: {
-    HelloWorld
-  }
+
+  },
+    metaInfo: {
+    title: "Beatup",
+    titleTemplate: "%s ",
+    htmlAttrs: {
+      lang: "es",
+      amp: true,
+    },
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "description",
+        content:
+          "Vende tus beats online.",
+      },
+      {
+        property: "og:title",
+        content: "Beatup",
+      },
+      { property: "og:site_name", content: "Beatup - Vende tus beats online" },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: "index,follow" },
+    ],
+}
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
