@@ -3,9 +3,12 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import router from './router'
 import VueMeta from "vue-meta";
+import vuescroll from 'vuescroll';
 
 Vue.config.productionTip = false
 Vue.use(VueMeta);
+
+Vue.use(vuescroll);
 
 new Vue({
   vuetify,

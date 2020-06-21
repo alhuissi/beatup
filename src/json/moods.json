@@ -1,0 +1,54 @@
+{
+    "meta": {
+      "domain": "https://beatup.cl",
+      "websiteName": "Beatup",
+      "keywords": "Beatup, Beats, musica urbana, moods"
+    },
+    "moods": {
+      "1": {
+        "text": "Feliz",
+        "icon": "mdi-emoticon-happy-outline"
+      },
+      "2": {
+        "text": "Contento",
+        "icon": "mdi-emoticon-outline"
+      },
+      "3": {
+        "text": "Extasiado",
+        "icon": "mdi-emoticon-excited-outline"
+      },
+      "4": {
+        "text": "Estiloso",
+        "icon": "mdi-emoticon-cool-outline"
+      },
+      "5": {
+        "text": "Misterioso",
+        "icon": "mdi-pirate"
+      },
+      "6": {
+        "text": "Desanimado",
+        "icon": "mdi-emoticon-sad-outline"
+      },
+      "7": {
+        "text": "Triste",
+        "icon": "mdi-emoticon-cry-outline"
+      },
+      "8": {
+        "text": "Melancólico",
+        "icon": "mdi-emoticon-confused-outline"
+      },
+      "9": {
+        "text": "Enojado",
+        "icon": "mdi-emoticon-angry-outline"
+      },
+      "10": {
+        "text": "Indiferente",
+        "icon": "mdi-emoticon-neutral-outline"
+      },
+      "11": {
+        "text": "Tripeado",
+        "icon": "mdi-drama-masks"
+      }
+    }
+  }
+  

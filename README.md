@@ -1,4 +1,4 @@
-# webapp
+# Beatup
 
 ## Project setup
 ```

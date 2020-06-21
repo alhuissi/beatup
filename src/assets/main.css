@@ -1,0 +1,78 @@
+
+:root {
+
+}
+
+
+@font-face {
+  font-family: brokenz;
+  src: url('./fonts/BROKENZ.ttf');
+}
+@font-face {
+  font-family: ethnocentric;
+  src: url('./fonts/ethnocentric_rg.ttf');
+}
+@font-face {
+  font-family: capitalis;
+  src: url('./fonts/CapitalisTypOasis.ttf');
+}
+@font-face {
+  font-family: quantum;
+  src: url('./fonts/Quantum.otf');
+}
+@font-face {
+  font-family: coolvetica;
+  src: url('./fonts/coolvetica_rg.ttf');
+}
+@font-face {
+  font-family: destone;
+  src: url('./fonts/Destone.ttf');
+}
+
+
+
+/*
+@font-face {
+  font-family: Didot;
+  src: url('../fonts/didot-htf-m11-medium.ttf');
+}
+*/
+
+
+a{
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: 0px none white !important;
+  color: black !important;
+}
+ul{
+  list-style-type: none;
+}
+
+a:hover{
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: 0px none white !important;
+  color: black !important;
+}
+
+a:active{
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: 0px none white !important;
+  color: black !important;
+}
+
+.theme--dark.v-label {
+  color: rgba(255, 255, 255, 1);
+}
+.theme--light.v-label {
+  color: rgba(0, 0, 0, 1);
+}
+
+.custom.v-text-field>.v-input__control>.v-input__slot:before {
+  border-style: none;
+}
+.custom.v-text-field>.v-input__control>.v-input__slot:after {
+  border-style: none;
+}

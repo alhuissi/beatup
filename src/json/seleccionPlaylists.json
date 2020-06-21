@@ -1,0 +1,64 @@
+{
+    "meta": {
+      "domain": "https://beatup.cl",
+      "websiteName": "Beatup",
+      "keywords": "Beatup, Beats, musica urbana"
+    },
+    "playlists": {
+      "1": {
+        "title": "Nombre Playlist1",
+        "autor": "Beatup",
+        "nSeguidores": "50",
+        "cover": "",
+        "id": "1",
+        "description": "Descripción",
+        "path": ""
+      },
+      "2": {
+        "title": "Nombre Playlist2",
+        "autor": "Beatup",
+        "nSeguidores": "51",
+        "cover": "",
+        "id": "2",
+        "description": "Descripción",
+        "path": ""
+      },
+      "3": {
+        "title": "Nombre Playlist3",
+        "autor": "Beatup",
+        "nSeguidores": "52",
+        "cover": "",
+        "id": "3",
+        "description": "Descripción",
+        "path": ""
+      },
+      "4": {
+        "title": "Nombre Playlist4",
+        "autor": "Beatup",
+        "nSeguidores": "53",
+        "cover": "",
+        "id": "4",
+        "description": "Descripción",
+        "path": ""
+      },
+      "5": {
+        "title": "Nombre Playlist5",
+        "autor": "Beatup",
+        "nSeguidores": "54",
+        "cover": "",
+        "id": "5",
+        "description": "Descripción",
+        "path": ""
+      },
+      "6": {
+        "title": "Nombre Playlist6",
+        "autor": "Beatup",
+        "nSeguidores": "55",
+        "cover": "",
+        "id": "6",
+        "description": "Descripción",
+        "path": ""
+      }
+    }
+  }
+  

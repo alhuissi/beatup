@@ -1,0 +1,120 @@
+{
+    "meta": {
+      "domain": "https://beatup.cl",
+      "websiteName": "Beatup",
+      "keywords": "Beatup, Beats, musica urbana"
+    },
+    "beatmaker": {
+      "1": {
+        "title": "Nombre Beatmaker1",
+        "nFollowers": "8050",
+        "nDescargas": "945",
+        "cover": "",
+        "id": "1",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "1",
+        "ciudad": "Valparaiso"
+      },
+      "2": {
+        "title": "Nombre Beatmaker2",
+        "nFollowers": "3051",
+        "nDescargas": "845",
+        "cover": "",
+        "id": "2",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "2",
+        "ciudad": "Concepción"
+      },
+      "3": {
+        "title": "Nombre Beatmaker3",
+        "nFollowers": "2952",
+        "nDescargas": "745",
+        "cover": "",
+        "id": "3",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "3",
+        "ciudad": "Santiago"
+      },
+      "4": {
+        "title": "Nombre Beatmaker4",
+        "nFollowers": "1553",
+        "nDescargas": "445",
+        "cover": "",
+        "id": "4",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "4",
+        "ciudad": "Santiago"
+      },
+      "5": {
+        "title": "Nombre Beatmaker5",
+        "nFollowers": "1454",
+        "nDescargas": "345",
+        "cover": "",
+        "id": "5",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "5",
+        "ciudad": "Osorno"
+      },
+      "6": {
+        "title": "Nombre Beatmaker6",
+        "nFollowers": "855",
+        "nDescargas": "245",
+        "cover": "",
+        "id": "6",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "6",
+        "ciudad": "Santiago"
+      },
+      "7": {
+        "title": "Nombre Beatmaker7",
+        "nFollowers": "555",
+        "nDescargas": "45",
+        "cover": "",
+        "id": "7",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "7",
+        "ciudad": "Los Andes"
+      },
+      "8": {
+        "title": "Nombre Beatmaker8",
+        "nFollowers": "155",
+        "nDescargas": "25",
+        "cover": "",
+        "id": "8",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "8",
+        "ciudad": "Puerto Varas"
+      },
+      "9": {
+        "title": "Nombre Beatmaker9",
+        "nFollowers": "65",
+        "nDescargas": "15",
+        "cover": "",
+        "id": "9",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "9",
+        "ciudad": "Santiago"
+      },
+      "10": {
+        "title": "Nombre Beatmaker10",
+        "nFollowers": "55",
+        "nDescargas": "5",
+        "cover": "",
+        "id": "10",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "10",
+        "ciudad": "Antofagasta"
+      }
+    }
+  }
+  
