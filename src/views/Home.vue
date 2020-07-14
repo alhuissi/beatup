@@ -2,39 +2,12 @@
   <section class="home">
     <!-- Carrousel -->
     <div class="view" id="view1">
-      <v-container fluid id="seccion1">
-        <v-row style="margin-left: 2vw;">
-          <v-col cols="4">
-            <v-img class="logo" src="../assets/logos/DoradaB.png"></v-img>
-          </v-col>
-          <v-col cols="2"> </v-col>
-          <v-col cols="6" style="text-align:right;">
-                          <div
-                style="color:white;cursor:pointer;font-weight:600;font-size:calc(10px + 0.5vw);margin-top:3vh;"
-              >
-                Iniciar Sesión
-              </div>
-            <div class="searchBox">
-              <v-text-field
-                v-model="searchBox"
-                prepend-inner-icon="mdi-magnify"
-                label="Buscar Beat"
-                class="custom"
-                style="height:6vh;margin-left:1vw;"
-                dark
-              ></v-text-field>
-            </div>
-          </v-col>
-        </v-row>
-      </v-container>
-
       <v-carousel
         cycle
         hide-delimiters
         show-arrows-on-hover
         height="55vh"
-        class="carrousel"
-      >
+        class="carrousel">
         <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
           <v-sheet>
             <v-row align="center" justify="center">
@@ -48,7 +21,7 @@
           <div id="subheaderCarrousel">
             ¡Transforma esa realidad con Beatup!
           </div>
-          <v-btn large height="70" id="botonRegistrate">
+          <v-btn router to="/register" id="botonRegistrate">
             Regístrate
           </v-btn>
         </v-carousel-item>
@@ -58,7 +31,7 @@
     <!-- Buscar Beats -->
     <div class="view" id="view2">
       <v-container fluid id="containerSeccion">
-        <v-row style="margin-left: 2vw;">
+        <v-row dense style="margin-left: 2vw;">
           <v-col cols="7">
             <div id="subheader" style="position:absolute;left:9vw;">
               Encuentra el beat que buscas:
@@ -66,47 +39,53 @@
           </v-col>
           <v-col cols="3"> </v-col>
           <v-col cols="2">
-            <v-img class="logo" src="../assets/logos/DoradaB.png"></v-img>
+            <v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img>
           </v-col>
         </v-row>
-        <v-row style="margin-left: 2vw;">
+        <v-row dense style="margin-left: 2vw;">
           <v-col cols="2">
-            <div
-              style="background-color: #E9B800; height: 70vh; border-top-left-radius: 5px; border-bottom-left-radius: 5px; width: 15vw;"
-            >
+            <div style="background-color:#E9B800;height:70vh;border-top-left-radius:5px;border-bottom-left-radius:5px;width:15vw;">
               <div class="searchMood">
                 <v-text-field
                   v-model="searchMood"
                   prepend-inner-icon="mdi-magnify"
                   label="Buscar MOOD"
                   class="custom"
-                  style="height:6vh;margin-left:1vw;"
+                  style="margin-left:1vw;"
                   dark
+                  hide-details
                 ></v-text-field>
               </div>
-              <div style="padding-top:3vh;">
+              <div style="padding-top:2vh;">
                 <vue-scroll :ops="ops">
                   <div style="height:60vh;">
                     <v-container style="background-color:rgba(0,0,0,0);">
-                      <v-list shaped style="background-color:rgba(0,0,0,0);">
-                        <v-list-item-group v-model="item" color="primary">
+                      <v-list flat dense style="background-color:rgba(0,0,0,0);">
+                        <v-list-item-group color="primary">
                           <v-list-item
                             v-for="(item, i) in moods"
                             :key="i"
-                            style="text-align: justify;text-justify:inter-word;height:5vh;"
+                            style="text-align:justify;text-justify:inter-word;padding:0!important;cursor:initial;"
                           >
+                          <v-checkbox
+                            :v-model="item.text"
+                            color="black"
+                            style="margin:0!important;padding:0!important"
+                            :value="item.text"
+                            v-model="checkedMoods"
+                            hide-details
+                          ></v-checkbox>
                             <v-list-item-icon>
                               <v-icon
-                                x-large
                                 color="black"
                                 v-text="item.icon"
-                                style="bottom:1.5vh;"
+                                style="font-size:4.5vh!important;cursor:initial;"
                               ></v-icon>
                             </v-list-item-icon>
-                            <v-list-item-content>
+                            <v-list-item-content style="cursor:initial;">
                               <v-list-item-title
                                 color="black"
-                                style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);font-weight:600;"
+                                style="text-shadow:1px 1px 4px rgba(0, 0, 0, 0.3);font-weight:600;cursor:initial;margin-left:0.5vw;font-size:14px;"
                                 v-text="item.text"
                               ></v-list-item-title>
                             </v-list-item-content>
@@ -120,225 +99,197 @@
             </div>
           </v-col>
           <v-col cols="2">
-            <div
-              style="background-color: #333333; height: 70vh; border-top-left-radius: 5px; border-bottom-left-radius: 5px; width: 15vw; margin-left: 2vw;"
-            >
+            <div style="background-color: #333333; height: 70vh; border-top-left-radius: 5px; border-bottom-left-radius: 5px; width: 15vw; margin-left: 2vw;">
               <div class="searchGENERO">
                 <v-text-field
                   v-model="searchGenero"
                   prepend-inner-icon="mdi-magnify"
                   label="Buscar GENERO"
                   class="custom"
-                  style="height:6vh;margin-left:1vw;"
+                  style="margin-left:1vw;"
                   dark
+                  hide-details
                 ></v-text-field>
               </div>
-              <div style="padding-top:3vh;">
+              <div style="padding-top:2vh;">
                 <vue-scroll :ops="ops">
-                  <div style="height:60vh;">
+                  <div style="height:60vh;padding-top:2vh;">
                     <v-container fluid>
-                      <v-radio-group dark v-model="radios" :mandatory="false">
-                        <v-radio
-                          style="padding:5px;"
-                          label="Hip Hop"
-                          value="radio-1"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Rap"
-                          value="radio-2"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Reggaetón"
-                          value="radio-3"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Dancehall"
-                          value="radio-4"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Dembow"
-                          value="radio-5"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Lofi"
-                          value="radio-6"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Chillhop"
-                          value="radio-7"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Trap"
-                          value="radio-8"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Jazzhop"
-                          value="radio-9"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Funky"
-                          value="radio-10"
-                        ></v-radio>
-                        <v-radio
-                          style="padding:5px;"
-                          label="Hardcore"
-                          value="radio-11"
-                        ></v-radio>
-                      </v-radio-group>
+                      <v-checkbox
+                        v-for="(item, i) in generos"
+                        :key="i"
+                        :label="item.text"
+                        color="white"
+                        style="margin:0!important;padding:0!important;"
+                        dark
+                      ></v-checkbox>
                     </v-container>
                   </div>
                 </vue-scroll>
               </div>
             </div>
           </v-col>
-
           <v-col cols="8">
             <div
-              style="background-color: #1a1a1a; height: 70vh; border-top-right-radius: 5px; border-bottom-right-radius: 5px; width: 55vw; margin-left: 5vw;"
-            >
+              style="background-color: #1a1a1a; height: 70vh; border-top-right-radius: 5px; border-bottom-right-radius: 5px; width: 55vw; margin-left: 5vw;">
               <div class="searchSONG">
                 <v-text-field
                   v-model="searchSong"
                   prepend-inner-icon="mdi-magnify"
                   label="Buscar por título, artista o BPM"
                   class="custom"
-                  style="height:6vh;margin-left:1vw;"
+                  style="margin-left:1vw;"
                   dark
-                ></v-text-field></div>
-                <v-row style="margin-top:3vh;;"><v-col cols="2"></v-col>
-                  <v-col cols="3"><div style="color:white;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;">Título</div>
-                    </v-col>
-                    <v-col cols="2"><div style="color:white;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;">Artista</div>
-                    </v-col>
-                    <v-col cols="1"><div style="color:white;margin-left:2vw;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;">BPM</div>
-                    </v-col>
-                    <v-col cols="2"><div style="color:white;margin-left:5vw;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;">Añadir</div>
-                    </v-col>
-                  </v-row>
-                  <div class="line2" style="width:50vw;"></div>
-                <div style="height:52vh;width:50vw;">
-                  <vue-scroll :ops="ops">
-                    <div>
-                      <v-list
-                        style="background-color:rgba(0,0,0,0);padding-top:0;"
-                      >
-                        <v-list-item
-                          v-for="item in beats"
-                          :key="item.id"
-                          style="text-align: justify;text-justify:inter-word;cursor:pointer"
-                          ><v-col cols="2">
-                            <v-img
-                              src="../assets/website/Slide1.jpg"
-                              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                              height="50px"
-                              width="50px"
-                              class="caratulaTopBeatsChica"
-                            ></v-img
-                          ></v-col>
-
-                          <v-btn icon style="right:2.5vw;bottom:0vh;">
-                            <v-icon color="white"
-                              >mdi-heart-outline</v-icon
-                            ></v-btn
-                          >
-
-                          <v-col cols="3">
-                            <v-list-item-content
-                              style="padding-top:5px;padding-bottom:5px;"
-                            >
-                              <v-list-item-title
-                                style="color:white;text-transform:uppercase;font-size:16px;font-weight:600;"
-                                v-text="item.title"
-                              ></v-list-item-title>
-                            </v-list-item-content>
-                          </v-col>
-                          <v-col cols="3">
-                            <v-list-item-content style="padding-top:5px;padding-bottom:5px;">
-                              <v-list-item-title
-                                style="color:white;text-transform:uppercase;font-size:14px;font-weight:400"
-                                v-text="item.artista"
-                              ></v-list-item-title>
-                            </v-list-item-content>
-                          </v-col>
+                  hide-details
+                ></v-text-field>
+              </div>
+              <v-row style="margin-top:2vh;"><v-col cols="2"></v-col>
+                <v-col cols="3"
+                  ><div
+                    style="color:white;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;"
+                  >
+                    Título
+                  </div>
+                </v-col>
+                <v-col cols="2"
+                  ><div
+                    style="color:white;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;"
+                  >
+                    Artista
+                  </div>
+                </v-col>
+                <v-col cols="1"
+                  ><div
+                    style="color:white;margin-left:2vw;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;"
+                  >
+                    BPM
+                  </div>
+                </v-col>
+                <v-col cols="2"
+                  ><div
+                    style="color:white;margin-left:5vw;text-transform:uppercase;font-size:14px;margin-bottom:-5px;opacity:0.8;"
+                  >
+                    Añadir
+                  </div>
+                </v-col>
+              </v-row>
+              <div class="line2" style="width:50vw;"></div>
+              <div style="height:52vh;width:50vw;">
+                <vue-scroll :ops="ops">
+                  <div>
+                    <v-list
+                      style="background-color:rgba(0,0,0,0);padding-top:0;">
+                      <v-list-item
+                        v-for="item in beats"
+                        :key="item.id"
+                        style="text-align:justify;text-justify:inter-word;">
+                        <v-col cols="2">
+                          <v-img
+                            :src="imgSrc1"
+                            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                            height="50px"
+                            width="50px"
+                            class="caratulaTopBeatsChica"
+                          ></v-img>
+                        </v-col>
+                        <v-btn icon style="right:0.5vw;bottom:0vh;">
+                          <v-icon color="white">mdi-heart-outline</v-icon>
+                        </v-btn>
+                        <v-col cols="3">
                           <v-list-item-content
                             style="padding-top:5px;padding-bottom:5px;"
                           >
                             <v-list-item-title
-                              style="color:white;text-transform:uppercase;font-size:16px;font-weight:600;"
-                              v-text="item.bpm"
+                              style="color:white;text-transform:uppercase;font-size:2vh;font-weight:600;"
+                              v-text="item.title"
                             ></v-list-item-title>
                           </v-list-item-content>
-                          <v-btn color="#e9b800"
-                            ><v-icon color="black">mdi-cart-plus </v-icon>
-                            <div
-                              style="color:black;font-weight:700;font-size:16px;"
-                            >
-                              {{ topBeats[6].precio }}CLP
-                            </div></v-btn
+                        </v-col>
+                        <v-col cols="3">
+                          <v-list-item-content
+                            style="padding-top:5px;padding-bottom:5px;"
                           >
-                          <div class="line2"></div>
-                        </v-list-item>
-                      </v-list></div
-                  ></vue-scroll>
-                </div>
-              
+                            <v-list-item-title
+                              style="color:white;text-transform:uppercase;font-size:1.8vh;font-weight:400"
+                              v-text="item.artista"
+                            ></v-list-item-title>
+                          </v-list-item-content>
+                        </v-col>
+                        <v-list-item-content style="padding-top:5px;padding-bottom:5px;">
+                          <v-list-item-title
+                            style="color:white;text-transform:uppercase;font-size:2vh;font-weight:600;"
+                            v-text="item.bpm"
+                          ></v-list-item-title>
+                        </v-list-item-content>
+                        <v-btn color="#e9b800" style="padding:10px!important;left:1vw;"
+                          ><v-icon color="black">mdi-cart-plus </v-icon>
+                          <div
+                            style="color:black;font-weight:700;font-size:1.9vh;"
+                          >
+                            10.000 CLP
+                          </div></v-btn
+                        >
+                        <div class="line2"></div>
+                      </v-list-item>
+                    </v-list></div
+                ></vue-scroll>
+              </div>
             </div>
           </v-col>
         </v-row>
       </v-container>
     </div>
 
-    <!-- Top 10 Beats -->
+    <!-- Hot Beats -->
     <div class="view" id="view3">
       <v-container fluid id="containerSeccion">
-        <v-row style="margin-left:2vw;">
+        <v-row dense style="margin-left:2vw;">
           <v-col cols="3">
             <div id="subheader" style="position:absolute;left:7vw;">
-              Top Beats
+              Hot Beats
             </div>
           </v-col>
           <v-col cols="3">
             <div class="buscarPorGenero">
               <v-select
-                :items="generos"
+                :items="slides"
                 :menu-props="{ top: true, offsetY: true }"
+                hide-details
                 background-color="rgba(0,0,0,0)"
                 color="#000000"
                 label="Buscar por GENERO"
                 class="custom"
-                style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);font-weight:800;margin-left:2vw;margin-right:2vw;width:200px;bottom:5px;right:3px;"
+                style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);font-weight:800;margin-left:2vw;margin-right:2vw;width:200px;bottom:5px;z-index:99;font-size:1.5vh;"
               ></v-select>
             </div>
           </v-col>
           <v-col cols="4"> </v-col>
           <v-col cols="2">
-            <v-img class="logo" src="../assets/logos/DoradaB.png"></v-img>
+            <v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img>
           </v-col>
         </v-row>
-        <v-row>
+        <v-row dense style="padding-top:1vh;;">
           <v-col cols="6" style="padding-left:2vw;">
-            <v-row>
-              <v-col cols="4" style="padding:20px;">
+            <v-row dense style="padding-top:20px;">
+              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
                 <v-card color="black" dark>
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    class="caratulaPlaylist"
-                  >                  <v-btn fab small class="botonPlay" color="#e9b800"
-                    ><v-icon color="white">mdi-play </v-icon>
-                  </v-btn></v-img>
+                    class="caratulaHotBeats"
+                  >
+                    <v-btn
+                      fab
+                      small
+                      class="botonPlay"
+                      color="#e9b800"
+                      @click="play()"
+                      ><v-icon color="white">mdi-play </v-icon>
+                    </v-btn></v-img
+                  >
 
-                  <v-btn fab class="posicionTop5Beat" color="#e9b800"
-                    ><div style="color:black;font-weight:800;font-size:25px;">
+                  <v-btn small fab class="posicionTop5Beat" color="#e9b800"
+                    ><div class="numeroPosicion">
                       {{ topBeats[1].posicion }}
                     </div>
                   </v-btn>
@@ -347,23 +298,25 @@
                     style="justify-content:center;margin-top:-15px;font-size:14px;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-20px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-20px;font-size:1.6vh;justify-content:center;"
                     v-text="'por ' + topBeats[1].autor"
                   ></v-card-subtitle>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding:20px;">
+              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
                 <v-card color="black" dark>
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    class="caratulaPlaylist"
-                  >                  <v-btn fab small class="botonPlay" color="#e9b800"
-                    ><v-icon color="white">mdi-play </v-icon>
-                  </v-btn></v-img>
+                    class="caratulaHotBeats"
+                  >
+                    <v-btn fab small class="botonPlay" color="#e9b800"
+                      ><v-icon color="white">mdi-play </v-icon>
+                    </v-btn></v-img
+                  >
 
-                  <v-btn fab class="posicionTop5Beat" color="#e9b800"
-                    ><div style="color:black;font-weight:800;font-size:25px;">
+                  <v-btn small fab class="posicionTop5Beat" color="#e9b800"
+                    ><div class="numeroPosicion">
                       {{ topBeats[2].posicion }}
                     </div>
                   </v-btn>
@@ -372,23 +325,25 @@
                     style="justify-content:center;margin-top:-15px;font-size:14px;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-20px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-20px;font-size:1.6vh;justify-content:center;"
                     v-text="'por ' + topBeats[2].autor"
                   ></v-card-subtitle>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding:20px;">
+              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
                 <v-card color="black" dark>
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    class="caratulaPlaylist"
-                  >                  <v-btn fab small class="botonPlay" color="#e9b800"
-                    ><v-icon color="white">mdi-play </v-icon>
-                  </v-btn></v-img>
+                    class="caratulaHotBeats"
+                  >
+                    <v-btn fab small class="botonPlay" color="#e9b800"
+                      ><v-icon color="white">mdi-play </v-icon>
+                    </v-btn></v-img
+                  >
 
-                  <v-btn fab class="posicionTop5Beat" color="#e9b800"
-                    ><div style="color:black;font-weight:800;font-size:25px;">
+                  <v-btn small fab class="posicionTop5Beat" color="#e9b800"
+                    ><div class="numeroPosicion">
                       {{ topBeats[3].posicion }}
                     </div>
                   </v-btn>
@@ -397,25 +352,27 @@
                     style="justify-content:center;margin-top:-15px;font-size:14px;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-20px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-20px;font-size:1.6vh;justify-content:center;"
                     v-text="'por ' + topBeats[3].autor"
                   ></v-card-subtitle>
                 </v-card> </v-col
             ></v-row>
-            <v-row>
+            <v-row dense>
               <v-col cols="2"></v-col>
-              <v-col cols="4" style="padding:20px;">
+              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
                 <v-card color="black" dark>
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    class="caratulaPlaylist"
-                  >                  <v-btn fab small class="botonPlay" color="#e9b800"
-                    ><v-icon color="white">mdi-play </v-icon>
-                  </v-btn></v-img>
+                    class="caratulaHotBeats"
+                  >
+                    <v-btn fab small class="botonPlay" color="#e9b800"
+                      ><v-icon color="white">mdi-play </v-icon>
+                    </v-btn></v-img
+                  >
 
-                  <v-btn fab class="posicionTop5Beat" color="#e9b800"
-                    ><div style="color:black;font-weight:800;font-size:25px;">
+                  <v-btn small fab class="posicionTop5Beat" color="#e9b800"
+                    ><div class="numeroPosicion">
                       {{ topBeats[4].posicion }}
                     </div>
                   </v-btn>
@@ -424,24 +381,25 @@
                     style="justify-content:center;margin-top:-15px;font-size:14px;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="justify-content:center;padding-top:0px;margin-top:-20px;font-size:12px;"
+                    style="justify-content:center;padding-top:0px;margin-top:-20px;font-size:1.6vh;"
                     v-text="'por ' + topBeats[4].autor"
                   ></v-card-subtitle>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding:20px;">
+              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
                 <v-card color="black" dark>
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    class="caratulaPlaylist"
-                  >                  <v-btn fab small class="botonPlay" color="#e9b800"
-                    ><v-icon color="white">mdi-play </v-icon>
-                  </v-btn></v-img>
+                    class="caratulaHotBeats"
+                  >
+                    <v-btn fab small class="botonPlay" color="#e9b800"
+                      ><v-icon color="white">mdi-play </v-icon>
+                    </v-btn></v-img
+                  >
 
-
-                  <v-btn fab class="posicionTop5Beat" color="#e9b800"
-                    ><div style="color:black;font-weight:800;font-size:25px;">
+                  <v-btn small fab class="posicionTop5Beat" color="#e9b800"
+                    ><div class="numeroPosicion">
                       {{ topBeats[5].posicion }}
                     </div>
                   </v-btn>
@@ -450,7 +408,7 @@
                     style="justify-content:center;margin-top:-15px;font-size:14px;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-20px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-20px;font-size:1.6vh;justify-content:center;"
                     v-text="'por ' + topBeats[5].autor"
                   ></v-card-subtitle>
                 </v-card>
@@ -459,7 +417,7 @@
             </v-row>
           </v-col>
 
-          <v-col cols="6" style="margin-top:10vh;">
+          <v-col cols="6" style="margin-top:5vh;">
             <div class="line"></div>
             <v-row
               ><v-col cols="1"
@@ -469,28 +427,30 @@
               >
               <v-col cols="2">
                 <v-img
-                  src="../assets/website/Slide1.jpg"
+                  :src="imgSrc1"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="50px"
-                  width="50px"
+                  height="7vh"
+                  width="7vh"
                   class="caratulaTopBeatsChica"
                 ></v-img
               ></v-col>
               <v-col cols="2">
                 <div style="position:absolute;">
                   <v-btn icon style="right:2.5vw;">
-                    <v-icon color="white">mdi-heart-outline</v-icon></v-btn
+                    <v-icon size="20" color="white">mdi-heart-outline</v-icon></v-btn
                   >
                 </div>
-                <div style="font-size:14px;color:white;">
+                <div style="font-size:1.6vh;color:white;">
                   {{ topBeats[6].title }}
                 </div>
-                <div style="font-size:10px;color:white;">
+                <div style="font-size:1.5vh;color:white;">
                   {{ topBeats[6].autor }}
                 </div>
               </v-col>
               <v-col cols="2">
-                <div style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;">
+                <div
+                  style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;"
+                >
                   {{ topBeats[6].bpm }} BPM
                 </div>
               </v-col>
@@ -503,10 +463,10 @@
                 </div>
               </v-col>
               <v-col cols="2">
-                <v-btn color="#e9b800"
+                <v-btn color="#e9b800" style="padding:10px;"
                   ><v-icon color="black">mdi-cart-plus </v-icon>
-                  <div style="color:black;font-weight:700;font-size:16px;">
-                    {{ topBeats[6].precio }}CLP
+                  <div style="color:black;font-weight:700;font-size:2vh;">
+                    {{ topBeats[6].precio }} CLP
                   </div></v-btn
                 >
               </v-col>
@@ -521,28 +481,30 @@
               >
               <v-col cols="2">
                 <v-img
-                  src="../assets/website/Slide1.jpg"
+                  :src="imgSrc1"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="50px"
-                  width="50px"
+                  height="7vh"
+                  width="7vh"
                   class="caratulaTopBeatsChica"
                 ></v-img
               ></v-col>
               <v-col cols="2">
                 <div style="position:absolute;">
                   <v-btn icon style="right:2.5vw;bottom:1vh;">
-                    <v-icon color="white">mdi-heart-outline</v-icon></v-btn
+                    <v-icon size="20" color="white">mdi-heart-outline</v-icon></v-btn
                   >
                 </div>
-                <div style="font-size:14px;color:white;">
+                <div style="font-size:1.6vh;color:white;">
                   {{ topBeats[7].title }}
                 </div>
-                <div style="font-size:10px;color:white;">
+                <div style="font-size:1.5vh;color:white;">
                   {{ topBeats[7].autor }}
                 </div>
               </v-col>
               <v-col cols="2">
-                <div style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;">
+                <div
+                  style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;"
+                >
                   {{ topBeats[7].bpm }} BPM
                 </div>
               </v-col>
@@ -555,10 +517,10 @@
                 </div>
               </v-col>
               <v-col cols="2">
-                <v-btn color="#e9b800"
+                <v-btn color="#e9b800" style="padding:10px;"
                   ><v-icon color="black">mdi-cart-plus </v-icon>
-                  <div style="color:black;font-weight:700;font-size:16px;">
-                    {{ topBeats[6].precio }}CLP
+                  <div style="color:black;font-weight:700;font-size:2vh;">
+                    {{ topBeats[7].precio }} CLP
                   </div></v-btn
                 >
               </v-col>
@@ -573,28 +535,30 @@
               >
               <v-col cols="2">
                 <v-img
-                  src="../assets/website/Slide1.jpg"
+                  :src="imgSrc1"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="50px"
-                  width="50px"
+                  height="7vh"
+                  width="7vh"
                   class="caratulaTopBeatsChica"
                 ></v-img
               ></v-col>
               <v-col cols="2">
                 <div style="position:absolute;">
                   <v-btn icon style="right:2.5vw;bottom:1vh;">
-                    <v-icon color="white">mdi-heart-outline</v-icon></v-btn
+                    <v-icon size="20" color="white">mdi-heart-outline</v-icon></v-btn
                   >
                 </div>
-                <div style="font-size:14px;color:white;">
+                <div style="font-size:1.6vh;color:white;">
                   {{ topBeats[8].title }}
                 </div>
-                <div style="font-size:10px;color:white;">
+                <div style="font-size:1.5vh;color:white;">
                   {{ topBeats[8].autor }}
                 </div>
               </v-col>
               <v-col cols="2">
-                <div style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;">
+                <div
+                  style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;"
+                >
                   {{ topBeats[8].bpm }} BPM
                 </div>
               </v-col>
@@ -607,10 +571,10 @@
                 </div>
               </v-col>
               <v-col cols="2">
-                <v-btn color="#e9b800"
+                <v-btn color="#e9b800" style="padding:10px;"
                   ><v-icon color="black">mdi-cart-plus </v-icon>
-                  <div style="color:black;font-weight:700;font-size:16px;">
-                    {{ topBeats[6].precio }}CLP
+                  <div style="color:black;font-weight:700;font-size:2vh;;">
+                    {{ topBeats[8].precio }} CLP
                   </div></v-btn
                 >
               </v-col>
@@ -625,28 +589,30 @@
               >
               <v-col cols="2">
                 <v-img
-                  src="../assets/website/Slide1.jpg"
+                  :src="imgSrc1"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="50px"
-                  width="50px"
+                  height="7vh"
+                  width="7vh"
                   class="caratulaTopBeatsChica"
                 ></v-img
               ></v-col>
               <v-col cols="2">
                 <div style="position:absolute;">
                   <v-btn icon style="right:2.5vw;bottom:1vh;">
-                    <v-icon color="white">mdi-heart-outline</v-icon></v-btn
+                    <v-icon size="20" color="white">mdi-heart-outline</v-icon></v-btn
                   >
                 </div>
-                <div style="font-size:14px;color:white;">
+                <div style="font-size:1.6vh;color:white;">
                   {{ topBeats[9].title }}
                 </div>
-                <div style="font-size:10px;color:white;">
+                <div style="font-size:1.5vh;color:white;">
                   {{ topBeats[9].autor }}
                 </div>
               </v-col>
               <v-col cols="2">
-                <div style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;">
+                <div
+                  style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;"
+                >
                   {{ topBeats[9].bpm }} BPM
                 </div>
               </v-col>
@@ -659,10 +625,10 @@
                 </div>
               </v-col>
               <v-col cols="2">
-                <v-btn color="#e9b800"
+                <v-btn color="#e9b800" style="padding:10px;"
                   ><v-icon color="black">mdi-cart-plus </v-icon>
-                  <div style="color:black;font-weight:700;font-size:16px;">
-                    {{ topBeats[6].precio }}CLP
+                  <div style="color:black;font-weight:700;font-size:2vh">
+                    {{ topBeats[9].precio }} CLP
                   </div></v-btn
                 >
               </v-col>
@@ -677,28 +643,30 @@
               >
               <v-col cols="2">
                 <v-img
-                  src="../assets/website/Slide1.jpg"
+                  :src="imgSrc1"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="50px"
-                  width="50px"
+                  height="7vh"
+                  width="7vh"
                   class="caratulaTopBeatsChica"
                 ></v-img
               ></v-col>
               <v-col cols="2">
                 <div style="position:absolute;">
                   <v-btn icon style="right:2.5vw;bottom:1vh;">
-                    <v-icon color="white">mdi-heart-outline</v-icon></v-btn
+                    <v-icon size="20" color="white">mdi-heart-outline</v-icon></v-btn
                   >
                 </div>
-                <div style="font-size:13px;color:white;">
+                <div style="font-size:1.6vh;color:white;">
                   {{ topBeats[10].title }}
                 </div>
-                <div style="font-size:10px;color:white;">
+                <div style="font-size:1.5vh;color:white;">
                   {{ topBeats[10].autor }}
                 </div>
               </v-col>
               <v-col cols="2">
-                <div style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;">
+                <div
+                  style="font-size:14px;color:grey;font-weight:600;margin-top:1vh;"
+                >
                   {{ topBeats[10].bpm }} BPM
                 </div>
               </v-col>
@@ -711,10 +679,10 @@
                 </div>
               </v-col>
               <v-col cols="2">
-                <v-btn color="#e9b800"
+                <v-btn color="#e9b800" style="padding:10px;"
                   ><v-icon color="black">mdi-cart-plus </v-icon>
-                  <div style="color:black;font-weight:700;font-size:16px;">
-                    {{ topBeats[6].precio }}CLP
+                  <div style="color:black;font-weight:700;font-size:2vh;">
+                    {{ topBeats[10].precio }} CLP
                   </div></v-btn
                 >
               </v-col>
@@ -733,9 +701,8 @@
               Top 10 Beatmakers
             </div>
           </v-col>
-
           <v-col cols="2">
-            <v-img class="logo" src="../assets/logos/DoradaB.png"></v-img>
+            <v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img>
           </v-col>
         </v-row>
         <v-row style="margin-left:2vw;margin-top:14vh;">
@@ -743,16 +710,16 @@
             <v-row>
               <div
                 id="subheader"
-                style="position:absolute;color:#e9b800;font-weight:800;left:8vw;top:18vh;font-size:34px;"
+                style="position:absolute;color:#e9b800;font-weight:800;left:8vw;top:18vh;font-size:4vh;"
               >
                 Conoce a los mejores creadores del momento
               </div>
             </v-row>
             <v-row>
-              <v-col cols="4">
+              <v-col cols="4" style="padding-right:3vh;padding-left:3vh;">
                 <v-card color="black" dark style="padding:1vw;">
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                     class="caratulaBeatmaker"
                   >
@@ -773,29 +740,25 @@
                         ></v-progress-circular>
                       </v-row> </template
                   ></v-img>
-                  <v-btn
-                    fab
-                    x-large
-                    class="posicionTop5Beatmakers"
-                    color="#e9b800"
+                  <v-btn fab class="posicionTop5Beatmakers" color="#e9b800"
                     ><div style="color:black;font-weight:800;font-size:35px;">
                       {{ topBeatmakers[1].posicion }}
                     </div>
                   </v-btn>
                   <v-card-title
                     v-text="topBeatmakers[1].title"
-                    style="justify-content:center;margin-top:-15px;font-size:14px;"
+                    style="justify-content:center;margin-top:-15px;font-size:2.2vh;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-15px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-15px;font-size:1.8vh;justify-content:center;"
                     v-text="topBeatmakers[1].ciudad"
                   ></v-card-subtitle>
                 </v-card>
               </v-col>
-              <v-col cols="4">
+              <v-col cols="4" style="padding-right:3vh;padding-left:3vh;">
                 <v-card color="black" dark style="padding:1vw;">
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                     class="caratulaBeatmaker"
                   >
@@ -816,29 +779,25 @@
                         ></v-progress-circular>
                       </v-row> </template
                   ></v-img>
-                  <v-btn
-                    fab
-                    x-large
-                    class="posicionTop5Beatmakers"
-                    color="#e9b800"
+                  <v-btn fab class="posicionTop5Beatmakers" color="#e9b800"
                     ><div style="color:black;font-weight:800;font-size:35px;">
                       {{ topBeatmakers[2].posicion }}
                     </div>
                   </v-btn>
                   <v-card-title
                     v-text="topBeatmakers[2].title"
-                    style="justify-content:center;margin-top:-15px;font-size:14px;"
+                    style="justify-content:center;margin-top:-15px;font-size:2.2vh;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-15px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-15px;font-size:1.8vh;justify-content:center;"
                     v-text="topBeatmakers[2].ciudad"
                   ></v-card-subtitle>
                 </v-card>
               </v-col>
-              <v-col cols="4">
+              <v-col cols="4" style="padding-right:3vh;padding-left:3vh;">
                 <v-card color="black" dark style="padding:1vw;">
                   <v-img
-                    src="../assets/website/Slide1.jpg"
+                    :src="imgSrc1"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                     class="caratulaBeatmaker"
                   >
@@ -859,37 +818,39 @@
                         ></v-progress-circular>
                       </v-row> </template
                   ></v-img>
-                  <v-btn
-                    fab
-                    x-large
-                    class="posicionTop5Beatmakers"
-                    color="#e9b800"
+                  <v-btn fab class="posicionTop5Beatmakers" color="#e9b800"
                     ><div style="color:black;font-weight:800;font-size:35px;">
                       {{ topBeatmakers[3].posicion }}
                     </div>
                   </v-btn>
                   <v-card-title
                     v-text="topBeatmakers[3].title"
-                    style="justify-content:center;margin-top:-15px;font-size:14px;"
+                    style="justify-content:center;margin-top:-15px;font-size:2.2vh;"
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-15px;font-size:12px;justify-content:center;"
+                    style="padding-top:0px;margin-top:-15px;font-size:1.8vh;justify-content:center;"
                     v-text="topBeatmakers[3].ciudad"
                   ></v-card-subtitle>
                 </v-card>
               </v-col>
             </v-row>
+            <!--v-row justify="center">
+              <v-card id="subheader" router to="/descubreBeatmaker" style="background-color:rgba(0,0,0,0);">
+              <v-card-title class="descubre">Descubre a tu próximo Beatmaker</v-card-title>
+              </v-card>
+            </v-row-->
           </v-col>
           <v-col cols="4" style="text-align:left;">
             <div style="position:absolute;top:18vh;">
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;padding-top:0.5vh;">
-                <v-row>
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;padding-top:1vh;"
+              >
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[4].posicion }}
                         </div>
@@ -904,7 +865,7 @@
                       {{ topBeatmakers[4].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[4].ciudad }}
                     </div>
@@ -912,14 +873,14 @@
                 </v-row>
               </div>
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:3vh;padding-top:0.5vh;"
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:20px;padding-top:0.5vh;"
               >
-                <v-row>
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[5].posicion }}
                         </div>
@@ -934,7 +895,7 @@
                       {{ topBeatmakers[5].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[5].ciudad }}
                     </div>
@@ -942,14 +903,14 @@
                 </v-row>
               </div>
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:3vh;padding-top:0.5vh;"
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:20px;padding-top:0.5vh;"
               >
-                <v-row>
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[6].posicion }}
                         </div>
@@ -964,7 +925,7 @@
                       {{ topBeatmakers[6].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[6].ciudad }}
                     </div>
@@ -972,14 +933,14 @@
                 </v-row>
               </div>
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:3vh;padding-top:0.5vh;"
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:20px;padding-top:0.5vh;"
               >
-                <v-row>
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[7].posicion }}
                         </div>
@@ -994,7 +955,7 @@
                       {{ topBeatmakers[7].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[7].ciudad }}
                     </div>
@@ -1002,14 +963,14 @@
                 </v-row>
               </div>
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:3vh;padding-top:0.5vh;"
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:20px;padding-top:0.5vh;"
               >
-                <v-row>
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[8].posicion }}
                         </div>
@@ -1024,7 +985,7 @@
                       {{ topBeatmakers[8].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[8].ciudad }}
                     </div>
@@ -1032,14 +993,14 @@
                 </v-row>
               </div>
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:3vh;padding-top:0.5vh;"
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:20px;padding-top:0.5vh;"
               >
-                <v-row>
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[9].posicion }}
                         </div>
@@ -1054,7 +1015,7 @@
                       {{ topBeatmakers[9].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[9].ciudad }}
                     </div>
@@ -1062,14 +1023,14 @@
                 </v-row>
               </div>
               <div
-                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:3vh;padding-top:0.5vh;"
+                style="position:relative;background-color:rgba(20,20,20,.7);height:5vh;width:30vw;margin-top:20px;padding-top:0.5vh;"
               >
-                <v-row>
+                <v-row dense>
                   <v-col cols="1"
                     ><div class="posicionTopBeatmakers">
-                      <v-btn fab color="#e9b800" style="z-index:9;"
+                      <v-btn small fab color="#e9b800" style="z-index:9;"
                         ><div
-                          style="color:black;font-weight:800;font-size:35px;"
+                          style="color:black;font-weight:800;font-size:25px;"
                         >
                           {{ topBeatmakers[10].posicion }}
                         </div>
@@ -1084,7 +1045,7 @@
                       {{ topBeatmakers[10].title }}
                     </div>
                     <div
-                      style="position:relative;color:white;font-size:12px;text-transform:uppercase;"
+                      style="position:relative;color:white;font-size:1.5vh;text-transform:uppercase;"
                     >
                       {{ topBeatmakers[10].ciudad }}
                     </div>
@@ -1103,11 +1064,11 @@
         <v-row style="margin-left: 2vw;">
           <v-col cols="2"> </v-col>
           <v-col cols="8">
-            <div id="subheader" style="color:#e9b800;font-weight:800;">
+            <div id="subheader" style="color:#e9b800;font-weight:800;text-shadow: 2px 2px 4px #000000;font-size: 5vh;">
               Descubre a tu próximo Beatmaker
             </div>
             <div
-              style="color:white;font-weight:200;font-size:26px;letter-spacing:1px;margin-top:1vh;"
+              style="color:white;font-weight:200;font-size:3vh;letter-spacing:1px;margin-top:1vh;"
             >
               Marca los estilos para aplicar el filtro
             </div>
@@ -1119,42 +1080,42 @@
           <v-col cols="2">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo1
             </v-btn>
           </v-col>
           <v-col cols="2">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo2
             </v-btn>
           </v-col>
           <v-col cols="2">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo3
             </v-btn>
           </v-col>
           <v-col cols="2">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo4
             </v-btn>
           </v-col>
           <v-col cols="2">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo5
             </v-btn>
           </v-col>
           <v-col cols="2">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo6
             </v-btn>
           </v-col>
@@ -1163,7 +1124,7 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo1
             </v-btn>
           </v-col>
@@ -1171,7 +1132,7 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo2
             </v-btn>
           </v-col>
@@ -1179,7 +1140,7 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo3
             </v-btn>
           </v-col>
@@ -1187,7 +1148,7 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo4
             </v-btn>
           </v-col>
@@ -1195,7 +1156,7 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo5
             </v-btn>
           </v-col>
@@ -1203,7 +1164,7 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo6
             </v-btn>
           </v-col>
@@ -1211,13 +1172,13 @@
           <v-col cols="1">
             <v-btn
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:22px;text-transform:initial;font-weight:800;padding-top:22px;padding-bottom:22px;padding-left:35px;padding-right:35px;letter-spacing:0px;border-radius:10px;"
+              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);font-size:2.5vh;text-transform:initial;font-weight:800;padding:2.5vh;letter-spacing:0px;border-radius:10px;"
               >Estilo7
             </v-btn>
           </v-col>
         </v-row>
         <v-row style="margin-left:3vw; margin-top:1vh;">
-          <v-col cols="4">
+          <v-col cols="4" style="margin-top:3vh;">
             <v-row
               ><v-col cols="3"><v-img class="beatmakerImg"></v-img></v-col
               ><v-col cols="8" style="text-align:left;"
@@ -1264,7 +1225,7 @@
               </v-col></v-row
             >
           </v-col>
-          <v-col cols="4">
+          <v-col cols="4" style="margin-top:3vh;">
             <v-row
               ><v-col cols="3"><v-img class="beatmakerImg"></v-img></v-col
               ><v-col cols="8" style="text-align:left;"
@@ -1318,42 +1279,41 @@
                   v-model="buscarBeatmaker"
                   class="custom"
                   label="Buscar por nombre"
+                  hide-details
                 ></v-text-field>
               </div>
-              <v-card-title
-                style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.7);color:white;margin-left:20%;margin-top:2vh;font-size:22px;font-weight:800;"
+              <!--v-card-title
+                style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.7);color:white;margin-left:20%;margin-top:2vh;font-size:16px;font-weight:800;"
                 >Orden Alfabético</v-card-title
-              >
-              <div style="height:37vh;">
+              -->
+              <div style="height:35vh;margin-top:4vh;">
                 <vue-scroll :ops="ops">
                   <div>
-                    <v-list
-                      style="background-color:rgba(0,0,0,0);padding-top:0;"
-                    >
+                    <v-list style="background-color:rgba(0,0,0,0);">
                       <v-list-item
                         v-for="item in topBeatmakers"
                         :key="item.id"
-                        style="text-align: justify;text-justify:inter-word;cursor:pointer"
+                        style="text-align:justify;text-justify:inter-word;cursor:pointer"
                       >
-                        <v-list-item-avatar size="4vw">
+                        <v-list-item-avatar size="3vw">
                           <v-img :src="items[1]"></v-img>
                         </v-list-item-avatar>
                         <v-col>
                           <v-list-item-content
-                            style="padding-top:5px;padding-bottom:5px;"
+                            style="padding-top:0px;padding-bottom:0px;"
                           >
                             <v-list-item-title
-                              style="color:white;text-transform:uppercase;font-size:16px;font-weight:600;"
+                              style="color:white;text-transform:uppercase;font-size:2vh;font-weight:600;"
                               v-text="item.title"
                             ></v-list-item-title>
                           </v-list-item-content>
                           <v-list-item-content style="padding-top:0;">
                             <v-list-item-title
-                              style="margin-top:0;color:white;text-transform:uppercase;font-size:14px;"
+                              style="margin-top:0;color:white;text-transform:uppercase;font-size:1.8vh;"
                               v-text="item.ciudad"
                             ></v-list-item-title>
                           </v-list-item-content>
-                          <div class="line2"></div>
+                          <div class="line3"></div>
                         </v-col>
                       </v-list-item>
                     </v-list></div
@@ -1376,125 +1336,67 @@
           </v-col>
           <v-col cols="5"> </v-col>
           <v-col cols="2">
-            <v-img class="logo" src="../assets/logos/DoradaB.png"></v-img>
+            <v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img>
           </v-col>
         </v-row>
-        <v-row style="margin-left: 2vw;margin-top:5vh;">
+        <v-row style="margin-left: 2vw;margin-top:1vh;">
           <v-col cols="1"> </v-col>
           <v-col cols="10"
             ><div
-              style="color:#e9b800;text-transform:uppercase;font-weight:600;font-size:30px;"
+              style="color:#e9b800;text-transform:uppercase;font-weight:600;font-size:3vh;"
             >
               ¡Encuentra la mejor selección para tu mood de hoy!
             </div>
           </v-col>
           <v-col cols="1"> </v-col>
         </v-row>
-        <v-row dense style="margin-left:2vw;margin-top:2vh;">
+        <v-row style="margin-left:2vw;margin-top:2vh;">
           <v-col
             cols="2"
             v-for="playlist in sPlaylists"
             :key="playlist.id"
-            style="padding:15px;"
+            style=""
           >
             <v-card color="black" dark>
               <v-img
-                src="../assets/website/Slide1.jpg"
+                :src="imgSrc1"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                class="caratulaPlaylist"
+                class="caratulaPlaylistRecomendadas"
               ></v-img>
               <v-btn
-                style="position:absolute;left:5px;top:5px;padding-left:0px;"
+                style="position:absolute;left:5px;top:5px;padding-top:2vh;padding-bottom:2vh;padding-left:5px;"
+                small
                 color="#e9b800"
-                ><v-icon color="white">mdi-account </v-icon
-                >{{ playlist.nSeguidores }}
+                ><v-icon color="white" size="2.5vh">mdi-account</v-icon
+                ><div style="font-size:2vh;">{{ playlist.nSeguidores }}</div>
+              </v-btn>
+              <v-btn small class="botonPlusplaylist" color="#e9b800"
+                ><v-icon color="white" size="16">mdi-plus</v-icon>
               </v-btn>
               <v-card-title
                 v-text="playlist.title"
-                style="justify-content:center;margin-top:-2vh;font-size:14px;"
+                style="position:relative;justify-content:center;margin-top:-2vh;font-size:1.8vh;"
               ></v-card-title>
-              <v-btn
-                fab
-                x-small
-                style="position:absolute;right:1vw;top:180px;"
-                color="#e9b800"
-                ><v-icon color="white">mdi-plus </v-icon>
-              </v-btn>
               <v-card-subtitle
-                style="padding-top:0px;margin-top:-20px;font-size:12px;"
+                style="padding-top:0px;margin-top:-20px;font-size:1.6vh;"
                 v-text="'por ' + playlist.autor"
               ></v-card-subtitle>
             </v-card>
           </v-col>
         </v-row>
-        <v-row style="margin-left: 2vw;">
+        <v-row style="margin-left: 2vw;margin-top:5vh;">
           <v-col cols="1"> </v-col>
           <v-col cols="10">
             <v-btn
+              router
+              to="/register"
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:30px;text-transform:initial;font-weight:800;padding-top:25px;padding-bottom:25px;padding-left:55px;padding-right:55px;letter-spacing:0px;"
+              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:4vh;text-transform:initial;font-weight:800;padding:3vh;letter-spacing:0px;animation: cycle 10s infinite;"
               >Regístrate y sé parte de Beatup
             </v-btn>
           </v-col>
           <v-col cols="1"> </v-col>
         </v-row>
-      </v-container>
-    </div>
-
-    <!-- Nosotros -->
-    <div class="view" id="view7">
-      <v-container fluid id="containerSeccion">
-        <v-row style="margin-left: 2vw;">
-          <v-col cols="2">
-            <div id="nosotrosHeader">
-              NOSOTROS
-            </div>
-          </v-col>
-
-          <v-col cols="10"> </v-col>
-        </v-row>
-        <div id="fondoNosotros">
-          <v-row style="margin-left: 2vw;">
-            <v-col cols="5">
-              <div id="parrafoNosotros" style="color: white;">
-                Somos un equipo multidisciplinario conformado para apoyar el
-                crecimiento de la música urbana y enfocados en hacer crecer el
-                reconocimiento de los beatmakers, productores y artistas.
-              </div>
-            </v-col>
-
-            <v-col cols="5">
-              <div
-                id="parrafoNosotros"
-                style="color: white; margin-right: 2vw;"
-              >
-                Creemos firmemente que los productores son una pieza clave para
-                completar una canción. Por eso creamos BeatUp para unir a la
-                comunidad de cantantes, productores y beatmakers en un espacio
-                de respeto y valoración mutua.
-              </div>
-            </v-col>
-            <v-col cols="1"> </v-col>
-          </v-row>
-          <v-row style="margin-left: 2vw; margin-top: 3vw;">
-            <v-col cols="6">
-              <div
-                id="parrafoNosotros"
-                style="color: #e9b800; font-weight: 800;"
-              >
-                EL ESPACIO DONDE LOS COMPONENTES DEL RITMO URBANO SE ENCUENTRAN
-              </div>
-            </v-col>
-            <v-col cols="2"> </v-col>
-            <v-col cols="2">
-              <v-img
-                class="logo"
-                src="../assets/logos/DoradaB.png"
-                style="right: 7vw;"
-              ></v-img>
-            </v-col>
-          </v-row>
-        </div>
       </v-container>
     </div>
 
@@ -1508,12 +1410,15 @@ import * as playlists from "../json/seleccionPlaylists.json";
 import * as topBeats from "../json/topBeats.json";
 import * as topBeatmakers from "../json/topBeatmakers.json";
 import * as moods from "../json/moods.json";
+import * as generos from "../json/generos.json";
 import * as beats from "../json/beats.json";
 
 export default {
   name: "Home",
   data() {
     return {
+      imgSrc1: require("@/assets/website/Slide1.jpg"),
+      imgSrcLogoDoradabaB: require("@/assets/logos/DoradaB.png"),
       buscarBeatmaker: null,
       searchBox: null,
       searchMood: null,
@@ -1532,24 +1437,13 @@ export default {
           sizeStrategy: "percent",
           detectResize: true,
         },
-        scrollPanel: {},
+        scrollPanel: {
+          scrollingX: false,
+        },
         rail: {},
         bar: { background: "#e9b800" },
       },
-      generos: [
-        "Trap",
-        "Reggaetón",
-        "Rap",
-        "Hip Hop",
-        "Dancehall",
-        "Dembow",
-        "Lo-fi",
-        "Chillpop",
-        "Jazz Pop",
-        "Funky",
-        "Hardcore",
-      ],
-      rules: {},
+      generos: generos.generos,
       slides: ["First", "Second", "Third"],
       items: [
         {
@@ -1567,32 +1461,102 @@ export default {
   components: {
     AppFooter,
   },
+  methods: {
+    play() {},
+  },
   mounted() {},
   computed: {},
 };
 </script>
 
 <style>
-
 @media (max-width: 960px) {
-  #footer {
+  .home {
+    margin-left: 10vw;
+  }
+  #seccion1 {
+    position: relative;
+    padding: 0;
+    background-color: black;
+    height: 20vh;
+    width: 100vw;
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+  #containerSeccion {
+    position: relative;
+    padding: 0;
+    background-color: black;
+    height: 50px;
+    width: 100vw;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+  }
+  .logo {
     position: absolute;
+    width: 40vw;
+    top: 4vh;
   }
-  #header {
+  .searchBox {
+    position: relative;
+    width: 75vw;
+    right: 40vw;
+    top: 10px;
+    font-weight: 600;
+    background-color: rgba(31, 29, 29, 0.5);
+    border-radius: 5px;
   }
-  #musicPlayer {
+  .carrousel {
+    position: relative;
+    left: 7vw;
+    border-radius: 10px;
+    width: 80vw;
+  }
+  #headerCarrousel {
+    position: absolute;
+    right: 3vw;
+    margin: 2vh;
+    margin-top: 5vh;
+    color: white;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.2;
+    font-size: calc(20px + 0.2vw);
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  #subheaderCarrousel {
+    position: absolute;
+    margin: 2vh;
+    margin-top: 20vh;
+    right: 5vw;
+    color: white;
+    text-align: justify;
+    text-justify: inter-word;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: calc(20px + 0.5vw);
+    font-weight: 800;
+  }
+  #subheader {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 40px;
+    font-weight: 800;
+  }
+  #botonRegistrate {
+    position: absolute;
+    right: 3vw;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 42vh;
+    background-color: black;
+  }
+  .custom {
+    color: black;
   }
 }
 @media (min-width: 960px) {
-  .home {
-  }
-  #header {
-  }
-  #musicPlayer {
-  }
-  #footer {
-    position: relative;
-  }
   #seccion1 {
     position: relative;
     padding: 0;
@@ -1602,6 +1566,9 @@ export default {
     padding-left: 100px;
     padding-right: 100px;
     padding-top: 30px;
+  }
+  #view1 {
+    margin-top: 20vh;
   }
   #containerSeccion {
     position: relative;
@@ -1615,47 +1582,7 @@ export default {
   }
   .logo {
     position: relative;
-  }
-  .searchBox {
-    position: relative;
-    width: 25vw;
-    left: 20vw;
-    margin-top: 20px;
-    font-weight: 600;
-    background-color: rgba(31, 29, 29, 0.5);
-    border-radius: 5px;
-  }
-  .searchMood {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 14vw;
-    height: 6vh;
-    font-weight: 600;
-    top: 20px;
-    background-color: rgba(0, 0, 0, 1);
-    border-radius: 15px;
-  }
-  .searchGENERO {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 14vw;
-    height: 6vh;
-    font-weight: 600;
-    top: 20px;
-    background-color: rgba(173, 173, 173, 1);
-    border-radius: 15px;
-  }
-  .searchSONG {
-    position: relative;
-    margin-left: 2vw;
-    width: 20vw;
-    height: 6vh;
-    font-weight: 600;
-    top: 20px;
-    background-color: rgba(173, 173, 173, 1);
-    border-radius: 15px;
+    width: 30vw;
   }
   .carrousel {
     position: relative;
@@ -1671,72 +1598,72 @@ export default {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.2;
-    font-size: 60px;
+    font-size: 8vh;
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
   }
   #subheaderCarrousel {
     position: absolute;
-    margin-top: 21vh;
+    margin-top: 25vh;
     right: 5vw;
     color: white;
     text-align: justify;
     text-justify: inter-word;
     text-shadow: 2px 2px 4px #000000;
-    font-size: 40px;
+    font-size: 5vh;
     font-weight: 800;
   }
   #subheader {
     color: white;
     text-shadow: 2px 2px 4px #000000;
-    font-size: 40px;
+    font-size: 5vh;
     font-weight: 800;
-  }
-  #nosotrosHeader {
-    font-size: 180px;
-    color: #e9b800;
-    font-weight: 600;
-    letter-spacing: 10px;
   }
   #botonRegistrate {
     position: absolute;
     right: 3vw;
-    font-size: 30px;
+    font-size: 4vh;
+    padding:3.5vh!important;
     font-weight: 800;
     margin-top: 42vh;
     background-color: black;
+    box-shadow: 1px 1px 10px black;
+    transition: all 325ms;
   }
-  .buscarPorGenero {
-    border-radius: 15px;
-    background-color: #e9b800;
-    height: 5vh;
-    width: 15vw;
+  #botonRegistrate:hover{
+    box-shadow: 0px 0px 0px black;
   }
   .custom {
     color: black;
   }
-  #parrafoNosotros {
-    text-align: justify;
-    text-justify: inter-word;
-    font-size: calc(8px + 1vw);
-    margin-right: 1vw;
-    font-weight: 300;
+  .searchMood {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 14vw;
+    font-weight: 600;
+    top: 10px;
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 15px;
   }
-  #fondoNosotros {
-    position: absolute;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
-      url("../assets/website/Slide1.jpg");
-    background-size: cover;
-    background-position-y: 50%;
-    height: 20vw;
+  .searchGENERO {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 14vw;
+    font-weight: 600;
+    top: 10px;
+    background-color: rgba(173, 173, 173, 1);
+    border-radius: 15px;
   }
-  .caratulaPlaylist {
-    height:12vw;
-    transition: all 325ms ease;
-    cursor: pointer;
-  }
-  .caratulaPlaylist:hover {
-    opacity: 0.5;
+  .searchSONG {
+    position: relative;
+    margin-left: 2vw;
+    width: 20vw;
+    font-weight: 600;
+    top: 10px;
+    background-color: rgba(173, 173, 173, 1);
+    border-radius: 15px;
   }
   .caratulaTopBeatsChica {
     margin-top: -5px;
@@ -1747,60 +1674,45 @@ export default {
   .caratulaTopBeatsChica:hover {
     opacity: 0.5;
   }
-  .caratulaBeatmaker {
-    height: 14vw;
+  .buscarPorGenero {
+    border-radius: 15px;
+    background-color: #e9b800;
+  }
+  .custom {
+    color: black;
+  }
+  .caratulaTopBeatsChica {
+    margin-top: -5px;
+    left: 1.5vw;
     transition: all 325ms ease;
     cursor: pointer;
   }
-  .caratulaBeatmaker:hover {
-    opacity: 0.9;
-  }
-  .posicionTopBeats {
-    margin-left: 3vw;
-    top: 1vh;
-    font-weight: 800;
-    font-size: 20px;
-    color: white;
-  }
-  .posicionTopBeatmakers {
-    position: absolute;
-    left: -1vw;
-    top: -0.5vh;
-    font-weight: 800;
-    font-size: 20px;
-    color: white;
-  }
-  .posicionTop5Beat {
-    position: absolute;
-    right: -1vw;
-    top: -3vh;
-    padding-left: 0px;
-  }
-  .posicionTop5Beatmakers {
-    position: absolute;
-    left: -1vw;
-    top: -3vh;
-    padding-left: 0px;
-  }
-  .line {
-    display: flex;
-    border-bottom: 1px solid white;
-    justify-content: center;
-    -webkit-box-pack: justify;
-    opacity: 0.5;
-    margin-left: 5vw;
-  }
-  .line2 {
-    display: flex;
-    border-bottom: 2px solid white;
-    justify-content: center;
-    -webkit-box-pack: justify;
+  .caratulaTopBeatsChica:hover {
     opacity: 0.5;
   }
-  .botonPlay {
-    position: relative;
-    justify-content:center;
-    top: 40%;
+  .caratulaHotBeats {
+    height: 10vw;
+    transition: all 325ms ease;
+    cursor: pointer;
+  }
+  .caratulaHotBeats:hover {
+    opacity: 0.5;
+  }
+  .caratulaPlaylist {
+    height: 12vw;
+    transition: all 325ms ease;
+    cursor: pointer;
+  }
+  .caratulaPlaylist:hover {
+    opacity: 0.5;
+  }
+  .caratulaPlaylistRecomendadas {
+    height:25vh;
+    transition: all 325ms ease;
+    cursor: pointer;
+  }
+  .caratulaPlaylistRecomendadas:hover {
+    opacity: 0.5;
   }
   .textPortafolios {
     opacity: 1;
@@ -1824,8 +1736,88 @@ export default {
     -ms-transform: translate(-50%, -50%);
     text-align: center;
   }
+  .caratulaBeatmaker {
+    height: 12vw;
+    transition: all 325ms ease;
+    cursor: pointer;
+  }
+  .caratulaBeatmaker:hover {
+    opacity: 0.9;
+  }
   .caratulaBeatmaker:hover .middlePortafolios {
     opacity: 1;
+  }
+  .descubre {
+    font-weight: 800;
+    font-size: 20px;
+    opacity: 1;
+    color: #e9b800;
+    border: 1px solid #e9b800;
+    border-radius: 5px;
+    transition: all 325ms ease;
+  }
+  .descubre:hover {
+    opacity: 0.7;
+  }
+  .posicionTopBeatmakers {
+    position: absolute;
+    left: -1vw;
+    top: 0vh;
+    font-weight: 800;
+    font-size: 20px;
+    color: white;
+  }
+  .posicionTop5Beatmakers {
+    position: absolute;
+    left: 0vw;
+    top: -1vh;
+    padding-left: 0px;
+  }
+  .line {
+    display: flex;
+    border-bottom: 1px solid white;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    opacity: 0.5;
+    margin-left: 5vw;
+  }
+  .botonPlay {
+    position: relative;
+    justify-content: center;
+    top: 8vh;
+  }
+  .posicionTop5Beat {
+    position: absolute;
+    right: -1vw;
+    top: -2vh;
+    padding-left: 0px;
+  }
+  .posicionTopBeats {
+    margin-left: 3vw;
+    top: 1vh;
+    font-weight: 800;
+    font-size: 2.2vh;
+    color: white;
+  }
+  .numeroPosicion {
+    color: black;
+    font-weight: 800;
+    font-size: 20px;
+  }
+  .line2 {
+    display: flex;
+    margin-left: 2vw;
+    border-bottom: 2px solid white;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    opacity: 0.5;
+  }
+  .line3 {
+    display: flex;
+    border-bottom: 1px solid white;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    opacity: 0.5;
   }
   .beatmakerImg {
     background-color: white;
@@ -1841,13 +1833,27 @@ export default {
     top: 2vh;
     position: relative;
     width: 20vw;
-    height: 6vh;
     padding-left: 20px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     font-weight: 800;
     border-radius: 5px;
+  }
+  .botonPlusplaylist {
+    position: absolute;
+    min-width: 10px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin-top: 5px;
+    right: 0;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 99;
+  }
+  .botonPlusplaylist:hover {
+    opacity: 0.7;
+    cursor: pointer;
   }
 }
 </style>

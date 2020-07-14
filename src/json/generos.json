@@ -1,0 +1,54 @@
+{
+    "meta": {
+      "domain": "https://beatup.cl",
+      "websiteName": "Beatup",
+      "keywords": "Beatup, Beats, musica urbana, generos"
+    },
+    "generos": {
+      "1": {
+        "text": "Hip Hop",
+        "icon": "mdi-emoticon-happy-outline"
+      },
+      "2": {
+        "text": "Rap",
+        "icon": "mdi-emoticon-outline"
+      },
+      "3": {
+        "text": "Reggaetón",
+        "icon": "mdi-emoticon-excited-outline"
+      },
+      "4": {
+        "text": "Dancehall",
+        "icon": "mdi-emoticon-cool-outline"
+      },
+      "5": {
+        "text": "Dembow",
+        "icon": "mdi-pirate"
+      },
+      "6": {
+        "text": "Lofi",
+        "icon": "mdi-emoticon-sad-outline"
+      },
+      "7": {
+        "text": "Chillhop",
+        "icon": "mdi-emoticon-cry-outline"
+      },
+      "8": {
+        "text": "Trap",
+        "icon": "mdi-emoticon-confused-outline"
+      },
+      "9": {
+        "text": "Jazzhop",
+        "icon": "mdi-emoticon-angry-outline"
+      },
+      "10": {
+        "text": "Funky",
+        "icon": "mdi-emoticon-neutral-outline"
+      },
+      "11": {
+        "text": "Hardcore",
+        "icon": "mdi-drama-masks"
+      }
+    }
+  }
+  

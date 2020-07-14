@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <v-app>
+      <app-header ref="headerRef" id="header"></app-header>
+      <app-header-sesion ref="headerSesionRef" id="headerSesion"></app-header-sesion>
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
-          <app-header ref="headerRef" id="header"></app-header>
           <music-player ref="playerRef" id="musicPlayer"></music-player>
     </v-app>
   </div>
@@ -13,11 +14,16 @@
 <script>
 // @ is an alias to /src
 import AppHeader from "./components/Header";
+import AppHeaderSesion from "./components/HeaderSesion";
 import MusicPlayer from "./components/Player";
 
 export default {
   name: "Home",
-  components: {AppHeader,MusicPlayer},
+  data() {
+    return {
+    }
+  },
+  components: {AppHeader,MusicPlayer,AppHeaderSesion},
   metaInfo: {
     title: "Beatup",
     titleTemplate: "%s ",
@@ -68,5 +74,24 @@ export default {
 }
 .view {
   height: 100vh;
+}
+#headerSesion{
+  position:fixed;
+  z-index:3;
+}
+
+@media (max-width: 960px) {
+  #app{
+
+  }
+  #footer {
+    position: fixed;
+    margin-left:0;
+  }
+}
+@media (min-width: 960px) {
+  #footer {
+    position: relative;
+  }
 }
 </style>

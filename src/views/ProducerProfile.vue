@@ -1,7 +1,7 @@
 <template>
   <section class="producerPage">
     <div class="view" id="viewProducer1">
-      <v-container>
+      <v-container style="max-width:95vw!important;margin-left:3vw;">
         <div id="fondoProducer">
           <v-row>
             <v-col cols="8" style="text-align:left;">
@@ -26,7 +26,6 @@
             </v-col>
           </v-row>
         </div>
-        <br />
         <v-row style="margin-left:2vw;">
           <v-col cols="12">
             <v-card
@@ -34,9 +33,9 @@
               style="padding:5px;padding-top:15px;margin:10px;border-radius:10px;padding-left:1vw;"
             >
               <v-row>
-                <v-col cols="2">
+                <v-col cols="2" align="center">
                   <div
-                    style="background-color:black;width:200px;height:200px;border-radius:100px;color:white;padding-top:85px;font-weight:600;margin-left:1vw;"
+                    style="background-color:black;width:150px;height:150px;border-radius:75px;color:white;padding-top:65px;font-weight:600;margin-left:-1vw;"
                   >
                     Foto Perfil
                   </div>
@@ -56,31 +55,15 @@
                     <v-col cols="6"
                       ><v-btn
                         color="#E02229"
-                        style="color:white;font-weight:600;width:80%;width:100%;border-radius:10px;"
+                        style="color:white;font-weight:600;width:100%;width:100%;border-radius:10px;font-size:calc(8px + 0.2vw);"
                         >Estilo 1</v-btn
                       ></v-col
                     >
                     <v-col cols="6"
                       ><v-btn
                         color="#E02229"
-                        style="color:white;font-weight:600;width:80%;width:100%;border-radius:10px;"
+                        style="color:white;font-weight:600;width:100%;width:100%;border-radius:10px;font-size:calc(8px + 0.2vw);"
                         >Estilo 2</v-btn
-                      ></v-col
-                    >
-                  </v-row>
-                  <v-row dense style="margin-right:2vw;margin-left:0.5vw;">
-                    <v-col cols="6"
-                      ><v-btn
-                        color="#E02229"
-                        style="color:white;font-weight:600;width:80%;width:100%;border-radius:10px;"
-                        >Estilo 3</v-btn
-                      ></v-col
-                    >
-                    <v-col cols="6"
-                      ><v-btn
-                        color="#E02229"
-                        style="color:white;font-weight:600;width:80%;width:100%;border-radius:10px;"
-                        >Estilo 4</v-btn
                       ></v-col
                     >
                   </v-row>
@@ -91,7 +74,7 @@
                       <v-row>
                         <v-col cols="8"
                           ><div
-                            style="color:white;font-size:15px;text-align:justify;text-align:left;margin-left:1vw;"
+                            style="color:white;font-size:calc(10px + 0.2vw);text-align:justify;text-align:left;margin-left:0.5vw;"
                           >
                             Escuchar última producción
                           </div></v-col
@@ -106,7 +89,7 @@
                   </v-row>
                   <v-row style="justify-content:center;margin-right:1vw;">
                     <div
-                      style="color:black;cursor:pointer;font-weight:600;margin-top:2vh;"
+                      style="color:black;cursor:pointer;font-weight:600;margin-top:2vh;font-size:calc(10px + 0.3vw);"
                     >
                       Ver Perfil Spotify<v-icon
                         color="black"
@@ -119,7 +102,7 @@
                 <v-col cols="6" style="padding-right:3vw;">
                   <v-row>
                     <div
-                      style="font-style:italic;font-weight:800;text-align:justify;text-align:right;font-size:calc(14px + 1vw);"
+                      style="font-style:italic;font-weight:800;text-align:justify;text-align:right;font-size:calc(10px + 0.8vw);"
                     >
                       "Frase highlight al estilo coach donde diga su visión de
                       la producción"
@@ -135,7 +118,7 @@
                   <v-row>
                     <v-col cols="6"
                       ><div
-                        style="text-align:justify;text-align:left;margin-left:3vw;font-weight:600;margin-top:2vh;"
+                        style="text-align:justify;text-align:left;margin-left:1vw;font-weight:600;margin-top:2vh;font-size:calc(8px + 0.4vw);"
                       >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed eiusmod tempor incidunt ut labore et dolore magna
@@ -150,7 +133,7 @@
                     >
                     <v-col cols="6">
                       <div
-                        style="text-align:justify;text-align:left;margin-left:1vw;font-weight:600;margin-top:2vh;"
+                        style="text-align:justify;text-align:left;margin-left:1vw;font-weight:600;margin-top:2vh;font-size:calc(8px + 0.4vw);"
                       >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed eiusmod tempor incidunt ut labore et dolore magna
@@ -169,12 +152,55 @@
                   ><div style="font-weight:800;font-size:20px;">
                     Tipo de estudio
                   </div>
-                  <div style="font-weight:600;font-size:16px;">
+                  <div
+                    style="font-weight:600;font-size:16px;margin-bottom:1vh;"
+                  >
                     Nivel de producción
                   </div>
-
-                  </v-col
-                >
+                  <v-row justify="center">
+                    <v-carousel
+                      cycle
+                      hide-delimiters
+                      height="27vh"
+                      class="fotosEstudio"
+                    >
+                      <v-carousel-item
+                        v-for="(item, i) in fotosEstudio"
+                        :key="i"
+                        :src="item.src"
+                      >
+                      </v-carousel-item>
+                    </v-carousel>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="6">
+                      <ul style="list-style-type:disc;color:#E02229;margin-left:2vw;">
+                        <li style="font-size:calc(10px + 1vw);height:4vh;">
+                          <div style="color:black;font-size:calc(10px + 0.5vw);font-weight:600;">
+                            Caracterpistica X
+                          </div>
+                        </li>
+                        <li style="font-size:calc(10px + 1vw);height:4vh;">
+                          <div style="color:black;font-size:calc(10px + 0.5vw);font-weight:600;">
+                            Caracterpistica X
+                          </div>
+                        </li>
+                        <li style="font-size:calc(10px + 1vw);height:4vh;">
+                          <div style="color:black;font-size:calc(10px + 0.5vw);font-weight:600;">
+                            Caracterpistica X
+                          </div>
+                        </li>
+                      </ul></v-col
+                    >
+                    <v-col cols="6"><v-btn
+                        router
+                        to="/ProducerContacto"
+                        color="#E02229"
+                        style="color:white!important;font-weight:600;border-radius:10px;margin-top:5vh;"
+                        >Contactar</v-btn
+                      ></v-col>
+                  </v-row>
+                </v-col>
               </v-row>
             </v-card>
           </v-col>
@@ -195,6 +221,17 @@ export default {
     return {
       op: null,
       producerSelected: false,
+      fotosEstudio: [
+        {
+          src: require("@/assets/website/crowd-red.png"),
+        },
+        {
+          src: require("@/assets/website/Singer-teal.png"),
+        },
+        {
+          src: require("@/assets/website/Slide1.jpg"),
+        },
+      ],
     };
   },
   components: {
@@ -214,5 +251,10 @@ export default {
   background-position-y: 60%;
   height: 10vw;
   width: 100vw;
+}
+.fotosEstudio {
+  position: relative;
+  width: 20vw;
+  border-radius: 15px;
 }
 </style>

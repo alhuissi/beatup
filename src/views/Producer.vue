@@ -1,14 +1,14 @@
 <template>
   <section class="producerPage">
     <div class="view" id="viewProducer1">
-      <v-container>
+      <v-container style="max-width:95vw!important;margin-left:3vw;">
         <div id="fondoProducer">
           <v-row>
             <v-col cols="8" style="text-align:left;">
               <div
                 style="color:white;margin-left:3vw;font-size:calc(16px + 3vw);font-weight:800;"
               >
-                PRODUCER
+                PRODUCERS
               </div>
               <div
                 style="color:white;margin-left:3vw;font-size:calc(8px + 1vw);font-weight:600;"
@@ -26,7 +26,6 @@
             </v-col>
           </v-row>
         </div>
-        <br />
         <v-row style="margin-left:3vw;">
           <v-col cols="4">
             <v-card
@@ -41,25 +40,25 @@
                     Foto Perfil
                   </div>
                 </v-col>
-                <v-col cols="8" style="text-align:left;">
+                <v-col cols="8" style="text-align:left;padding-left:3vw;">
                   <div
-                    style="font-weight:800;font-size:calc(14px + 0.5vw);color:black;"
+                    style="font-weight:800;font-size:calc(12px + 0.5vw);color:black;"
                   >
                     Nombre Productor
                   </div>
                   <ul style="list-style-type:disc;color:#E02229;">
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Tipo de estudio
                       </div>
                     </li>
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Nivel de produccioón
                       </div>
                     </li>
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Otro dato de interés
                       </div>
                     </li>
@@ -93,7 +92,7 @@
                 <v-col cols="12">
                   <v-card color="rgb(240, 240, 240)"
                     ><v-card-subtitle
-                      style="font-size:20px;font-style:italic;color:black;"
+                      style="font-size:calc(10px + 0.5vw);font-style:italic;color:black;"
                       >"Frase highlight al estilo coach donde diga su visión de
                       la producción"</v-card-subtitle
                     >
@@ -103,7 +102,7 @@
               <v-row>
                 <v-col cols="8"
                   ><div
-                    style="font-size:20px;color:black;margin-left:1vw;text-align:left;padding:10px;"
+                    style="font-size:calc(8px + 0.5vw);color:black;margin-left:1vw;text-align:left;padding:10px;padding-top:0px;"
                   >
                     Para conocer mejor a xxx, lee su perfil completo
                   </div>
@@ -113,7 +112,7 @@
                     router
                     to="/ProducerProfile"
                     color="rgb(0,0,0)"
-                    style="color:white!important;font-weight:800;width:80%;margin-top:2vh;border-radius:10px;"
+                    style="color:white!important;right:1vw;font-size:calc(8px + 0.3vw);font-weight:800;width:100%;margin-top:2vh;border-radius:10px;"
                     >Ver Perfil</v-btn
                   >
                 </v-col>
@@ -133,25 +132,25 @@
                     Foto Perfil
                   </div>
                 </v-col>
-                <v-col cols="8" style="text-align:left;">
+                <v-col cols="8" style="text-align:left;padding-left:3vw;">
                   <div
-                    style="font-weight:800;font-size:calc(14px + 0.5vw);color:black;"
+                    style="font-weight:800;font-size:calc(12px + 0.5vw);color:black;"
                   >
                     Nombre Productor
                   </div>
                   <ul style="list-style-type:disc;color:#E02229;">
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Tipo de estudio
                       </div>
                     </li>
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Nivel de produccioón
                       </div>
                     </li>
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Otro dato de interés
                       </div>
                     </li>
@@ -185,7 +184,7 @@
                 <v-col cols="12">
                   <v-card color="rgb(240, 240, 240)"
                     ><v-card-subtitle
-                      style="font-size:20px;font-style:italic;color:black;"
+                      style="font-size:calc(10px + 0.5vw);font-style:italic;color:black;"
                       >"Frase highlight al estilo coach donde diga su visión de
                       la producción"</v-card-subtitle
                     >
@@ -195,7 +194,7 @@
               <v-row>
                 <v-col cols="8"
                   ><div
-                    style="font-size:20px;color:black;margin-left:1vw;text-align:left;padding:10px;"
+                    style="font-size:calc(8px + 0.5vw);color:black;margin-left:1vw;text-align:left;padding:10px;padding-top:0px;"
                   >
                     Para conocer mejor a xxx, lee su perfil completo
                   </div>
@@ -205,7 +204,7 @@
                     router
                     to="/producerProfile"
                     color="rgb(0,0,0)"
-                    style="color:white!important;font-weight:800;width:80%;margin-top:2vh;border-radius:10px;"
+                    style="color:white!important;right:1vw;font-size:calc(8px + 0.3vw);font-weight:800;width:100%;margin-top:2vh;border-radius:10px;"
                     >Ver Perfil</v-btn
                   >
                 </v-col>
@@ -225,25 +224,25 @@
                     Foto Perfil
                   </div>
                 </v-col>
-                <v-col cols="8" style="text-align:left;">
+                <v-col cols="8" style="text-align:left;padding-left:3vw;">
                   <div
-                    style="font-weight:800;font-size:calc(14px + 0.5vw);color:black;"
+                    style="font-weight:800;font-size:calc(12px + 0.5vw);color:black;"
                   >
                     Nombre Productor
                   </div>
                   <ul style="list-style-type:disc;color:#E02229;">
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Tipo de estudio
                       </div>
                     </li>
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
-                        Nivel de produccioón
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
+                        Nivel de producción
                       </div>
                     </li>
-                    <li style="font-size:30px;height:4vh;">
-                      <div style="color:black;font-size:22px;">
+                    <li style="font-size:calc(16px + 0.5vw);height:4vh;">
+                      <div style="color:black;font-size:calc(10px + 0.5vw);">
                         Otro dato de interés
                       </div>
                     </li>
@@ -277,7 +276,7 @@
                 <v-col cols="12">
                   <v-card color="rgb(240, 240, 240)"
                     ><v-card-subtitle
-                      style="font-size:20px;font-style:italic;color:black;"
+                      style="font-size:calc(10px + 0.5vw);font-style:italic;color:black;"
                       >"Frase highlight al estilo coach donde diga su visión de
                       la producción"</v-card-subtitle
                     >
@@ -287,7 +286,7 @@
               <v-row>
                 <v-col cols="8"
                   ><div
-                    style="font-size:20px;color:black;margin-left:1vw;text-align:left;padding:10px;"
+                    style="font-size:calc(8px + 0.5vw);color:black;margin-left:1vw;text-align:left;padding:10px;padding-top:0px;"
                   >
                     Para conocer mejor a xxx, lee su perfil completo
                   </div>
@@ -297,7 +296,7 @@
                     router
                     to="/ProducerProfile"
                     color="rgb(0,0,0)"
-                    style="color:white!important;font-weight:800;width:80%;margin-top:2vh;border-radius:10px;"
+                    style="color:white!important;right:1vw;font-size:calc(8px + 0.3vw);font-weight:800;width:100%;margin-top:2vh;border-radius:10px;"
                     >Ver Perfil</v-btn
                   >
                 </v-col>
@@ -340,5 +339,8 @@ export default {
   background-position-y: 60%;
   height: 10vw;
   width: 100vw;
+}
+#viewProducer1{
+  width:100vw;
 }
 </style>

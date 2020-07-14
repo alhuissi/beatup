@@ -7,7 +7,7 @@
     "beats": {
       "1": {
         "title": "Nombre Beat1",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "8050",
         "nDescargas": "945",
         "cover": "",
@@ -20,7 +20,7 @@
       },
       "2": {
         "title": "Nombre Beat2",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "3051",
         "nDescargas": "845",
         "cover": "",
@@ -33,7 +33,7 @@
       },
       "3": {
         "title": "Nombre Beat3",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "2952",
         "nDescargas": "745",
         "cover": "",
@@ -46,7 +46,7 @@
       },
       "4": {
         "title": "Nombre Beat4",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "1553",
         "nDescargas": "445",
         "cover": "",
@@ -59,7 +59,7 @@
       },
       "5": {
         "title": "Nombre Beat5",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "1454",
         "nDescargas": "345",
         "cover": "",
@@ -72,7 +72,7 @@
       },
       "6": {
         "title": "Nombre Beat6",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "855",
         "nDescargas": "245",
         "cover": "",
@@ -85,7 +85,7 @@
       },
       "7": {
         "title": "Nombre Beat7",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "555",
         "nDescargas": "45",
         "cover": "",
@@ -98,7 +98,7 @@
       },
       "8": {
         "title": "Nombre Beat8",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "155",
         "nDescargas": "25",
         "cover": "",
@@ -111,7 +111,7 @@
       },
       "9": {
         "title": "Nombre Beat9",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "65",
         "nDescargas": "15",
         "cover": "",
@@ -124,7 +124,7 @@
       },
       "10": {
         "title": "Nombre Beat10",
-        "autor": "Nombre Beatmaker",
+        "autor": "Beatmaker",
         "nPlays": "55",
         "nDescargas": "5",
         "cover": "",

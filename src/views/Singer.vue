@@ -1,7 +1,7 @@
 <template>
   <section class="singerPage">
     <div class="view" id="viewSinger">
-      <v-container>
+      <v-container style="max-width:95vw!important;margin-left:3vw;">
         <div id="fondoSinger">
           <v-row>
             <v-col cols="8" style="text-align:left;">
@@ -38,7 +38,7 @@
         >
         <v-row dense style="margin-left:5vw;margin-bottom:2vh;">
           <v-col cols="3"
-            ><v-card color="#00AA9D" height="30vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
+            ><v-card color="#00AA9D" height="33vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
               ><v-icon color="white" style="font-size:calc(50px + 5vw);"
                 >mdi-comment-text-multiple-outline</v-icon
               ><v-card-title
@@ -52,7 +52,7 @@
             ></v-col
           >
           <v-col cols="3"
-            ><v-card color="#00AA9D" height="30vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
+            ><v-card color="#00AA9D" height="33vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
               ><v-icon color="white" style="font-size:calc(50px + 5vw);"
                 >mdi-lead-pencil</v-icon
               ><v-card-title
@@ -66,7 +66,7 @@
             ></v-col
           >
           <v-col cols="3">
-            <v-card color="#00AA9D" height="30vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
+            <v-card color="#00AA9D" height="33vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
               ><v-icon color="white" style="font-size:calc(50px + 5vw);"
                 >mdi-timer-outline</v-icon
               ><v-card-title
@@ -79,7 +79,7 @@
               ></v-card
             ></v-col>
           <v-col cols="3">
-            <v-card color="#00AA9D" height="30vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
+            <v-card color="#00AA9D" height="33vh" width="18vw" style="padding-top:2vh;padding-bottom:1vh;cursor:pointer;" class="singerTools" 
               ><v-icon color="white" style="font-size:calc(50px + 5vw);"
                 >mdi-microphone-outline</v-icon
               ><v-card-title

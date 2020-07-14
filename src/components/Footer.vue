@@ -1,47 +1,48 @@
 <template>
   <div>
-    <v-container id="footerContainer">
+    <v-container id="footerContainer" fluid>
       <div id="footerWrapper">
         <v-row>
-          <v-col cols="4">
-            <v-img v-if="this.$route.name=='Home'" class="logoFooter" src="../assets/logos/DoradaB.png"></v-img>
-            <v-img v-if="this.$route.name=='Producer' || this.$route.name=='Perfil Producer'" class="logoFooter" src="../assets/logos/RojaB.png"></v-img>
-            <v-img v-if="this.$route.name=='Singer'" class="logoFooter" src="../assets/logos/TurquesaB.png"></v-img>
+          <v-col cols="4" md="4" sm="0" xs="0" align="center">
+            <v-img class="logoFooter" src="../assets/logos/DoradaB.png"></v-img>
+            <!--v-img v-if="this.$route.name=='Producer' || this.$route.name=='Perfil Producer' || this.$route.name=='Contacto Producer'" class="logoFooter" src="../assets/logos/RojaB.png"></v-img>
+            <v-img v-if="this.$route.name=='Singer'" class="logoFooter" src="../assets/logos/TurquesaB.png"></v-img-->
           </v-col>
-          <v-col cols="4">
+          <v-col cols="4" md="4" sm="6" xs="6">
             <a target="_blank" href="https://www.instagram.com/beatup_cl">
-              <div class="footerText" style="padding-top: 20px;">
+              <div class="footerText" >
                 Síguenos en Instagram
               </div>
-              <v-icon v-if="this.$route.name=='Home'" x-large color="#E9B800" class="iconFooter" style="padding-top: 20px;">mdi-instagram</v-icon>
-              <v-icon v-if="this.$route.name=='Producer'" x-large color="#E02229" class="iconFooter" style="padding-top: 20px;">mdi-instagram</v-icon>
-              <v-icon v-if="this.$route.name=='Singer'" x-large color="#00AA9D" class="iconFooter" style="padding-top: 20px;">mdi-instagram</v-icon>
+              <v-icon x-large color="#E9B800" class="iconFooter">mdi-instagram</v-icon>
+              <!--v-icon v-if="this.$route.name=='Producer' || this.$route.name=='Perfil Producer' || this.$route.name=='Contacto Producer'" x-large color="#E02229" class="iconFooter" style="padding-top:20px;">mdi-instagram</v-icon>
+              <v-icon v-if="this.$route.name=='Singer'" x-large color="#00AA9D" class="iconFooter" style="padding-top: 20px;">mdi-instagram</v-icon-->
             </a>
           </v-col>
-          <v-col cols="4">
+          <v-col cols="4" md="4" sm="6" xs="6">
             <div>
-              <div class="footerText" style="padding-top: 20px;">
+              <div class="footerText">
                 Suscríbete a Noticias Beatup
               </div>
               <div class="subscribeBox">
                 <v-text-field
                   v-model="emailNewsletter"
-                  prepend-inner-icon="mdi-envelope"
-                  :rules="[rules.email]"
+                  append-outer-icon="mdi-send"
                   class="custom"
-                  style="height:6vh;"
+                  style="margin-left:1vw;margin-right:1vw;"
+                  @click:append-outer="sendMessage"
                   label="Email"
+                  hide-details
                 ></v-text-field>
               </div>
             </div>
           </v-col>
         </v-row>
-        <v-row>
+        <v-row style="margin-left:20px;margin-top:1vh;">
           <v-col cols="2"><div class="footerNav" @click="testing()">Quiénes Somos</div></v-col>
           <v-col cols="2"><div class="footerNav">Preguntas Frecuentes</div></v-col>
           <v-col cols="2"><div class="footerNav">Términos y Condiciones</div></v-col>
-          <v-col cols="1"><div class="footerNav">Licencias</div></v-col>
-          <v-col cols="1"><div class="footerNav">Contacto</div></v-col>
+          <v-col cols="2"><div class="footerNav">Licencias</div></v-col>
+          <v-col cols="2"><div class="footerNav">Contacto</div></v-col>
           <v-col cols="2"></v-col>
         </v-row>
       </div>
@@ -67,6 +68,9 @@ export default {
   methods: {
     testing(){
       console.log(this.$route.name);
+    },
+    sendMessage(){
+      console.log(this.$route.name);
     }
   },
   mounted() {},
@@ -79,7 +83,7 @@ export default {
 @import "../assets/main.css";
 
 @media (max-width: 960px) {
-    #footerContainer {
+  #footerContainer {
     position: absolute;
     max-width: 100vw;
     padding: 0;
@@ -89,36 +93,39 @@ export default {
     bottom: 0;
   }
   #footerWrapper {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 80px;
+    padding-top: 10px;
+    margin-left:-30vw;
   }
   .logoFooter {
     position: relative;
+    display: none;
+    width:15vw;
+    margin-left:5vw;
   }
   .footerText {
-    font-size: 24px;
+    font-size: 10px;
     font-weight: 600;
     color: white;
   }
   .iconFooter {
     opacity: 1;
-    transition: all 725ms ease;
+    transition: all 325ms ease;
   }
   .iconFooter:hover {
     opacity: 0.7;
   }
   .subscribeBox {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    width: 130px;
+    margin-top:2vh;
     background-color: white;
     border-radius: 25px;
   }
   .footerNav{
     color:white;
-    font-size: 20px;
+    display:none;
+    font-size: 10px;
     font-weight: 600;
     padding:0;
   }
@@ -129,20 +136,20 @@ export default {
     max-width: 100vw;
     padding: 0;
     background-color: black;
-    height: 300px;
     width: 100vw;
     bottom: 0;
-    margin-bottom: 12vh;
+    margin-bottom: 3vh;
   }
   #footerWrapper {
     padding-left: 100px;
     padding-right: 100px;
   }
   .logoFooter {
+    max-width:20vw!important;
     position: relative;
   }
   .footerText {
-    font-size: 24px;
+    font-size: 3vh;
     font-weight: 600;
     color: white;
   }
@@ -154,7 +161,6 @@ export default {
     opacity: 0.7;
   }
   .subscribeBox {
-    width: 400px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -163,9 +169,13 @@ export default {
   }
   .footerNav{
     color:white;
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: 600;
     padding:0;
+  }
+  .v-input__append-outer .v-icon{
+    color:#E9B800!important;
+    
   }
 }
 </style>

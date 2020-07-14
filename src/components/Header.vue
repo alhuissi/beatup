@@ -1,32 +1,8 @@
 <template>
   <header>
-    <div class="mui-appbarZ" id="navbar">
+    <!--div class="mui-appbarZ" id="navbar">
       <v-container fluid style="padding:0;">
         <div>
-          <v-row>
-            <div
-              @click="
-                drawer = true;
-                expandMenu();
-              "
-              id="arrow"
-            >
-              <v-icon v-if="drawer == false" large color="#ffffff" class="arrowMenu"
-                >mdi-chevron-right</v-icon
-              >
-            </div>
-            <div
-              @click="
-                drawer = false;
-                collapseMenu();
-              "
-              id="arrow"
-            >
-              <v-icon v-if="drawer == true" large color="#ffffff" class="arrowMenu"
-                >mdi-chevron-left</v-icon
-              >
-            </div>
-          </v-row>
           <nav class="nav1">
             <router-link to="/">
               <v-row>
@@ -124,7 +100,45 @@
           </nav>
         </div>
       </v-container>
+    </div-->
+    <v-navigation-drawer
+      :clipped="clipped"
+      v-model="drawer"
+      :expand-on-hover="expandOnHover"
+      :mini-variant="miniVariant"
+      :permanent="permanent"
+      :width="menuWidth"
+      app
+      floating
+      dark
+      class="black mui-appbarZ"
+      id="navbar">
+    <div @click="miniVariant=false;expandMenu()" id="arrow">
+      <v-icon v-if="miniVariant == true" large color="#ffffff">mdi-chevron-right</v-icon>
     </div>
+    <div @click="miniVariant=true;collapseMenu()" id="arrow">
+      <v-icon v-if="miniVariant == false" large color="#ffffff">mdi-chevron-left</v-icon>
+    </div>
+
+      <v-list flat>
+        <v-list-item
+          v-for="item in itemsMenuLateral"
+          :key="item.title"
+          :to="item.path == '#' ? '' : item.path"
+          :style="{ backgroundColor: item.color }"
+          @click="miniVariant=true;collapseMenu()"
+        >
+          <v-list-item-icon>
+            <v-icon class="iconMenu" color="#ffffff">{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title id="menuLabel">{{
+              item.title
+            }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
   </header>
 </template>
 
@@ -132,22 +146,83 @@
 export default {
   data() {
     return {
-      drawer: false,
+      drawer: true,
+      clipped: false,
+      miniVariant: true,
+      expandOnHover: true,
+      menuWidth: "230px",
+      permanent: true,
+      itemsMenuLateral: [
+        {
+          icon: "mdi-home",
+          title: "Home",
+          path: "/",
+          color: "#000000",
+        },
+        {
+          icon: "mdi-fire",
+          title: "Hot Beats",
+          path: "/#view3",
+          color: "#000000",
+        },
+        {
+          icon: "mdi-account-music",
+          title: "Top 10 BM",
+          path: "/#view4",
+          color: "#000000",
+        },/*
+        {
+          icon: "mdi-magnify",
+          title: "Descubre",
+          path: "/#view5",
+          color: "#000000",
+        },*/
+        {
+          icon: "mdi-play-circle",
+          title: "Playlist",
+          path: "/#view6",
+          color: "#000000",
+        },
+        {
+          icon: "mdi-grid",
+          title: "Beats",
+          path: "/#view2",
+          color: "#E9B800",
+        },
+        {
+          icon: "mdi-account-group",
+          title: "Nosotros",
+          path: "/nosotros",
+          color: "#000000",
+        },
+        {
+          icon: "mdi-smart-card-outline",
+          title: "Licencias",
+          path: "/licencias",
+          color: "#000000",
+        },
+        {
+          icon: "mdi-cart-plus",
+          title: "Comprar",
+          path: "/comprar",
+          color: "#000000",
+        },
+      ],
     };
   },
   methods: {
     expandMenu() {
       if (window.innerWidth > 960) {
-        document.getElementById("menuItem").style.width = "205px";
+        document.getElementById("navbar").style.width = "20vh";
       } else {
-        document.getElementById("menuItem").style.width = "205px";
+        document.getElementById("navbar").style.width = "50vw";
       }
     },
     collapseMenu() {
       if (window.innerWidth > 960) {
-        document.getElementById("menuItem").style.width = "70px";
+        document.getElementById("navbar").style.width = "8vh";
       } else {
-        document.getElementById("menuItem").style.width = "90px";
+        document.getElementById("navbar").style.width = "15vw";
       }
     },
   },
@@ -161,66 +236,31 @@ export default {
 @import "../assets/main.css";
 
 #navbar {
-  transition: 925ms;
-}
-
-@keyframes cycle {
-  0% {
-    box-shadow: 10px 10px 100px rgba(11, 124, 199, 0.5);
-  }
-  20% {
-    box-shadow: 10px 10px 100px rgba(168, 11, 199, 0.5);
-  }
-  40% {
-    box-shadow: 10px 10px 100px rgba(11, 199, 96, 0.5);
-  }
-  60% {
-    box-shadow: 10px 10px 100px rgba(199, 11, 11, 0.5);
-  }
-  80% {
-    box-shadow: 10px 10px 100px rgba(199, 96, 11, 0.5);
-  }
-  100% {
-    box-shadow: 10px 10px 100px rgba(11, 124, 199, 0.5);
-  }
+  transition: 325ms;
 }
 
 @media (max-width: 960px) {
-  .nav1 {
-    position: relative;
-    font-size: 21px;
-    transition: 925ms;
-    opacity: 1;
-  }
   #arrow {
-    width: 100px;
-    left: 0px;
+    left:3vw;
+    display:flex;
     position: absolute;
     top: 2%;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0);
+    z-index:99;
   }
   .mui-appbarZ {
     position: fixed;
     height: 100vh;
     background-color: black;
     left: 0;
+    min-width: 15vw !important;
     top: 0;
     padding-top: 10vh;
-    -webkit-transition-duration: 925ms;
-    transition-duration: 925ms;
+    -webkit-transition-duration: 325ms;
+    transition-duration: 325ms;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     z-index: 9;
-  }
-  #menuItem {
-    position: relative;
-    justify-content: left;
-    transition: 925ms;
-    left: 40px;
-    width: 100px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    color: white;
   }
   #menuLabel {
     color: white;
@@ -228,7 +268,6 @@ export default {
     transition: all 725ms ease;
     font-size: 16px;
     left: 70px;
-    margin-top: 15px;
     font-weight: 600;
   }
   #menuLabel:hover {
@@ -241,20 +280,18 @@ export default {
   }
 }
 @media (min-width: 960px) {
-  .nav1 {
-    position: relative;
-    font-size: 21px;
-    transition: 925ms;
-    opacity: 1;
+  .iconMenu {
+    font-size: 4.5vh !important;
   }
   #arrow {
-    width: 100px;
-    position: absolute;
-    top: 2%;
+    /*position: absolute;
+    top: 3%;
+    left: 15px;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    transition: all 325ms ease;
+    transition: all 325ms ease;*/
+    display:none;
   }
   #arrow:hover {
     opacity: 0.5;
@@ -262,43 +299,28 @@ export default {
   .mui-appbarZ {
     position: fixed;
     height: 100vh;
+    min-width: 8vh !important;
+    max-width:15vw !important;
     background-color: black;
     left: 0;
     top: 0;
-    padding-top: 8vh;
-    -webkit-transition-duration: 925ms;
-    transition-duration: 925ms;
+    padding-top: 3vh;
+    -webkit-transition-duration: 325ms;
+    transition-duration: 325ms;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     z-index: 9;
-  }
-  #menuItem {
-    position: relative;
-    justify-content: right;
-    margin-left:30px;
-    transition: all 125ms ease;
-    width: 70px;
-    padding-top: 7px;
-    margin-top: 0px;
-    padding-bottom: 7px;
-    color: white;
   }
   #menuLabel {
     color: white;
     position: absolute;
-    transition: all 725ms ease;
-    left: 70px;
-    margin-top: 9px;
+    transition: all 325ms ease;
+    font-size: 2.6vh;
     font-weight: 600;
     white-space: nowrap;
-    text-shadow: 2px 2px 4px #000000;
   }
   #menuLabel:hover {
     opacity: 0.5;
-    transition: all 725ms ease;
-  }
-  #menuItem:hover {
-    opacity: 0.5;
-    transition: all 725ms ease;
+    transition: all 325ms ease;
   }
 }
 </style>
