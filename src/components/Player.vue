@@ -60,7 +60,7 @@ export default {
     position: fixed;
     z-index: 99;
     bottom: 1vh;
-    left:1vh;
+    right:1vh;
     /*
     width: 99vw;
     background-color: rgb(218, 218, 218);

@@ -45,17 +45,15 @@
         <v-row dense style="margin-left: 2vw;">
           <v-col cols="2">
             <div style="background-color:#E9B800;height:70vh;border-top-left-radius:5px;border-bottom-left-radius:5px;width:15vw;">
-              <div class="searchMood">
                 <v-text-field
                   v-model="searchMood"
                   prepend-inner-icon="mdi-magnify"
                   label="Buscar MOOD"
-                  class="custom"
-                  style="margin-left:1vw;"
+                  class="custom searchMood"
                   dark
+                  dense
                   hide-details
                 ></v-text-field>
-              </div>
               <div style="padding-top:2vh;">
                 <vue-scroll :ops="ops">
                   <div style="height:60vh;">
@@ -100,17 +98,15 @@
           </v-col>
           <v-col cols="2">
             <div style="background-color: #333333; height: 70vh; border-top-left-radius: 5px; border-bottom-left-radius: 5px; width: 15vw; margin-left: 2vw;">
-              <div class="searchGENERO">
                 <v-text-field
                   v-model="searchGenero"
                   prepend-inner-icon="mdi-magnify"
                   label="Buscar GENERO"
-                  class="custom"
-                  style="margin-left:1vw;"
+                  class="custom searchGENERO"
                   dark
+                  dense
                   hide-details
                 ></v-text-field>
-              </div>
               <div style="padding-top:2vh;">
                 <vue-scroll :ops="ops">
                   <div style="height:60vh;padding-top:2vh;">
@@ -132,17 +128,15 @@
           <v-col cols="8">
             <div
               style="background-color: #1a1a1a; height: 70vh; border-top-right-radius: 5px; border-bottom-right-radius: 5px; width: 55vw; margin-left: 5vw;">
-              <div class="searchSONG">
                 <v-text-field
                   v-model="searchSong"
                   prepend-inner-icon="mdi-magnify"
                   label="Buscar por título, artista o BPM"
-                  class="custom"
-                  style="margin-left:1vw;"
+                  class="custom searchSONG"
                   dark
+                  dense
                   hide-details
                 ></v-text-field>
-              </div>
               <v-row style="margin-top:2vh;"><v-col cols="2"></v-col>
                 <v-col cols="3"
                   ><div
@@ -250,7 +244,6 @@
             </div>
           </v-col>
           <v-col cols="3">
-            <div class="buscarPorGenero">
               <v-select
                 :items="slides"
                 :menu-props="{ top: true, offsetY: true }"
@@ -258,10 +251,9 @@
                 background-color="rgba(0,0,0,0)"
                 color="#000000"
                 label="Buscar por GENERO"
-                class="custom"
-                style="text-shadow: 1px 1px 4px rgba(0,0,0,0.3);font-weight:800;margin-left:2vw;margin-right:2vw;width:200px;bottom:5px;z-index:99;font-size:1.5vh;"
+                class="custom buscarPorGenero"
+                dense
               ></v-select>
-            </div>
           </v-col>
           <v-col cols="4"> </v-col>
           <v-col cols="2">
@@ -416,7 +408,6 @@
               <v-col cols="2"></v-col>
             </v-row>
           </v-col>
-
           <v-col cols="6" style="margin-top:5vh;">
             <div class="line"></div>
             <v-row
@@ -1274,14 +1265,13 @@
           </v-col>
           <v-col cols="4">
             <v-card style="background-color:rgb(86, 86, 86);">
-              <div class="buscarBeatmaker">
                 <v-text-field
                   v-model="buscarBeatmaker"
-                  class="custom"
+                  class="custom buscarBeatmaker"
                   label="Buscar por nombre"
+                  dense
                   hide-details
                 ></v-text-field>
-              </div>
               <!--v-card-title
                 style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.7);color:white;margin-left:20%;margin-top:2vh;font-size:16px;font-weight:800;"
                 >Orden Alfabético</v-card-title
@@ -1391,7 +1381,7 @@
               router
               to="/register"
               color="#e9b800"
-              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:4vh;text-transform:initial;font-weight:800;padding:3vh;letter-spacing:0px;animation: cycle 10s infinite;"
+              style="text-shadow: 3px 3px 4px rgba(0,0,0,0.3);font-size:4vh;text-transform:initial;font-weight:800;padding:3vh;letter-spacing:0px;animation: cycleMulticolor 10s infinite;"
               >Regístrate y sé parte de Beatup
             </v-btn>
           </v-col>
@@ -1424,6 +1414,7 @@ export default {
       searchMood: null,
       searchGenero: null,
       searchSong: null,
+      checkedMoods: [],
       radios: "radio-1",
       sPlaylists: playlists.playlists,
       topBeats: topBeats.beats,
@@ -1640,6 +1631,9 @@ export default {
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom:7px!important;
+    padding-top:2px!important;
+    padding-left:3px;
     width: 14vw;
     font-weight: 600;
     top: 10px;
@@ -1650,6 +1644,9 @@ export default {
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom:7px!important;
+    padding-top:2px!important;
+    padding-left:3px;
     width: 14vw;
     font-weight: 600;
     top: 10px;
@@ -1659,6 +1656,9 @@ export default {
   .searchSONG {
     position: relative;
     margin-left: 2vw;
+    padding-bottom:7px!important;
+    padding-top:2px!important;
+    padding-left:3px;
     width: 20vw;
     font-weight: 600;
     top: 10px;
@@ -1677,6 +1677,18 @@ export default {
   .buscarPorGenero {
     border-radius: 15px;
     background-color: #e9b800;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    font-weight:800;
+    margin-left:2vw;
+    margin-right:2vw;
+    margin-top:1vh;
+    padding-top:10px;
+    padding-bottom:7px;
+    padding-left:15px;
+    padding-right:15px;
+    width:250px;
+    z-index:99;
+    font-size:1.5vh;
   }
   .custom {
     color: black;
@@ -1836,6 +1848,8 @@ export default {
     padding-left: 20px;
     margin-left: auto;
     margin-right: auto;
+    padding-top:7px;
+    padding-bottom:7px;
     background-color: white;
     font-weight: 800;
     border-radius: 5px;

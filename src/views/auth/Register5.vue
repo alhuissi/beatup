@@ -4,29 +4,29 @@
       <v-row justify="center">
         <v-col cols="4">
           <v-card id="completaPerfilCard">
-            <v-row>
+            <v-row justify="center">
               <span
                 class="completaLabel"
-                style="font-size:34px;color:white;margin-left:1vw;margin-bottom:0;margin-top:0;"
+                style="font-size:3vh;color:white;margin-left:1vw;margin-bottom:0;margin-top:0;"
               >
                 Completa tu perfil:
               </span>
             </v-row>
-            <v-row>
+            <v-row justify="center">
               <span
                 class="completaLabel"
-                style="font-size:22px;color:#8c8c8c;font-weight:600;margin-left:1vw;margin-bottom:0;margin-top:0;"
+                style="font-size:2.6vh;color:#8c8c8c;font-weight:600;margin-left:1vw;margin-bottom:0;margin-top:0;"
               >
                 Luego podrás editar tus datos
               </span>
             </v-row>
             <v-row align="center">
               <v-col cols="4">
-                <v-avatar size="100" color="white">
+                <v-avatar size="70" color="black">
                   <v-icon
                     v-if="!uploadEnd && !uploading"
                     color="#8c8c8c"
-                    style="font-size:100px!important;"
+                    style="font-size:10vh!important;"
                     >mdi-account-circle</v-icon
                   >
                   <v-img v-if="uploadEnd" :src="downloadURL" contain></v-img>
@@ -161,7 +161,6 @@
                 </v-row>
               </v-container>
             </v-form>
-
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
@@ -179,21 +178,21 @@
         <v-col cols="8">
           <v-row justify="end">
             <v-img
-              max-width="550px"
+              max-width="30vw"
               style="margin-bottom:10vh;margin-top:5vh;margin-right:5vw;"
               :src="imgSrcLogoDoradabaB"
             ></v-img>
           </v-row>
           <v-row align="center" justify="center">
             <span
-              style="font-size:70px;font-weight:800;color:white;text-transform:uppercase;margin-bottom:3vh;"
+              style="font-size:7vh;font-weight:800;color:white;text-transform:uppercase;margin-bottom:3vh;"
             >
               ¡Bienvenid@!
             </span>
           </v-row>
           <v-row align="center" justify="center">
             <span
-              style="font-size:32px;font-weight:800;color:#8c8c8c;text-transform:uppercase;width:52vw;"
+              style="font-size:4vh;font-weight:800;color:#8c8c8c;text-transform:uppercase;width:52vw;"
             >
               Al espacio donde los componentes del ritmo urbano se encuentran
             </span>
@@ -353,7 +352,7 @@ input[type="file"] {
   /*color: #8c8c8c;*/
   color: #8c8c8c;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 2vh;
   margin-top: 5px;
 }
 .inputField{

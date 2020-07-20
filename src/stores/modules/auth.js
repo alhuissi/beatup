@@ -41,13 +41,13 @@ const mutations = {
   },
   VERIFY_USER(state) {
     if(firebaseAuth().currentUser != null){
-    state.userVerified = true;
-    firebaseAuth().currentUser.sendEmailVerification();
-    let docRef = db.collection("users").doc(firebaseAuth().currentUser.uid);
-    docRef
-      .set()({
-        verified: true,
-      });
+      state.userVerified = true;
+      firebaseAuth().currentUser.sendEmailVerification();
+      let docRef = db.collection("users").doc(firebaseAuth().currentUser.uid);
+      docRef
+        .set()({
+          verified: true,
+        });
     }
   },
 };

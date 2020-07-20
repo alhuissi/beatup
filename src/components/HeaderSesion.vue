@@ -2,59 +2,67 @@
   <div class="containerHeaderSesion">
     <!-- Brand and toggle get grouped for better mobile display -->
     <v-container fluid>
-      <v-row dense style="margin-left:2vw;">
+      <v-row dense style="margin-left:2vw;" align="center">
         <v-col cols="2">
           <router-link to="/" class="navbar-brand mr-auto" style="color:white;"
             ><v-img class="logoHeader" src="../assets/logos/DoradaB.png"></v-img
           ></router-link>
         </v-col>
-        <v-col cols="3"
-          ><div class="searchBox">
+        <v-col cols="3">
             <v-text-field
               v-model="searchBox"
               prepend-inner-icon="mdi-magnify"
               label="Buscar Beat"
-              class="custom"
-              style="margin-left:1vw;"
+              class="custom searchBox"
               dark
+              dense
               hide-details
             ></v-text-field>
-          </div>
         </v-col>
-        <v-col cols="1"><v-btn small style="margin-top:1.5vh;margin-left:1vw;" @click="debug()">Debug</v-btn></v-col>
+        <v-col cols="1" align="right">
+          <v-btn
+            small
+            color="#e9b800"
+            class="botonSubirBeat"
+            @click="subirBeat()"
+            v-if="isLoggedIn"
+            ><v-icon color="black" size="20">mdi-plus </v-icon>
+            <div style="font-size:2vh;">Subir</div></v-btn>
+        </v-col>
         <v-col cols="2" align="right">
           <div class="dropdownMenu">
             <v-menu v-if="isLoggedIn" offset-y>
               <template v-slot:activator="{ on: menu, attrs }">
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on: tooltip }">
-                    <v-btn
-                      color="primary"
-                      dark
-                      text
-                      fab
-                      v-bind="attrs"
-                      v-on="{ ...tooltip, ...menu }"
-                      style="margin-right:0.5vw;">
-                      <v-avatar size="35">
-                        <v-icon
-                          color="#8c8c8c"
-                          style="font-size:35px!important;">
-                          mdi-account-circle
-                        </v-icon>
-                        <!--v-img
-                        v-if="fotoPerfil != ''"
-                        :src="fotoPerfil"
-                        style="font-size:35px!important;"
-                        /-->
-                      </v-avatar>
-                      <v-icon color="white" style="font-size:15px!important;width:5px;">
-                        mdi-menu-down
-                      </v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Menú</span>
-                </v-tooltip>
+                <v-btn
+                  color="primary"
+                  dark
+                  text
+                  fab
+                  v-bind="attrs"
+                  v-on="{ ...menu }"
+                  style="margin-right:0.5vw;"
+                >
+                  <v-avatar size="35">
+                    <v-icon
+                      v-if="(fotoPerfil = '')"
+                      color="#8c8c8c"
+                      style="font-size:35px!important;"
+                    >
+                      mdi-account-circle
+                    </v-icon>
+                    <v-img
+                      v-if="fotoPerfil != ''"
+                      :src="fotoPerfil"
+                      style="font-size:35px!important;"
+                    />
+                  </v-avatar>
+                  <v-icon
+                    color="white"
+                    style="font-size:15px!important;width:5px;margin-left:2px;"
+                  >
+                    mdi-menu-down
+                  </v-icon>
+                </v-btn>
               </template>
               <v-card>
                 <v-list class="menuDropDown">
@@ -88,29 +96,26 @@
             </v-menu>
             <v-menu v-if="isLoggedIn" offset-y>
               <template v-slot:activator="{ on: menu, attrs }">
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on: tooltip }">
-                    <v-btn
-                      color="primary"
-                      dark
-                      text
-                      fab
-                      v-bind="attrs"
-                      v-on="{ ...tooltip, ...menu }"
-                      style="margin-right:0.5vw;"
-                    >
-                      <v-avatar size="35">
-                        <v-icon color="white" style="font-size:30px!important;"
-                          >mdi-bell-outline</v-icon
-                        ></v-avatar
-                      >
-                      <v-icon color="white" style="font-size:15px!important;width:5px;"
-                        >mdi-menu-down</v-icon
-                      >
-                    </v-btn>
-                  </template>
-                  <span>Notificaciones</span>
-                </v-tooltip>
+                <v-btn
+                  color="primary"
+                  dark
+                  text
+                  fab
+                  v-bind="attrs"
+                  v-on="{ ...menu }"
+                  style="margin-right:0.5vw;"
+                >
+                  <v-avatar size="35">
+                    <v-icon color="white" style="font-size:30px!important;"
+                      >mdi-bell-outline</v-icon
+                    ></v-avatar
+                  >
+                  <v-icon
+                    color="white"
+                    style="font-size:15px!important;width:5px;"
+                    >mdi-menu-down</v-icon
+                  >
+                </v-btn>
               </template>
               <v-card>
                 <v-list class="menuDropDown">
@@ -178,7 +183,8 @@
       aria-controls="navbarTop"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      @click="toggleNavbar">
+      @click="toggleNavbar"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -210,7 +216,7 @@ export default {
       imgSrcLogoDoradabaB: require("@/assets/logos/DoradaB.png"),
       itemsMenu: [
         {
-          title: "Mi Perfil",
+          title: "Dashboard",
           action: this.click,
           icon: "mdi-account-circle-outline",
         },
@@ -263,6 +269,9 @@ export default {
       console.log("Username: " + this.currentUserInfo.username);
       console.log("Rol: " + this.currentUserInfo.rol);
     },
+    subirBeat() {
+      alert('En construcción');
+    },
     click() {
       this.$router.push("/dashboard");
     },
@@ -286,9 +295,10 @@ export default {
 .li-pointer {
   cursor: pointer;
 }
-.dropdownMenu{
-  position:fixed;
-  right:5vw;
+.dropdownMenu {
+  position: fixed;
+  right: 5vw;
+  top:2vh;
 }
 .li-pointer:hover {
   cursor: pointer;
@@ -298,12 +308,12 @@ export default {
   width: 15vw;
 }
 .searchBox {
-  width: 25vw;
+  max-width:300px;
   left: 3vw;
   font-weight: 600;
   background-color: rgba(31, 29, 29, 0.5);
   border-radius: 5px;
-  margin-top: 1vh;
+  margin-left:1vw;padding-top:7px;padding-bottom:10px;max-width:200px;
 }
 .nav-link {
   color: white;
@@ -312,10 +322,22 @@ export default {
   font-size: calc(10px + 0.5vw);
   transition: all 325ms ease;
 }
-.nav-link:hover{
-  color:#8c8c8c!important;
+.nav-link:hover {
+  color: #8c8c8c !important;
 }
 .menuDropDown {
   background-color: black;
+}
+.botonSubirBeat {
+  position:fixed;
+  right:20vw;
+  text-transform: initial;
+  margin-left: 1vw;
+  border-radius: 10px;
+  background-color: #e9b800;
+  color: black;
+  font-weight: 800;
+  padding: 2vh !important;
+  top:30px;
 }
 </style>

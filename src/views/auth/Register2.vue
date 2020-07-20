@@ -100,13 +100,13 @@
           <v-row justify="center">
             <v-img
               max-width="450px"
-              style="margin-bottom:15vh;margin-right:5vw;"
+              style="margin-bottom:15vh;"
               :src="imgSrcLogoDoradabaB"
             ></v-img>
           </v-row>
           <v-row align="center" justify="center">
             <span
-              style="font-size:32px;font-weight:800;color:white;text-transform:uppercase;margin-bottom:3vh;width:52vw;"
+              style="font-size:4vh;font-weight:800;color:white;text-transform:uppercase;margin-bottom:3vh;width:52vw;"
             >
               Saca tu último hit de la ducha y llévalo a la pista, ¡Regístrate ahora!
             </span>
@@ -154,9 +154,8 @@ export default {
         this.registerByEmail(data)
           .then(() => {
             console.log("Usuario registrado: " + this.email);
-            this.verifyUser;
             this.registerUserFirestore(data);
-            this.$router.push("/register5");
+            this.$router.push("/register3");
           })
           .catch((error) => {
             console.log("Error de registro", error);
@@ -193,6 +192,7 @@ export default {
   color: white;
   font-weight: 800;
   font-size: 16px;
+  animation: cycle 10s infinite;
 }
 #botonRegisterBeatmaker:hover{
   cursor:initial;
@@ -207,7 +207,7 @@ export default {
   /*color: #8c8c8c;*/
   color: #e9b800;
   font-weight: 800;
-  font-size: 19px;
+  font-size: 2.2vh;
   margin-top: 10px;
 }
 @media (max-width: 960px) {

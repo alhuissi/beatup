@@ -78,6 +78,10 @@ a:active{
   background-color:rgba(0,0,0,0)!important;
 }
 
+.v-text-field.v-text-field--solo .v-input__control{
+  min-height:5vh!important;
+}
+
 
 .neon {
 	color: #fff;
@@ -121,6 +125,48 @@ a:active{
 
 @keyframes cycle {
   0% {
+    box-shadow: 10px 10px 100px rgba(199, 180, 11, 0.5);
+  }
+  20% {
+    box-shadow: 10px 10px 100px rgba(158, 199, 11, 0.5);
+  }
+  40% {
+    box-shadow: 10px 10px 100px rgba(199, 155, 11, 0.5);
+  }
+  60% {
+    box-shadow: 10px 10px 100px rgba(199, 102, 11, 0.5);
+  }
+  80% {
+    box-shadow: 10px 10px 100px rgba(171, 199, 11, 0.5);
+  }
+  100% {
+    box-shadow: 10px 10px 100px rgba(186, 199, 11, 0.5);
+  }
+}
+
+@keyframes cycleHeader {
+  0% {
+    box-shadow: 10px 10px 5px rgba(199, 180, 11, 0.5);
+  }
+  20% {
+    box-shadow: 10px 10px 15px rgba(158, 199, 11, 0.5);
+  }
+  40% {
+    box-shadow: 10px 10px 5px rgba(199, 155, 11, 0.5);
+  }
+  60% {
+    box-shadow: 10px 10px 15px rgba(199, 102, 11, 0.5);
+  }
+  80% {
+    box-shadow: 10px 10px 5px rgba(171, 199, 11, 0.5);
+  }
+  100% {
+    box-shadow: 10px 10px 15px rgba(186, 199, 11, 0.5);
+  }
+}
+
+@keyframes cycleMulticolor {
+  0% {
     box-shadow: 10px 10px 100px rgba(11, 124, 199, 0.5);
   }
   20% {
@@ -139,4 +185,5 @@ a:active{
     box-shadow: 10px 10px 100px rgba(11, 124, 199, 0.5);
   }
 }
+
 

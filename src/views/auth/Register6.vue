@@ -2,19 +2,19 @@
   <section class="Register6">
     <v-container fluid>
       <v-row style="margin-left:7vw;">
-        <span style="font-size:34px;color:white;font-weight:800;">
+        <span style="font-size:4vh;color:white;font-weight:800;">
           Preferencias:
         </span>
       </v-row>
       <v-row style="margin-left:7vw;">
         <span
-          v-if="this.currentUserInfo.rol == 'beatMaker'"
+          v-if="this.whatRole == 'beatMaker'"
           style="font-size:20px;color:#8c8c8c;"
         >
           Elige las etiquetas que definan mejor tu trabajo
         </span>
         <span
-          v-if="this.currentUserInfo.rol == 'beatUser'"
+          v-if="this.whatRole == 'beatUser'"
           style="font-size:20px;color:#8c8c8c;"
         >
           Elige tus favoritos
@@ -23,7 +23,7 @@
       <v-row style="margin-left:7vw;">
         <v-col cols="2">
           <span
-            style="font-size:34px;color:white;font-weight:800;text-transform:uppercase;"
+            style="font-size:3vh;color:white;font-weight:800;text-transform:uppercase;"
             >Género</span
           >
           <div
@@ -51,7 +51,7 @@
         </v-col>
         <v-col cols="2">
           <span
-            style="font-size:34px;color:white;font-weight:800;text-transform:uppercase;"
+            style="font-size:3vh;color:white;font-weight:800;text-transform:uppercase;"
             >Mood</span
           >
           <div
@@ -61,12 +61,12 @@
               <vue-scroll :ops="ops">
                 <div style="height:58vh;">
                   <v-container style="background-color:rgba(0,0,0,0);">
-                    <v-list shaped style="background-color:rgba(0,0,0,0);">
+                    <v-list flat dense style="background-color:rgba(0,0,0,0);">
                       <v-list-item-group v-model="item" color="primary">
                         <v-list-item
                           v-for="(item, i) in moods"
                           :key="i"
-                          style="text-align:justify;text-justify:inter-word;height:5vh;"
+                          style="text-align:justify;text-justify:inter-word;padding:0!important"
                         >
                           <v-checkbox
                             :v-model="item.text"
@@ -75,18 +75,18 @@
                             dark
                             :value="item.text"
                             v-model="checkedMoods"
+                            hide-details
                           ></v-checkbox>
                           <v-list-item-icon>
                             <v-icon
-                              x-large
                               color="white"
                               v-text="item.icon"
-                              style="bottom:2.5vh;"
+                              style="font-size:4.5vh!important;cursor:initial;"
                             ></v-icon>
                           </v-list-item-icon>
                           <v-list-item-content>
                             <v-list-item-title
-                              style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);font-weight:600;color:white;margin-bottom:2.5vh;margin-left:1vw;"
+                              style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);font-weight:600;color:white;margin-left:1vw;"
                               v-text="item.text"
                             ></v-list-item-title>
                           </v-list-item-content>
@@ -101,7 +101,7 @@
         </v-col>
         <v-col cols="2">
           <span
-            style="font-size:34px;color:white;font-weight:800;text-transform:uppercase;margin-right:2vw;"
+            style="font-size:3vh;color:white;font-weight:800;text-transform:uppercase;margin-right:2vw;"
             >BPM</span>
           <div
             style="background-color:#333333;height:60vh;border-radius:10px;width:10vw;padding-left:1vw;margin-left:1vw;"
@@ -128,11 +128,11 @@
         </v-col>
         <v-col cols="2">
           <span
-            style="font-size:34px;color:white;font-weight:800;text-transform:uppercase;margin-left:1vw;"
+            style="font-size:3vh;color:white;font-weight:800;text-transform:uppercase;margin-left:1vw;"
             >Artistas</span
           >
           <div
-            style="background-color:#333333;height:40vh;border-radius:10px;width:15vw;padding-left:1vw;"
+            style="background-color:#333333;height:50vh;border-radius:10px;width:15vw;padding-left:1vw;"
           >
             <div style="padding-top:1vh;padding-right:1vw;">
               <vue-scroll :ops="ops">
@@ -223,6 +223,7 @@ export default {
       "currentUser",
       "currentUserInfo",
       "cartItemList",
+      "whatRole"
     ]),
   },
   mounted() {},

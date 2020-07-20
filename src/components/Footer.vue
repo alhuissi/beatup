@@ -19,22 +19,29 @@
             </a>
           </v-col>
           <v-col cols="4" md="4" sm="6" xs="6">
-            <div>
               <div class="footerText">
                 Suscríbete a Noticias Beatup
               </div>
-              <div class="subscribeBox">
+            <v-row dense>
+              <v-col cols="8" align="right">
                 <v-text-field
                   v-model="emailNewsletter"
-                  append-outer-icon="mdi-send"
-                  class="custom"
-                  style="margin-left:1vw;margin-right:1vw;"
-                  @click:append-outer="sendMessage"
+                  dense
+                  prepend-icon="mdi-email"
+                  class="custom suscribeteTextField"
+                  style="font-weight:600;max-width:300px;padding-left:1vw;padding-right:1vw;padding-top:7px;padding-bottom:7px;text-shadow: 1px 1px 3px rgba(0,0,0,0.3);background-color:#d6d6d6;border-top-left-radius: 15px;border-bottom-left-radius: 15px;"
                   label="Email"
                   hide-details
                 ></v-text-field>
-              </div>
-            </div>
+              </v-col>
+              <v-col cols="4" align="left">
+                <v-btn class="botonSuscribete" color="#E9B800" height="45px" @click="sendMessage">
+                  <div>
+                  Suscribirse
+                  </div>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
         <v-row style="margin-left:20px;margin-top:1vh;">
@@ -71,6 +78,7 @@ export default {
     },
     sendMessage(){
       console.log(this.$route.name);
+      alert('En construcción');
     }
   },
   mounted() {},
@@ -160,12 +168,16 @@ export default {
   .iconFooter:hover {
     opacity: 0.7;
   }
-  .subscribeBox {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    background-color: white;
-    border-radius: 15px;
+  .botonSuscribete{
+    text-transform: initial;
+    font-weight: 800;
+    letter-spacing: 0.01px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-top:4px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   }
   .footerNav{
     color:white;
@@ -175,7 +187,9 @@ export default {
   }
   .v-input__append-outer .v-icon{
     color:#E9B800!important;
-    
+  }
+  .suscribeteTextField .v-icon{
+    color:black;
   }
 }
 </style>

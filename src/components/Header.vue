@@ -1,106 +1,5 @@
 <template>
   <header>
-    <!--div class="mui-appbarZ" id="navbar">
-      <v-container fluid style="padding:0;">
-        <div>
-          <nav class="nav1">
-            <router-link to="/">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff">mdi-home</v-icon>
-                <div v-if="drawer == true" id="menuLabel">Inicio</div>
-              </v-row>
-            </router-link>
-
-            <router-link to="/#view3">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff"
-                  >mdi-diamond-stone</v-icon
-                >
-                <div v-if="drawer == true" id="menuLabel">Top Beats</div>
-              </v-row>
-            </router-link>
-
-            <router-link to="/#view4">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff">mdi-crown</v-icon>
-                <div v-if="drawer == true" id="menuLabel">Top 10</div>
-              </v-row>
-            </router-link>
-
-            <router-link to="/#view6">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff"
-                  >mdi-play-circle</v-icon
-                >
-                <div v-if="drawer == true" id="menuLabel">Playlist</div>
-              </v-row>
-            </router-link>
-
-            <div
-              style="background-color:#E9B800;margin-top:1vw;margin-bottom:7px;margin-left:3px;"
-            >
-              <router-link to="/">
-                <v-row>
-                  <v-icon large id="menuItem" color="#ffffff">mdi-grid</v-icon>
-                  <div v-if="drawer == true" id="menuLabel">BEATMAKER</div>
-                </v-row>
-              </router-link>
-            </div>
-            <div
-              style="background-color: #E02229;margin-bottom:7px;margin-left:3px;"
-            >
-              <router-link to="/producer">
-                <v-row>
-                  <v-icon large id="menuItem" color="#ffffff"
-                    >mdi-headphones</v-icon
-                  >
-                  <div v-if="drawer == true" id="menuLabel">PRODUCER</div>
-                </v-row>
-              </router-link>
-            </div>
-            <div
-              style="background-color:#00AA9D;margin-bottom:1vw;margin-left:3px;"
-            >
-              <router-link to="/singer">
-                <v-row>
-                  <v-icon large id="menuItem" color="#ffffff"
-                    >mdi-microphone</v-icon
-                  >
-                  <div v-if="drawer == true" id="menuLabel">SINGER</div>
-                </v-row>
-              </router-link>
-            </div>
-
-            <router-link to="/#view7">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff"
-                  >mdi-account-group</v-icon
-                >
-                <div v-if="drawer == true" id="menuLabel">Nosotros</div>
-              </v-row>
-            </router-link>
-
-            <router-link to="/">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff"
-                  >mdi-smart-card-outline</v-icon
-                >
-                <div v-if="drawer == true" id="menuLabel">Licencias</div>
-              </v-row>
-            </router-link>
-
-            <router-link to="/">
-              <v-row>
-                <v-icon large id="menuItem" color="#ffffff"
-                  >mdi-cart-plus</v-icon
-                >
-                <div v-if="drawer == true" id="menuLabel">Comprar</div>
-              </v-row>
-            </router-link>
-          </nav>
-        </div>
-      </v-container>
-    </div-->
     <v-navigation-drawer
       :clipped="clipped"
       v-model="drawer"
@@ -283,6 +182,9 @@ export default {
   .iconMenu {
     font-size: 4.5vh !important;
   }
+  .iconMenu:hover{
+
+  }
   #arrow {
     /*position: absolute;
     top: 3%;
@@ -309,6 +211,7 @@ export default {
     transition-duration: 325ms;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     z-index: 9;
+    animation: cycleHeader 10s infinite alternate-reverse;
   }
   #menuLabel {
     color: white;

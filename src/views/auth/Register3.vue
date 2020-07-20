@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -36,8 +37,11 @@ export default {
 
   },
   methods: {
-
+    ...mapActions(["sendEmailVerification", "verifyUser"]),
   },
+  mounted() {
+    this.verifyUser();
+  }
 };
 </script>
 
