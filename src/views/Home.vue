@@ -21,7 +21,7 @@
           <div id="subheaderCarrousel">
             ¡Transforma esa realidad con Beatup!
           </div>
-          <v-btn router to="/register" id="botonRegistrate">
+          <v-btn v-if="!isLoggedIn" router to="/register" id="botonRegistrate">
             Regístrate
           </v-btn>
         </v-carousel-item>
@@ -1374,7 +1374,7 @@
             </v-card>
           </v-col>
         </v-row>
-        <v-row style="margin-left: 2vw;margin-top:5vh;">
+        <v-row v-if="!isLoggedIn" style="margin-left: 2vw;margin-top:5vh;">
           <v-col cols="1"> </v-col>
           <v-col cols="10">
             <v-btn
@@ -1395,6 +1395,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import AppFooter from "../components/Footer";
 import * as playlists from "../json/seleccionPlaylists.json";
 import * as topBeats from "../json/topBeats.json";
@@ -1456,7 +1457,15 @@ export default {
     play() {},
   },
   mounted() {},
-  computed: {},
+  computed: {
+    ...mapGetters([
+      "isLoggedIn",
+      "cartValue",
+      "currentUser",
+      "currentUserInfo",
+      "cartItemList",
+    ]),
+  },
 };
 </script>
 

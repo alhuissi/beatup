@@ -92,6 +92,7 @@ export default {
 @media (min-width: 960px) {
   #footer {
     position: relative;
+    margin-top:10vh;
   }
 }
 </style>

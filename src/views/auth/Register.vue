@@ -147,7 +147,7 @@ export default {
 }
 .box:hover {
   transition: all 325ms ease;
-  animation: cycle 10s linear infinite;
+  animation: cycleBoton 10s linear infinite;
 }
 @media (max-width: 960px) {
   #eligeTuPerfilContainer {

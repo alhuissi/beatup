@@ -47,8 +47,7 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn id="botonLogin" @click="onSubmit()" block :disabled="isLoading">
-                <i v-if="isLoading" class="fa fa-spinner fa-spin" />
+              <v-btn id="botonLogin" @click="onSubmit()" block>
                 Ingresar</v-btn>
             </v-card-actions>
           </v-card>
@@ -87,7 +86,7 @@ export default {
       this.loginWithEmail(data).then(() => {
         //this.clearMessage();
         console.log(this.isLoggedIn);
-        this.$router.push('/');
+        this.$router.push('/dashboard');
       }).catch((error) => {
         alert("Error en los datos");
         console.log(error);

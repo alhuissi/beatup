@@ -9,15 +9,15 @@
           ></router-link>
         </v-col>
         <v-col cols="3">
-            <v-text-field
-              v-model="searchBox"
-              prepend-inner-icon="mdi-magnify"
-              label="Buscar Beat"
-              class="custom searchBox"
-              dark
-              dense
-              hide-details
-            ></v-text-field>
+          <v-text-field
+            v-model="searchBox"
+            prepend-inner-icon="mdi-magnify"
+            label="Buscar Beat"
+            class="custom searchBox"
+            dark
+            dense
+            hide-details
+          ></v-text-field>
         </v-col>
         <v-col cols="1" align="right">
           <v-btn
@@ -25,9 +25,12 @@
             color="#e9b800"
             class="botonSubirBeat"
             @click="subirBeat()"
+            router
+            to="/agregarBeat"
             v-if="isLoggedIn"
             ><v-icon color="black" size="20">mdi-plus </v-icon>
-            <div style="font-size:2vh;">Subir</div></v-btn>
+            <div style="font-size:2vh;">Subir</div></v-btn
+          >
         </v-col>
         <v-col cols="2" align="right">
           <div class="dropdownMenu">
@@ -44,7 +47,7 @@
                 >
                   <v-avatar size="35">
                     <v-icon
-                      v-if="(fotoPerfil = '')"
+                      v-if="fotoPerfil == ''"
                       color="#8c8c8c"
                       style="font-size:35px!important;"
                     >
@@ -54,7 +57,18 @@
                       v-if="fotoPerfil != ''"
                       :src="fotoPerfil"
                       style="font-size:35px!important;"
-                    />
+                      ><template v-slot:placeholder>
+                        <v-row
+                          class="fill-height ma-0"
+                          align="center"
+                          justify="center"
+                        >
+                          <v-progress-circular
+                            indeterminate
+                            color="grey lighten-5"
+                          ></v-progress-circular>
+                        </v-row> </template
+                    ></v-img>
                   </v-avatar>
                   <v-icon
                     color="white"
@@ -66,7 +80,7 @@
               </template>
               <v-card>
                 <v-list class="menuDropDown">
-                  <v-list-item>
+                  <v-list-item class="itemMenuSesion" to="/editarPerfil">
                     <v-list-item-avatar>
                       <img :src="this.fotoPerfil" alt="this.userEmail" />
                     </v-list-item-avatar>
@@ -80,6 +94,7 @@
                   <v-divider color="#8c8c8c"></v-divider>
                   <v-list-item
                     align="left"
+                    class="itemMenuSesion"
                     v-for="(itemMenu, index) in itemsMenu"
                     :key="index"
                     @click="itemMenu.action"
@@ -119,7 +134,7 @@
               </template>
               <v-card>
                 <v-list class="menuDropDown">
-                  <v-list-item>
+                  <v-list-item class="itemMenuSesion">
                     <v-list-item-avatar>
                       <v-icon color="white">mdi-email</v-icon>
                     </v-list-item-avatar>
@@ -133,6 +148,7 @@
                   <v-divider color="#8c8c8c"></v-divider>
                   <v-list-item
                     align="left"
+                    class="itemMenuSesion"
                     v-for="(itemNotificaciones, index) in itemsNotificaciones"
                     :key="index"
                     @click="itemNotificaciones.action"
@@ -154,7 +170,8 @@
               text
               fab
               v-bind="attrs"
-              v-on="{ ...tooltip, ...menu }">
+              v-on="{ ...tooltip, ...menu }"
+            >
               <v-avatar size="35">
                 <v-icon color="white" style="font-size:30px!important;"
                   >mdi-cart-outline</v-icon
@@ -213,20 +230,26 @@ export default {
       attrs: null,
       tooltip: null,
       menu: null,
+      URLfotoPerfil: null,
+      transition: "fade-transition",
       imgSrcLogoDoradabaB: require("@/assets/logos/DoradaB.png"),
       itemsMenu: [
         {
-          title: "Dashboard",
+          title: "Escritorio",
+          action: this.click,
+          icon: "mdi-view-dashboard-outline",
+        },
+        {
+          title: "Mi Perfil",
           action: this.click,
           icon: "mdi-account-circle-outline",
         },
-        { title: "Mis Beats", action: this.click, icon: "mdi-grid" },
+        { title: "Mis Beats", action: this.clickMisBeats, icon: "mdi-grid" },
         {
           title: "Mis Playlists",
           action: this.click,
           icon: "mdi-playlist-music",
         },
-        { title: "...", action: this.debug, icon: "mdi-music" },
         { title: "Cerrar Sesión", action: this.logout, icon: "mdi-logout" },
       ],
       itemsNotificaciones: [
@@ -255,12 +278,20 @@ export default {
     userName() {
       return this.isLoggedIn ? this.currentUserInfo.username : "";
     },
-    fotoPerfil() {
-      return this.isLoggedIn ? this.currentUserInfo.fotoPerfilURL : "";
+    fotoPerfil: {
+      get: function() {
+        return this.isLoggedIn ? this.currentUserInfo.fotoPerfilURL : "";
+      },
+      set: function(newValue) {
+        return newValue;
+      },
     },
   },
   methods: {
     ...mapActions(["logout"]),
+    test(){
+      console.log("fotoPerfil: "+this.fotoPerfil);
+    },
     toggleNavbar() {
       this.isNavOpen = !this.isNavOpen;
     },
@@ -270,11 +301,14 @@ export default {
       console.log("Rol: " + this.currentUserInfo.rol);
     },
     subirBeat() {
-      alert('En construcción');
+      
     },
     click() {
       this.$router.push("/dashboard");
     },
+    clickMisBeats(){
+      this.$router.push("/MisBeats");
+    }
   },
 };
 </script>
@@ -298,7 +332,7 @@ export default {
 .dropdownMenu {
   position: fixed;
   right: 5vw;
-  top:2vh;
+  top: 2vh;
 }
 .li-pointer:hover {
   cursor: pointer;
@@ -308,12 +342,15 @@ export default {
   width: 15vw;
 }
 .searchBox {
-  max-width:300px;
+  max-width: 300px;
   left: 3vw;
   font-weight: 600;
   background-color: rgba(31, 29, 29, 0.5);
   border-radius: 5px;
-  margin-left:1vw;padding-top:7px;padding-bottom:10px;max-width:200px;
+  margin-left: 1vw;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  max-width: 200px;
 }
 .nav-link {
   color: white;
@@ -329,15 +366,23 @@ export default {
   background-color: black;
 }
 .botonSubirBeat {
-  position:fixed;
-  right:20vw;
+  position: fixed;
+  right: 20vw;
   text-transform: initial;
+  letter-spacing: 0.01px;
   margin-left: 1vw;
   border-radius: 10px;
   background-color: #e9b800;
   color: black;
   font-weight: 800;
   padding: 2vh !important;
-  top:30px;
+  top: 30px;
+}
+.itemMenuSesion {
+  margin: 5px;
+}
+.itemMenuSesion:hover {
+  background-color: #393939;
+  border-radius: 5px;
 }
 </style>

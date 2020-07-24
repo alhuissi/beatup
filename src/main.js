@@ -7,6 +7,7 @@ import vuescroll from 'vuescroll';
 import { firebaseListener } from './config/firebaseConfig';
 import store from './stores/store';
 
+
 Vue.config.productionTip = false
 Vue.use(VueMeta);
 

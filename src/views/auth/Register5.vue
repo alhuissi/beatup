@@ -43,6 +43,8 @@
                     >Sube tu foto</span
                   >
                 </v-btn>
+                <br>
+                <span style="font-weight:600;color:white;">(Máximo 500 KB)</span>
                 <form ref="form">
                   <input
                     id="files"

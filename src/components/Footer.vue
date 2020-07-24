@@ -45,11 +45,11 @@
           </v-col>
         </v-row>
         <v-row style="margin-left:20px;margin-top:1vh;">
-          <v-col cols="2"><div class="footerNav" @click="testing()">Quiénes Somos</div></v-col>
-          <v-col cols="2"><div class="footerNav">Preguntas Frecuentes</div></v-col>
-          <v-col cols="2"><div class="footerNav">Términos y Condiciones</div></v-col>
-          <v-col cols="2"><div class="footerNav">Licencias</div></v-col>
-          <v-col cols="2"><div class="footerNav">Contacto</div></v-col>
+          <v-col cols="2"><v-btn text class="footerNav" router to="/nosotros"><div style="color:white;text-transform:initial;">Quiénes Somos</div></v-btn></v-col>
+          <v-col cols="2"><v-btn text class="footerNav" router to="/preguntasFrecuentes"><div style="color:white;text-transform:initial;">Preguntas Frecuentes</div></v-btn></v-col>
+          <v-col cols="2"><v-btn text class="footerNav" router to="/terminosyCondiciones"><div style="color:white;text-transform:initial;">Términos y Condiciones</div></v-btn></v-col>
+          <v-col cols="2"><v-btn text class="footerNav" router to="/licencias"><div style="color:white;text-transform:initial;">Licencias</div></v-btn></v-col>
+          <v-col cols="2"><v-btn text class="footerNav" router to="/contacto"><div style="color:white;text-transform:initial;">Contacto</div></v-btn></v-col>
           <v-col cols="2"></v-col>
         </v-row>
       </div>
@@ -183,6 +183,7 @@ export default {
     color:white;
     font-size: 2vh;
     font-weight: 600;
+    letter-spacing: 0.01px;
     padding:0;
   }
   .v-input__append-outer .v-icon{

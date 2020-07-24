@@ -26,6 +26,7 @@
           :to="item.path == '#' ? '' : item.path"
           :style="{ backgroundColor: item.color }"
           @click="miniVariant=true;collapseMenu()"
+          class="itemMenu"
         >
           <v-list-item-icon>
             <v-icon class="iconMenu" color="#ffffff">{{ item.icon }}</v-icon>
@@ -183,6 +184,14 @@ export default {
     font-size: 4.5vh !important;
   }
   .iconMenu:hover{
+    
+  }
+  .itemMenu{
+  }
+  .itemMenu:hover{
+    background-color:#393939!important;
+  }
+  .iconMenu:hover{
 
   }
   #arrow {
@@ -217,13 +226,11 @@ export default {
     color: white;
     position: absolute;
     transition: all 325ms ease;
-    font-size: 2.6vh;
+    font-size: 2.5vh;
     font-weight: 600;
     white-space: nowrap;
   }
   #menuLabel:hover {
-    opacity: 0.5;
-    transition: all 325ms ease;
   }
 }
 </style>

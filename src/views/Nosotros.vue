@@ -1,5 +1,5 @@
 <template>
-  <section class="Playlists">
+  <section class="Nosotros">
      <!-- Nosotros -->
     <div class="view" id="view7">
       <v-container fluid id="containerSeccion">
@@ -62,25 +62,13 @@
 
 <script>
 import AppFooter from "../components/Footer";
-import * as playlists from "../json/seleccionPlaylists.json";
 
 export default {
-  name: "Playlists",
+  name: "Nosotros",
   data() {
     return {
       imgSrc1: require("@/assets/website/Slide1.jpg"),
       imgSrcLogoDoradabaB: require("@/assets/logos/DoradaB.png"),
-      sPlaylists: playlists.playlists,
-      ops: {
-        vuescroll: {
-          mode: "native",
-          sizeStrategy: "percent",
-          detectResize: true,
-        },
-        scrollPanel: {},
-        rail: {},
-        bar: { background: "#e9b800" },
-      },
     };
   },
   components: {
@@ -116,8 +104,8 @@ export default {
     color: black;
   }
   #nosotrosHeader {
-    font-size: 150px;
-    margin-top:10vh;
+    font-size: 20vh;
+    margin-top:5vh;
     color: #e9b800;
     font-weight: 600;
     letter-spacing: 10px;

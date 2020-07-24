@@ -75,7 +75,7 @@ a:active{
 }
 
 .v-list .v-list-item--active{
-  background-color:rgba(0,0,0,0)!important;
+  background-color:rgba(0,0,0,0);
 }
 
 .v-text-field.v-text-field--solo .v-input__control{
@@ -141,6 +141,27 @@ a:active{
   }
   100% {
     box-shadow: 10px 10px 100px rgba(186, 199, 11, 0.5);
+  }
+}
+
+@keyframes cycleBoton {
+  0% {
+    box-shadow: 0px 0px 10px rgba(199, 180, 11, 0.5);
+  }
+  20% {
+    box-shadow: 0px 0px 10px rgba(158, 199, 11, 0.5);
+  }
+  40% {
+    box-shadow: 0px 0px 10px rgba(199, 155, 11, 0.5);
+  }
+  60% {
+    box-shadow: 0px 0px 10px rgba(199, 102, 11, 0.5);
+  }
+  80% {
+    box-shadow: 0px 0px 10px rgba(171, 199, 11, 0.5);
+  }
+  100% {
+    box-shadow: 0px 0px 10px rgba(186, 199, 11, 0.5);
   }
 }
 

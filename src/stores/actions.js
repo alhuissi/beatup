@@ -1,4 +1,5 @@
 import { ref, firebaseAuth, db } from "../config/firebaseConfig";
+import router from "../router";
 
 export const updateCart = ({ commit }, { item, quantity, isAdd }) => {
   // TODO: Call service
@@ -64,6 +65,40 @@ export const completarPerfil = (
     });
 };
 
+export const editarPerfil = (
+  _,
+  { nombre, apellidos, nombreArtistico, ciudad, pais, fotoPerfilURL, nombreUsuario, telefono, biografia }
+) => {
+  const id = firebaseAuth().currentUser.uid;
+  return db
+    .collection("users")
+    .doc(id)
+    .update({
+      nombre: nombre,
+      apellidos: apellidos,
+      nombreArtistico: nombreArtistico,
+      ciudad: ciudad,
+      pais: pais,
+      fotoPerfilURL: fotoPerfilURL,
+      nombreUsuario: nombreUsuario,
+      telefono: telefono,
+      biografia: biografia,
+    });
+};
+
+export const editarFoto = (
+  _,
+  { fotoPerfilURL }
+) => {
+  const id = firebaseAuth().currentUser.uid;
+  return db
+    .collection("users")
+    .doc(id)
+    .update({
+      fotoPerfilURL: fotoPerfilURL
+    });
+};
+
 export const completarPreferencias = (
   _,
   { generos, moods, bpm, artistasFavoritos }
@@ -111,6 +146,7 @@ export const setRole = ({ commit }, rol) => {
 
 export const logout = ({ commit }) => {
   commit("SET_CART", []); // clear current cart
+  router.push("/");
   return firebaseAuth().signOut();
 };
 
@@ -154,3 +190,30 @@ export function saveToTransaction(_, { uid, cartItemList }) {
   ] = cartItemList;
   return ref.update(newTransaction);
 }
+
+export const enviarFormularioContacto = (
+  _,
+  { nombre, apellidos, pais, ciudad, email, mensaje }
+) => {
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let autoId = '';
+  for (let i = 0; i < 20; i++) {
+    autoId += CHARS.charAt(
+      Math.floor(Math.random() * CHARS.length)
+    )
+  }
+  const id = autoId;
+  let fecha = Date.now();
+  return db
+    .collection("formularios contacto")
+    .doc(id)
+    .set({
+      nombre: nombre,
+      apellidos: apellidos,
+      pais: pais,
+      ciudad: ciudad,
+      email: email,
+      mensaje: mensaje,
+      fecha: fecha
+    });
+};
