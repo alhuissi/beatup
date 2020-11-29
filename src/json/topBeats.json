@@ -1,0 +1,140 @@
+{
+    "meta": {
+      "domain": "https://beatup.cl",
+      "websiteName": "Beatup",
+      "keywords": "Beatup, Beats, musica urbana"
+    },
+    "beats": {
+      "1": {
+        "title": "Nombre Beat1",
+        "autor": "Beatmaker",
+        "nPlays": "8050",
+        "nDescargas": "945",
+        "cover": "",
+        "id": "1",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "1",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "2": {
+        "title": "Nombre Beat2",
+        "autor": "Beatmaker",
+        "nPlays": "3051",
+        "nDescargas": "845",
+        "cover": "",
+        "id": "2",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "2",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "3": {
+        "title": "Nombre Beat3",
+        "autor": "Beatmaker",
+        "nPlays": "2952",
+        "nDescargas": "745",
+        "cover": "",
+        "id": "3",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "3",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "4": {
+        "title": "Nombre Beat4",
+        "autor": "Beatmaker",
+        "nPlays": "1553",
+        "nDescargas": "445",
+        "cover": "",
+        "id": "4",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "4",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "5": {
+        "title": "Nombre Beat5",
+        "autor": "Beatmaker",
+        "nPlays": "1454",
+        "nDescargas": "345",
+        "cover": "",
+        "id": "5",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "5",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "6": {
+        "title": "Nombre Beat6",
+        "autor": "Beatmaker",
+        "nPlays": "855",
+        "nDescargas": "245",
+        "cover": "",
+        "id": "6",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "6",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "7": {
+        "title": "Nombre Beat7",
+        "autor": "Beatmaker",
+        "nPlays": "555",
+        "nDescargas": "45",
+        "cover": "",
+        "id": "7",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "7",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "8": {
+        "title": "Nombre Beat8",
+        "autor": "Beatmaker",
+        "nPlays": "155",
+        "nDescargas": "25",
+        "cover": "",
+        "id": "8",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "8",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "9": {
+        "title": "Nombre Beat9",
+        "autor": "Beatmaker",
+        "nPlays": "65",
+        "nDescargas": "15",
+        "cover": "",
+        "id": "9",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "9",
+        "bpm": "66",
+        "precio": "15.000"
+      },
+      "10": {
+        "title": "Nombre Beat10",
+        "autor": "Beatmaker",
+        "nPlays": "55",
+        "nDescargas": "5",
+        "cover": "",
+        "id": "10",
+        "description": "Descripción",
+        "path": "",
+        "posicion": "10",
+        "bpm": "66",
+        "precio": "15.000"
+      }
+    }
+  }
+  

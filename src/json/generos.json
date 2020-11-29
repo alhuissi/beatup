@@ -1,0 +1,75 @@
+{
+    "meta": {
+      "domain": "https://beatup.cl",
+      "websiteName": "Beatup",
+      "keywords": "Beatup, Beats, musica urbana, generos"
+    },
+    "generos": {
+      "1": {
+        "text": "Hip Hop",
+        "icon": "mdi-emoticon-happy-outline",
+        "isActive": false
+      },
+      "2": {
+        "text": "Rap",
+        "icon": "mdi-emoticon-outline",
+        "isActive": false
+      },
+      "3": {
+        "text": "Reggaetón",
+        "icon": "mdi-emoticon-excited-outline",
+        "isActive": false
+      },
+      "4": {
+        "text": "Dancehall",
+        "icon": "mdi-emoticon-cool-outline",
+        "isActive": false
+      },
+      "5": {
+        "text": "Dembow",
+        "icon": "mdi-pirate",
+        "isActive": false
+      },
+      "6": {
+        "text": "Lofi",
+        "icon": "mdi-emoticon-sad-outline",
+        "isActive": false
+      },
+      "7": {
+        "text": "Chillhop",
+        "icon": "mdi-emoticon-cry-outline",
+        "isActive": false
+      },
+      "8": {
+        "text": "Trap",
+        "icon": "mdi-emoticon-confused-outline",
+        "isActive": false
+      },
+      "9": {
+        "text": "Jazzhop",
+        "icon": "mdi-emoticon-angry-outline",
+        "isActive": false
+      },
+      "10": {
+        "text": "Funky",
+        "icon": "mdi-emoticon-neutral-outline",
+        "isActive": false
+      },
+      "11": {
+        "text": "Reggae",
+        "icon": "mdi-drama-masks",
+        "isActive": false
+      },
+      "12": {
+        "text": "Electro",
+        "icon": "mdi-drama-masks",
+        "isActive": false
+      },
+      "13": {
+        "text": "Hardcore",
+        "icon": "mdi-drama-masks",
+        "isActive": false
+      }
+    }
+  }
+  
