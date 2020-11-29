@@ -11,7 +11,13 @@
     </transition>
 
     <!-- Carrousel -->
-    <div v-intersect="{handler: onIntersect,options: {threshold: [0, 0.5, 1.0]}}" id="view1">
+    <div
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold: [0, 0.5, 1.0] },
+      }"
+      id="view1"
+    >
       <v-container fluid>
         <!--v-row no-gutters>
           <v-col cols="8">
@@ -34,7 +40,13 @@
         </v-row-->
         <v-row>
           <v-col cols="12">
-            <v-carousel cycle hide-delimiters :show-arrows="true" height="65vh" class="carrousel">
+            <v-carousel
+              cycle
+              hide-delimiters
+              :show-arrows="true"
+              height="65vh"
+              class="carrousel"
+            >
               <v-carousel-item
                 class="v-carrousel-item"
                 v-for="(item, i) in items"
@@ -50,13 +62,16 @@
                         <br />Ningún hit en la pista
                         <br />
                       </div>
-                      <div id="subheaderCarrousel">¡Transforma esa realidad con Beatup!</div>
+                      <div id="subheaderCarrousel">
+                        ¡Transforma esa realidad con Beatup!
+                      </div>
                       <v-btn
                         v-if="!isLoggedIn"
                         router
                         to="/register"
                         id="botonRegistrate"
-                      >Regístrate</v-btn>
+                        >Regístrate</v-btn
+                      >
                     </v-col>
                   </v-row>
                 </v-container>
@@ -68,8 +83,19 @@
     </div>
 
     <!-- Buscar Beats -->
-    <div v-intersect="{handler: onIntersect,options: {threshold: [0, 0.5, 1.0]}}" class="view" id="view2">
-      <buscador-beats ref="BuscadorBeatsHomeRef" id="BuscadorBeatsHome" @cambiarCancionInner="cambiarCancionInner"></buscador-beats>
+    <div
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold: [0, 0.5, 1.0] },
+      }"
+      class="view"
+      id="view2"
+    >
+      <buscador-beats
+        ref="BuscadorBeatsHomeRef"
+        id="BuscadorBeatsHome"
+        @cambiarCancionInner="cambiarCancionInner"
+      ></buscador-beats>
       <!--v-container fluid id="containerSeccion">
         <v-row no-gutters style="margin-left: 2vw;">
           <v-col cols="7" align="left">
@@ -345,10 +371,17 @@
     </div>
 
     <!-- Hot Beats -->
-    <div v-intersect="{handler: onIntersect,options: {threshold: [0, 0.5, 1.0]}}" class="view" id="view3">
+    <div
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold: [0, 0.5, 1.0] },
+      }"
+      class="view"
+      id="view3"
+    >
       <v-container v-if="topBeats[1]" fluid id="containerSeccion">
-        <v-row no-gutters style="margin-left:2vw;">
-          <v-col cols="2">
+        <v-row no-gutters style="margin-left: 2vw">
+          <v-col cols="6" xl="2" md="2">
             <div id="subheader">Hot Beats</div>
           </v-col>
           <v-col cols="3" align="left">
@@ -370,10 +403,10 @@
             <!--v-img class="logo" style="top:-2vh;" :src="imgSrcLogoDoradabaB"></v-img-->
           </v-col>
         </v-row>
-        <v-row no-gutters style="padding-top:1vh;;">
-          <v-col cols="6" style="padding-left:2vw;">
-            <v-row style="padding-top:0.5vh;padding-bottom:10px;">
-              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
+        <v-row no-gutters style="padding-top: 1vh ;">
+          <v-col cols="6" style="padding-left: 2vw">
+            <v-row style="padding-top: 0.5vh; padding-bottom: 10px">
+              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[0].URLCover != ''"
@@ -381,8 +414,14 @@
                     class="caratulaHotBeats"
                     @click="cambiarCancionInner(topBeats[0])"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon class="botonPlay" size="50" color="white">mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="botonPlay" size="50" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                     <!--v-btn
                               color="#e9b800"
@@ -396,24 +435,37 @@
                               </div>
                     </v-btn-->
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
                   <v-btn small fab class="posicionTop5Beat" color="#e9b800">
                     <div class="numeroPosicion">1</div>
                   </v-btn>
-                  <v-card-title v-text="topBeats[0].titulo" class="tituloBeatHotBeats"></v-card-title>
+                  <v-card-title
+                    v-text="topBeats[0].titulo"
+                    class="tituloBeatHotBeats"
+                  ></v-card-title>
                   <div
                     @click="irAPerfil(topBeats[0].autorID)"
                     class="artistaBeatHotBeats clickable"
                     v-text="topBeats[0].autorArtista"
                   ></div>
-                  <div class="generoBeatHotBeats" v-text="topBeats[0].generoPrimario"></div>
+                  <div
+                    class="generoBeatHotBeats"
+                    v-text="topBeats[0].generoPrimario"
+                  ></div>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
+              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[1].URLCover != ''"
@@ -421,8 +473,14 @@
                     class="caratulaHotBeats"
                     @click="cambiarCancionInner(topBeats[1])"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon class="botonPlay" size="50" color="white">mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="botonPlay" size="50" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                     <!--v-btn
                               color="#e9b800"
@@ -436,8 +494,15 @@
                               </div>
                     </v-btn-->
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
@@ -445,16 +510,22 @@
                   <v-btn small fab class="posicionTop5Beat" color="#e9b800">
                     <div class="numeroPosicion">2</div>
                   </v-btn>
-                  <v-card-title v-text="topBeats[1].titulo" class="tituloBeatHotBeats"></v-card-title>
+                  <v-card-title
+                    v-text="topBeats[1].titulo"
+                    class="tituloBeatHotBeats"
+                  ></v-card-title>
                   <div
                     @click="irAPerfil(topBeats[1].autorID)"
                     class="artistaBeatHotBeats clickable"
                     v-text="topBeats[1].autorArtista"
                   ></div>
-                  <div class="generoBeatHotBeats" v-text="topBeats[1].generoPrimario"></div>
+                  <div
+                    class="generoBeatHotBeats"
+                    v-text="topBeats[1].generoPrimario"
+                  ></div>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
+              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[2].URLCover != ''"
@@ -462,8 +533,14 @@
                     class="caratulaHotBeats"
                     @click="cambiarCancionInner(topBeats[2])"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon class="botonPlay" size="50" color="white">mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="botonPlay" size="50" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                     <!--v-btn
                               color="#e9b800"
@@ -477,8 +554,15 @@
                               </div>
                     </v-btn-->
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
@@ -486,19 +570,25 @@
                   <v-btn small fab class="posicionTop5Beat" color="#e9b800">
                     <div class="numeroPosicion">3</div>
                   </v-btn>
-                  <v-card-title v-text="topBeats[2].titulo" class="tituloBeatHotBeats"></v-card-title>
+                  <v-card-title
+                    v-text="topBeats[2].titulo"
+                    class="tituloBeatHotBeats"
+                  ></v-card-title>
                   <div
                     @click="irAPerfil(topBeats[2].autorID)"
                     class="artistaBeatHotBeats clickable"
                     v-text="topBeats[2].autorArtista"
                   ></div>
-                  <div class="generoBeatHotBeats" v-text="topBeats[2].generoPrimario"></div>
+                  <div
+                    class="generoBeatHotBeats"
+                    v-text="topBeats[2].generoPrimario"
+                  ></div>
                 </v-card>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="2"></v-col>
-              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
+              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[3].URLCover != ''"
@@ -506,8 +596,14 @@
                     class="caratulaHotBeats"
                     @click="cambiarCancionInner(topBeats[3])"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon class="botonPlay" size="50" color="white">mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="botonPlay" size="50" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                     <!--v-btn
                               color="#e9b800"
@@ -521,8 +617,15 @@
                               </div>
                     </v-btn-->
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
@@ -530,16 +633,22 @@
                   <v-btn small fab class="posicionTop5Beat" color="#e9b800">
                     <div class="numeroPosicion">4</div>
                   </v-btn>
-                  <v-card-title v-text="topBeats[3].titulo" class="tituloBeatHotBeats"></v-card-title>
+                  <v-card-title
+                    v-text="topBeats[3].titulo"
+                    class="tituloBeatHotBeats"
+                  ></v-card-title>
                   <div
                     @click="irAPerfil(topBeats[3].autorID)"
                     class="artistaBeatHotBeats clickable"
                     v-text="topBeats[3].autorArtista"
                   ></div>
-                  <div class="generoBeatHotBeats" v-text="topBeats[3].generoPrimario"></div>
+                  <div
+                    class="generoBeatHotBeats"
+                    v-text="topBeats[3].generoPrimario"
+                  ></div>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding-left:3.5vh;padding-right:3.5vh;">
+              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[4].URLCover != ''"
@@ -547,8 +656,14 @@
                     class="caratulaHotBeats"
                     @click="cambiarCancionInner(topBeats[4])"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon class="botonPlay" size="50" color="white">mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="botonPlay" size="50" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                     <!--v-btn
                               color="#e9b800"
@@ -562,8 +677,15 @@
                               </div>
                     </v-btn-->
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
@@ -571,28 +693,34 @@
                   <v-btn small fab class="posicionTop5Beat" color="#e9b800">
                     <div class="numeroPosicion">5</div>
                   </v-btn>
-                  <v-card-title v-text="topBeats[4].titulo" class="tituloBeatHotBeats"></v-card-title>
+                  <v-card-title
+                    v-text="topBeats[4].titulo"
+                    class="tituloBeatHotBeats"
+                  ></v-card-title>
                   <div
                     @click="irAPerfil(topBeats[4].autorID)"
                     class="artistaBeatHotBeats clickable"
                     v-text="topBeats[4].autorArtista"
                   ></div>
-                  <div class="generoBeatHotBeats" v-text="topBeats[4].generoPrimario"></div>
+                  <div
+                    class="generoBeatHotBeats"
+                    v-text="topBeats[4].generoPrimario"
+                  ></div>
                 </v-card>
               </v-col>
               <v-col cols="2"></v-col>
             </v-row>
           </v-col>
-          <v-col cols="6" style="margin-top:0vh;">
+          <v-col cols="6" style="margin-top: 0vh">
             <div
               v-for="(topBeats, index) in topBeatsSinPrimerosCinco"
               :key="topBeats.id"
-              style="height:8vh;"
+              style="height: 8vh"
             >
               <div class="line"></div>
               <v-row no-gutters align="center">
                 <v-col cols="1">
-                  <div class="posicionTopBeats">{{ (index + 6) }}</div>
+                  <div class="posicionTopBeats">{{ index + 6 }}</div>
                 </v-col>
                 <v-col cols="1">
                   <v-img
@@ -604,45 +732,93 @@
                     width="7vh"
                     class="caratulaTopBeatsChica"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon
-                        class="iconPlayMiniCoverTopBeats"
-                        color="white"
-                      >mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="iconPlayMiniCoverTopBeats" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
                 </v-col>
                 <v-col cols="1" align="right">
                   <div>
-                    <v-btn @click="likeBeat(topBeats)" icon style="bottom:0vh;">
-                      <v-icon v-if="!likedBeats[topBeats.id]" size="20" color="white">mdi-heart-outline</v-icon>
-                      <v-icon v-if="likedBeats[topBeats.id]" size="20" color="white">mdi-heart</v-icon>
+                    <v-btn @click="likeBeat(topBeats)" icon style="bottom: 0vh">
+                      <v-icon
+                        v-if="!likedBeats[topBeats.id]"
+                        size="20"
+                        color="white"
+                        >mdi-heart-outline</v-icon
+                      >
+                      <v-icon
+                        v-if="likedBeats[topBeats.id]"
+                        size="20"
+                        color="white"
+                        >mdi-heart</v-icon
+                      >
                     </v-btn>
                   </div>
                 </v-col>
                 <v-col cols="2" align="left">
                   <div
-                    style="font-size:calc(8px + 0.3vw);color:white;font-family:PoppinsExtraBold;margin-left:10px;"
-                  >{{ topBeats.titulo }}</div>
+                    style="
+                      font-size: calc(8px + 0.3vw);
+                      color: white;
+                      font-family: PoppinsExtraBold;
+                      margin-left: 10px;
+                    "
+                  >
+                    {{ topBeats.titulo }}
+                  </div>
                   <div
                     @click="irAPerfil(topBeats.autorID)"
                     class="clickable"
-                    style="font-size:calc(7px + 0.3vw);color:white;cursor:pointer;font-family:Poppins;margin-left:10px;"
-                  >{{ topBeats.autorArtista }}</div>
+                    style="
+                      font-size: calc(7px + 0.3vw);
+                      color: white;
+                      cursor: pointer;
+                      font-family: Poppins;
+                      margin-left: 10px;
+                    "
+                  >
+                    {{ topBeats.autorArtista }}
+                  </div>
                 </v-col>
                 <v-col cols="2">
                   <div
-                    style="font-size:calc(7px + 0.3vw);color:grey;font-weight:600;margin-top:1vh;"
-                  >{{ topBeats.bpm }} BPM</div>
+                    style="
+                      font-size: calc(7px + 0.3vw);
+                      color: grey;
+                      font-weight: 600;
+                      margin-top: 1vh;
+                    "
+                  >
+                    {{ topBeats.bpm }} BPM
+                  </div>
                 </v-col>
                 <v-col cols="2">
                   <div
-                    style="font-size:calc(7px + 0.3vw);color:grey;font-weight:600;margin-right:1vw;margin-top:1vh;"
+                    style="
+                      font-size: calc(7px + 0.3vw);
+                      color: grey;
+                      font-weight: 600;
+                      margin-right: 1vw;
+                      margin-top: 1vh;
+                    "
                   >
                     <v-icon size="18" color="grey">mdi-play</v-icon>
                     {{ topBeats.nplays }}
@@ -656,11 +832,23 @@
                     @click="comprarBeat(topBeats.id)"
                   >
                     <div class="containerCarrito">
-                      <v-img class="carrito" contain src="../assets/icons/carrito.png" />
+                      <v-img
+                        class="carrito"
+                        contain
+                        src="../assets/icons/carrito.png"
+                      />
                     </div>
                     <div
-                      style="color:black;font-weight:700;font-size:15px;letter-spacing:0.1px;font-family:PoppinsBold;"
-                    >{{ formatNumber(topBeats.precioLicenciaBasica, 0) }} CLP</div>
+                      style="
+                        color: black;
+                        font-weight: 700;
+                        font-size: 15px;
+                        letter-spacing: 0.1px;
+                        font-family: PoppinsBold;
+                      "
+                    >
+                      {{ formatNumber(topBeats.precioLicenciaBasica, 0) }} CLP
+                    </div>
                   </v-btn>
                 </v-col>
                 <div class="line"></div>
@@ -669,8 +857,15 @@
             <v-row>
               <v-col cols="12">
                 <div
-                  style="font-family:PoppinsBold;font-size:calc(10px + 3vw);color:white;margin-top:2vh;"
-                >¡Descubre lo HOT!</div>
+                  style="
+                    font-family: PoppinsBold;
+                    font-size: calc(10px + 3vw);
+                    color: white;
+                    margin-top: 2vh;
+                  "
+                >
+                  ¡Descubre lo HOT!
+                </div>
               </v-col>
             </v-row>
           </v-col>
@@ -679,68 +874,125 @@
     </div>
 
     <!-- Top 10 Beatmakers -->
-    <div v-intersect="{handler: onIntersect,options: {threshold: [0, 0.5, 1.0]}}" class="view" id="view4">
+    <div
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold: [0, 0.5, 1.0] },
+      }"
+      class="view"
+      id="view4"
+    >
       <v-container fluid id="containerSeccion">
-        <v-row style="margin-left:1vw;">
+        <v-row style="margin-left: 1vw">
           <v-col cols="10" align="left">
-            <div id="subheader" style="font-size:calc(20px + 3vw);">Top 10 Beatmakers</div>
+            <div id="subheader" style="font-size: calc(20px + 3vw)">
+              Top 10 Beatmakers
+            </div>
           </v-col>
           <v-col cols="2">
             <!--v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img-->
           </v-col>
         </v-row>
-        <v-row v-if="topBeatmakers[2]" style="margin-left:2vw;margin-top:-4vh;">
-          <v-col cols="8" style="padding-right:5vw;">
-            <v-row style="margin-bottom:3vh;">
+        <v-row
+          v-if="topBeatmakers[2]"
+          style="margin-left: 2vw; margin-top: -4vh"
+        >
+          <v-col cols="8" style="padding-right: 5vw">
+            <v-row style="margin-bottom: 3vh">
               <div
                 id="subheader"
-                style="color:#e9b800;font-weight:800;left:8vw;font-size:4vh;"
-              >Conoce a los mejores creadores del momento</div>
+                style="
+                  color: #e9b800;
+                  font-weight: 800;
+                  left: 8vw;
+                  font-size: 4vh;
+                "
+              >
+                Conoce a los mejores creadores del momento
+              </div>
             </v-row>
-            <v-row style="margin-top:7vh;">
+            <v-row style="margin-top: 7vh">
               <v-col
                 v-for="(topBeatmakers, index) in topBeatmakersPrimerosTres"
                 :key="topBeatmakers.id"
                 cols="4"
-                style="padding-right:3vh;padding-left:3vh;"
+                style="padding-right: 3vh; padding-left: 3vh"
               >
-                <v-card color="black" dark style="padding:1vw;">
+                <v-card color="black" dark style="padding: 1vw">
                   <v-img
                     v-if="topBeatmakers.fotoPerfilURL != ''"
                     :src="topBeatmakers.fotoPerfilURL"
                     class="caratulaBeatmaker"
                   >
                     <div class="middlePortafolios">
-                      <v-btn @click="irAPerfil(topBeatmakers.id)" class="textPortafolios">Ver Perfil</v-btn>
+                      <v-btn
+                        @click="irAPerfil(topBeatmakers.id)"
+                        class="textPortafolios"
+                        >Ver Perfil</v-btn
+                      >
                     </div>
                     <template v-slot:placeholder>
-                      <v-row class="fill-height ma-0" align="center" justify="center">
-                        <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="#e9b800"
+                        ></v-progress-circular>
                       </v-row>
                     </template>
                   </v-img>
                   <v-img
                     v-if="topBeatmakers.fotoPerfilURL == ''"
                     :src="perfilSinFoto"
-                    style="filter: invert(13%) sepia(0%) saturate(2299%) hue-rotate(253deg) brightness(103%) contrast(83%);"
+                    style="
+                      filter: invert(13%) sepia(0%) saturate(2299%)
+                        hue-rotate(253deg) brightness(103%) contrast(83%);
+                    "
                     class="caratulaBeatmaker"
                   >
                     <div class="middlePortafolios">
-                      <v-btn @click="irAPerfil(topBeatmakers.id)" class="textPortafolios">Ver Perfil</v-btn>
+                      <v-btn
+                        @click="irAPerfil(topBeatmakers.id)"
+                        class="textPortafolios"
+                        >Ver Perfil</v-btn
+                      >
                     </div>
                   </v-img>
                   <v-btn fab class="posicionTop5Beatmakers" color="#e9b800">
-                    <div style="color:black;font-weight:800;font-size:calc(10px + 1vw);">{{ (index+1) }}</div>
+                    <div
+                      style="
+                        color: black;
+                        font-weight: 800;
+                        font-size: calc(10px + 1vw);
+                      "
+                    >
+                      {{ index + 1 }}
+                    </div>
                   </v-btn>
                   <v-card-title
                     @click="irAPerfil(topBeatmakers.id)"
                     class="clickable"
                     v-text="topBeatmakers.nombreArtistico"
-                    style="justify-content:center;margin-top:-15px;font-size:2.2vh;"
+                    style="
+                      justify-content: center;
+                      margin-top: -15px;
+                      font-size: 2.2vh;
+                    "
                   ></v-card-title>
                   <div
-                    style="padding-top:0px;margin-top:-20px;font-size:calc(10px + 0.2vw);justify-content:center;text-transform:uppercase;"
-                  >{{ topBeatmakers.ciudad }} / {{ topBeatmakers.pais }} </div>
+                    style="
+                      padding-top: 0px;
+                      margin-top: -20px;
+                      font-size: calc(10px + 0.2vw);
+                      justify-content: center;
+                      text-transform: uppercase;
+                    "
+                  >
+                    {{ topBeatmakers.ciudad }} / {{ topBeatmakers.pais }}
+                  </div>
                 </v-card>
               </v-col>
             </v-row>
@@ -750,7 +1002,7 @@
               </v-card>
             </v-row-->
           </v-col>
-          <v-col cols="4" style="text-align:left;margin-top:-8vh;">
+          <v-col cols="4" style="text-align: left; margin-top: -8vh">
             <v-row
               v-for="(topBeatmakers, index) in topBeatmakersSinPrimerosTres"
               :key="topBeatmakers.id"
@@ -760,20 +1012,45 @@
               <v-col cols="1">
                 <div class="posicionTopBeatmakers">
                   <v-btn fab color="#e9b800">
-                    <div style="color:black;font-weight:800;font-size:calc(10px + 1vw);">{{ (index + 4) }}</div>
+                    <div
+                      style="
+                        color: black;
+                        font-weight: 800;
+                        font-size: calc(10px + 1vw);
+                      "
+                    >
+                      {{ index + 4 }}
+                    </div>
                   </v-btn>
                 </div>
               </v-col>
 
-              <v-col cols="10" style="margin-left:1vw;">
+              <v-col cols="10" style="margin-left: 1vw">
                 <div
                   @click="irAPerfil(topBeatmakers.id)"
                   class="clickable"
-                  style="position:relative;color:white;font-weight:600;margin-top:-1.5vh;font-size:calc(6px + 0.6vw);cursor:pointer;font-family:PoppinsBold;"
-                >{{ topBeatmakers.nombreArtistico }}</div>
+                  style="
+                    position: relative;
+                    color: white;
+                    font-weight: 600;
+                    margin-top: -1.5vh;
+                    font-size: calc(6px + 0.6vw);
+                    cursor: pointer;
+                    font-family: PoppinsBold;
+                  "
+                >
+                  {{ topBeatmakers.nombreArtistico }}
+                </div>
                 <div
-                  style="position:relative;color:white;font-size:calc(6px + 0.4vw);text-transform:uppercase;"
-                >{{ topBeatmakers.ciudad }} / {{ topBeatmakers.pais }}</div>
+                  style="
+                    position: relative;
+                    color: white;
+                    font-size: calc(6px + 0.4vw);
+                    text-transform: uppercase;
+                  "
+                >
+                  {{ topBeatmakers.ciudad }} / {{ topBeatmakers.pais }}
+                </div>
               </v-col>
             </v-row>
           </v-col>
@@ -782,22 +1059,48 @@
     </div>
 
     <!-- Descubre Beatmaker -->
-    <div v-intersect="{handler: onIntersect,options: {threshold: [0, 0.5, 1.0]}}" class="view" id="view5">
+    <div
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold: [0, 0.5, 1.0] },
+      }"
+      class="view"
+      id="view5"
+    >
       <v-container fluid id="containerSeccion">
-        <v-row style="margin-left: 2vw;">
+        <v-row style="margin-left: 2vw">
           <v-col cols="2"></v-col>
           <v-col cols="8">
             <div
               id="subheader"
-              style="color:#e9b800;font-weight:800;text-shadow: 2px 2px 4px #000000;font-size: 5vh;"
-            >Descubre a tu próximo Beatmaker</div>
+              style="
+                color: #e9b800;
+                font-weight: 800;
+                text-shadow: 2px 2px 4px #000000;
+                font-size: 5vh;
+              "
+            >
+              Descubre a tu próximo Beatmaker
+            </div>
             <div
-              style="color:white;font-weight:200;font-size:3vh;letter-spacing:1px;margin-top:1vh;font-family:PoppinsLight;"
-            >Marca los estilos para aplicar el filtro</div>
+              style="
+                color: white;
+                font-weight: 200;
+                font-size: 3vh;
+                letter-spacing: 1px;
+                margin-top: 1vh;
+                font-family: PoppinsLight;
+              "
+            >
+              Marca los estilos para aplicar el filtro
+            </div>
           </v-col>
           <v-col cols="2"></v-col>
         </v-row>
-        <v-row dense style="margin-top:2vh;margin-left:3vw;margin-right:0vw;">
+        <v-row
+          dense
+          style="margin-top: 2vh; margin-left: 3vw; margin-right: 0vw"
+        >
           <div v-for="item in generos" :key="item.id">
             <v-btn
               small
@@ -806,20 +1109,31 @@
                 activarFiltroDescubreBeatmaker(item);
               "
               v-bind:class="{ botonEstiloActivo: item.isActive }"
-              style="text-shadow: 2px 2px 5px rgba(0,0,0,0.3);background-color:#4c4c4c;font-size:2vh;text-transform:initial;font-family:PoppinsExtraBold;padding:2vh;letter-spacing:0px;border-radius:10px;margin-left:0.5vw;"
-            >{{ item.text }}</v-btn>
+              style="
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                background-color: #4c4c4c;
+                font-size: 2vh;
+                text-transform: initial;
+                font-family: PoppinsExtraBold;
+                padding: 2vh;
+                letter-spacing: 0px;
+                border-radius: 10px;
+                margin-left: 0.5vw;
+              "
+              >{{ item.text }}</v-btn
+            >
           </div>
         </v-row>
-        <v-row style="margin-left:3vw; margin-top:1vh;">
+        <v-row style="margin-left: 3vw; margin-top: 1vh">
           <v-col cols="8">
-            <div style="height:40vh;margin-left:3vw;margin-right:1vw;">
+            <div style="height: 40vh; margin-left: 3vw; margin-right: 1vw">
               <vue-scroll :ops="ops">
                 <v-row>
                   <v-col
                     cols="6"
                     v-for="beatmaker in allBeatmakersFiltered"
                     :key="beatmaker.id"
-                    style="height:14vh;"
+                    style="height: 14vh"
                   >
                     <v-row no-gutters>
                       <v-col cols="3" align="left">
@@ -828,7 +1142,8 @@
                           @click="irAPerfil(beatmaker.id)"
                           class="beatmakerImg clickable"
                           size="50"
-                        >mdi-account-circle</v-icon>
+                          >mdi-account-circle</v-icon
+                        >
                         <v-img
                           class="beatmakerImg clickable"
                           @click="irAPerfil(beatmaker.id)"
@@ -836,21 +1151,46 @@
                           :src="beatmaker.fotoPerfilURL"
                         >
                           <template v-slot:placeholder>
-                            <v-row class="fill-height ma-0" align="center" justify="center">
-                              <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                            <v-row
+                              class="fill-height ma-0"
+                              align="center"
+                              justify="center"
+                            >
+                              <v-progress-circular
+                                indeterminate
+                                color="#e9b800"
+                              ></v-progress-circular>
                             </v-row>
                           </template>
                         </v-img>
                       </v-col>
-                      <v-col cols="8" style="text-align:left;">
+                      <v-col cols="8" style="text-align: left">
                         <div
                           @click="irAPerfil(beatmaker.id)"
                           class="clickable"
-                          style="color:white;font-weight:600;font-size:20px;margin-top:2vh;cursor:pointer;font-family:Poppins"
-                        >{{ beatmaker.nombreArtistico }}</div>
+                          style="
+                            color: white;
+                            font-weight: 600;
+                            font-size: 20px;
+                            margin-top: 2vh;
+                            cursor: pointer;
+                            font-family: Poppins;
+                          "
+                        >
+                          {{ beatmaker.nombreArtistico }}
+                        </div>
                         <div
-                          style="color:white;text-transform:uppercase;font-weight:400;font-size:14px;margin-top:0vh;font-family:PoppinsLight"
-                        >{{ beatmaker.ciudad }} / {{ beatmaker.pais }}</div>
+                          style="
+                            color: white;
+                            text-transform: uppercase;
+                            font-weight: 400;
+                            font-size: 14px;
+                            margin-top: 0vh;
+                            font-family: PoppinsLight;
+                          "
+                        >
+                          {{ beatmaker.ciudad }} / {{ beatmaker.pais }}
+                        </div>
                         <!--div
                           style="color:white;text-transform:uppercase;font-weight:400;font-size:14px;margin-top:0vh;font-family:PoppinsLight"
                         >{{ beatmaker.generos.toString() }}</div-->
@@ -862,7 +1202,13 @@
             </div>
           </v-col>
           <v-col cols="4">
-            <v-card style="background-color:#1a1a1a;margin-right:5vw;margin-left:1vw;">
+            <v-card
+              style="
+                background-color: #1a1a1a;
+                margin-right: 5vw;
+                margin-left: 1vw;
+              "
+            >
               <v-text-field
                 v-model="searchBeatmaker"
                 class="custom buscarBeatmaker"
@@ -877,17 +1223,24 @@
                 style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.7);color:white;margin-left:20%;margin-top:2vh;font-size:16px;font-weight:800;"
                 >Orden Alfabético</v-card-title
               -->
-              <div style="height:35vh;margin-top:4vh;">
+              <div style="height: 35vh; margin-top: 4vh">
                 <vue-scroll :ops="ops">
-                  <v-list style="background-color:rgba(0,0,0,0);">
-                    <div class="line3" style="margin-left:1vw;width:90%;"></div>
+                  <v-list style="background-color: rgba(0, 0, 0, 0)">
+                    <div
+                      class="line3"
+                      style="margin-left: 1vw; width: 90%"
+                    ></div>
                     <transition-group name="list" tag="p">
                       <v-list-item
-                        v-for="(item) in allBeatmakersFilteredByName"
+                        v-for="item in allBeatmakersFilteredByName"
                         :key="item.id"
-                        style="text-align:justify;text-justify:inter-word;margin-right:1vw;"
+                        style="
+                          text-align: justify;
+                          text-justify: inter-word;
+                          margin-right: 1vw;
+                        "
                       >
-                        <v-container style="padding:0!important">
+                        <v-container style="padding: 0 !important">
                           <v-row no-gutters align="center">
                             <v-col cols="2">
                               <v-list-item-avatar
@@ -897,18 +1250,34 @@
                               >
                                 <v-icon
                                   v-if="item.fotoPerfilURL == ''"
-                                  style="border-style:solid;border-width:3px;border-color:#e9b800;"
+                                  style="
+                                    border-style: solid;
+                                    border-width: 3px;
+                                    border-color: #e9b800;
+                                  "
                                   color="#8c8c8c"
                                   size="50"
-                                >mdi-account-circle</v-icon>
+                                  >mdi-account-circle</v-icon
+                                >
                                 <v-img
                                   v-if="!item.fotoPerfilURL == ''"
                                   :src="item.fotoPerfilURL"
-                                  style="border-style:solid;border-width:3px;border-color:#e9b800;"
+                                  style="
+                                    border-style: solid;
+                                    border-width: 3px;
+                                    border-color: #e9b800;
+                                  "
                                 >
                                   <template v-slot:placeholder>
-                                    <v-row class="fill-height ma-0" align="center" justify="center">
-                                      <v-progress-circular indeterminate color="#e9b800"></v-progress-circular>
+                                    <v-row
+                                      class="fill-height ma-0"
+                                      align="center"
+                                      justify="center"
+                                    >
+                                      <v-progress-circular
+                                        indeterminate
+                                        color="#e9b800"
+                                      ></v-progress-circular>
                                     </v-row>
                                   </template>
                                 </v-img>
@@ -916,19 +1285,38 @@
                             </v-col>
                             <v-col cols="10">
                               <v-list-item-content
-                                style="padding-top:10px;padding-bottom:0px;margin-left:1vw;"
+                                style="
+                                  padding-top: 10px;
+                                  padding-bottom: 0px;
+                                  margin-left: 1vw;
+                                "
                               >
                                 <v-list-item-title
                                   @click="irAPerfil(item.id)"
-                                  style="color:white;font-size:calc(10px + 0.5vw);font-weight:600;font-family:Poppins"
+                                  style="
+                                    color: white;
+                                    font-size: calc(10px + 0.5vw);
+                                    font-weight: 600;
+                                    font-family: Poppins;
+                                  "
                                   class="clickable"
                                   v-text="item.nombreArtistico"
                                 ></v-list-item-title>
                               </v-list-item-content>
-                              <v-list-item-content style="padding-top:0;margin-left:1vw;">
+                              <v-list-item-content
+                                style="padding-top: 0; margin-left: 1vw"
+                              >
                                 <v-list-item-title
-                                  style="margin-top:3px;color:white;text-transform:uppercase;font-size:calc(10px + 0.2vw);font-family:PoppinsLight"
-                                >{{ item.ciudad }} / {{ item.pais }}</v-list-item-title>
+                                  style="
+                                    margin-top: 3px;
+                                    color: white;
+                                    text-transform: uppercase;
+                                    font-size: calc(10px + 0.2vw);
+                                    font-family: PoppinsLight;
+                                  "
+                                  >{{ item.ciudad }} /
+                                  {{ item.pais }}</v-list-item-title
+                                >
                               </v-list-item-content>
                             </v-col>
                           </v-row>
@@ -950,7 +1338,14 @@
     </div>
 
     <!-- Playlists recomendadas -->
-    <div v-intersect="{handler: onIntersect,options: {threshold: [0, 0.5, 1.0]}}" class="view" id="view6">
+    <div
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold: [0, 0.5, 1.0] },
+      }"
+      class="view"
+      id="view6"
+    >
       <v-container fluid id="containerSeccion">
         <v-row>
           <v-col cols="10"></v-col>
@@ -958,29 +1353,42 @@
             <!--v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img-->
           </v-col>
         </v-row>
-        <v-row no-gutters style="margin-left:2vw;">
+        <v-row no-gutters style="margin-left: 2vw">
           <v-col cols="12" align="left">
             <div
               id="subheader"
-              style="text-transform:uppercase;margin-left:2vw;"
-            >Playlists recomendadas</div>
+              style="text-transform: uppercase; margin-left: 2vw"
+            >
+              Playlists recomendadas
+            </div>
           </v-col>
         </v-row>
-        <v-row no-gutters style="margin-left:2vw;">
+        <v-row no-gutters style="margin-left: 2vw">
           <v-col cols="12" align="left">
             <div
-              style="color:#e9b800;font-weight:600;font-size:calc(18px + 0.8vw);font-family:PoppinsBold;margin-left:2vw;"
-            >¡Encuentra la mejor selección para tu mood de hoy!</div>
+              style="
+                color: #e9b800;
+                font-weight: 600;
+                font-size: calc(18px + 0.8vw);
+                font-family: PoppinsBold;
+                margin-left: 2vw;
+              "
+            >
+              ¡Encuentra la mejor selección para tu mood de hoy!
+            </div>
           </v-col>
         </v-row>
-        <v-row style="margin-top:0vh;">
+        <v-row style="margin-top: 0vh">
           <div class="example-3d">
             <swiper class="swiper" :options="swiperOption">
-              <swiper-slide v-for="playlist in listaAllPlaylists" :key="playlist.id">
+              <swiper-slide
+                v-for="playlist in listaAllPlaylists"
+                :key="playlist.id"
+              >
                 <v-card
                   color="black"
                   dark
-                  style="margin-top:25%;"
+                  style="margin-top: 25%"
                   @click="cambiarCancionInner(listaAllBeats[1])"
                 >
                   <v-img
@@ -988,30 +1396,49 @@
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                     class="caratulaPlaylistRecomendadas"
                   >
-                    <v-row class="fill-height ma-0" align="center" justify="center">
-                      <v-icon
-                        class="iconPlayPlaylistRecomendadas"
-                        color="white"
-                      >mdi-play-circle-outline</v-icon>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-icon class="iconPlayPlaylistRecomendadas" color="white"
+                        >mdi-play-circle-outline</v-icon
+                      >
                     </v-row>
                   </v-img>
                   <v-btn
-                    style="position:absolute;left:5px;top:5px;padding-top:2vh;padding-bottom:2vh;padding-left:5px;"
+                    style="
+                      position: absolute;
+                      left: 5px;
+                      top: 5px;
+                      padding-top: 2vh;
+                      padding-bottom: 2vh;
+                      padding-left: 5px;
+                    "
                     small
                     color="#e9b800"
                   >
                     <v-icon color="white" size="2.5vh">mdi-account</v-icon>
-                    <div style="font-size:2vh;">{{ playlist.nSeguidores }}</div>
+                    <div style="font-size: 2vh">{{ playlist.nSeguidores }}</div>
                   </v-btn>
                   <v-btn small class="botonPlusplaylist" color="#e9b800">
                     <v-icon color="white" size="16">mdi-plus</v-icon>
                   </v-btn>
                   <v-card-title
                     v-text="playlist.nombre"
-                    style="position:relative;justify-content:center;margin-top:-2vh;font-size:calc(4px + 0.7vw);"
+                    style="
+                      position: relative;
+                      justify-content: center;
+                      margin-top: -2vh;
+                      font-size: calc(4px + 0.7vw);
+                    "
                   ></v-card-title>
                   <v-card-subtitle
-                    style="padding-top:0px;margin-top:-20px;font-size:calc(4px + 0.5vw);"
+                    style="
+                      padding-top: 0px;
+                      margin-top: -20px;
+                      font-size: calc(4px + 0.5vw);
+                    "
                     v-text="'por ' + playlist.autor"
                   ></v-card-subtitle>
                 </v-card>
@@ -1051,21 +1478,32 @@
             </v-card>
           </v-col-->
         </v-row>
-        <v-row v-if="!isLoggedIn" style="margin-left:2vw;margin-top:5vh;">
+        <v-row v-if="!isLoggedIn" style="margin-left: 2vw; margin-top: 5vh">
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <v-btn
               router
               to="/register"
               color="#e9b800"
-              style="font-family:PoppinsExtraBold;font-size:30px;text-transform:initial;font-weight:800;padding:26px;padding-left:50px;padding-right:50px;letter-spacing:0px;animation:cycleMulticolor 10s infinite;border-radius:10px;"
-            >Regístrate y sé parte de Beatup</v-btn>
+              style="
+                font-family: PoppinsExtraBold;
+                font-size: 30px;
+                text-transform: initial;
+                font-weight: 800;
+                padding: 26px;
+                padding-left: 50px;
+                padding-right: 50px;
+                letter-spacing: 0px;
+                animation: cycleMulticolor 10s infinite;
+                border-radius: 10px;
+              "
+              >Regístrate y sé parte de Beatup</v-btn
+            >
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
       </v-container>
     </div>
-
   </section>
 </template>
 
@@ -1159,7 +1597,7 @@ export default {
     Swiper,
     SwiperSlide,
     ComprarBeat,
-    BuscadorBeats
+    BuscadorBeats,
   },
   directives: {
     swiper: directive,
@@ -1169,7 +1607,7 @@ export default {
       "sumarPlayBeat",
       "sumarPlaysTotalesBeatmaker",
       "selectBeat",
-      "generateID"
+      "generateID",
     ]),
     onKeyDown: function (event) {
       // funciones de testeo en consola
@@ -1189,13 +1627,13 @@ export default {
           break;
       }
     },
-    buscarBeat(){
+    buscarBeat() {
       this.$router.push("/#view2");
     },
-    onIntersect (entries, observer) {
+    onIntersect(entries, observer) {
       observer;
-      history.pushState(null, '', '/');  
-      this.isIntersecting = entries[0].intersectionRatio >= 0.5
+      history.pushState(null, "", "/");
+      this.isIntersecting = entries[0].intersectionRatio >= 0.5;
     },
     activarFiltroDescubreBeatmaker(genero) {
       if (genero.isActive) {
@@ -1235,33 +1673,31 @@ export default {
     enConstruccion() {
       alert("En construcción");
     },
-    unlikeBeat(beat){
+    unlikeBeat(beat) {
       this.likedBeats[beat.id] = false;
       this.$store.commit("UNLIKE_BEAT", beat.id);
     },
     likeBeat(beat) {
-      if(this.isLoggedIn){
-        if(this.likedBeats[beat.id] == false){
-        this.likedBeats[beat.id] = true;
-        this.$store.commit("LIKE_BEAT", beat.id);
-        }else{
+      if (this.isLoggedIn) {
+        if (this.likedBeats[beat.id] == false) {
+          this.likedBeats[beat.id] = true;
+          this.$store.commit("LIKE_BEAT", beat.id);
+        } else {
           this.likedBeats[beat.id] = false;
           this.$store.commit("UNLIKE_BEAT", beat.id);
         }
         this.$forceUpdate();
-      }
-      else{
-        this.$swal("Debes iniciar sesión primero.")
+      } else {
+        this.$swal("Debes iniciar sesión primero.");
       }
     },
     async comprarBeat(id) {
-      if(this.isLoggedIn){
+      if (this.isLoggedIn) {
         await this.$store.commit("SELECT_BEAT", id);
         this.showModalComprarBeat = true;
-      }else{
-          this.$swal("Debes iniciar sesión primero.")
-        }
-      
+      } else {
+        this.$swal("Debes iniciar sesión primero.");
+      }
     },
   },
   mounted() {
@@ -1271,7 +1707,7 @@ export default {
     if (this.$router.currentRoute.hash) {
       goTo(this.$router.currentRoute.hash);
     }
-    if(this.isLoggedIn){
+    if (this.isLoggedIn) {
       this.$store.commit("GET_ALL_BEATS");
     }
     //this.$forceUpdate();
@@ -1289,33 +1725,30 @@ export default {
       "allPlaylists",
       "userSelected",
       "beatSelected",
-      "likes"
+      "likes",
     ]),
-    loadingBeats: function(){
-      if(!this.allBeats){
-        return true
-      }else 
-      return false;
+    loadingBeats: function () {
+      if (!this.allBeats) {
+        return true;
+      } else return false;
     },
     likedBeats: {
-      get: function() {
+      get: function () {
         let array = [];
-        if(this.listaAllBeats){
-          this.listaAllBeats.forEach(element =>{
-            if(element.likedByUser){
-              array[element.id] = true
+        if (this.listaAllBeats) {
+          this.listaAllBeats.forEach((element) => {
+            if (element.likedByUser) {
+              array[element.id] = true;
+            } else {
+              array[element.id] = false;
             }
-            else{
-              array[element.id] = false
-            }
-          }
-        )
-      }
-      return array;
+          });
+        }
+        return array;
       },
       set: function (newValue) {
         return newValue;
-      }, 
+      },
     },
     listaAllBeats: {
       get: function () {
@@ -1327,9 +1760,7 @@ export default {
     },
     allBeatsOrdered: function () {
       let _ = require("lodash");
-      return _.sortBy(this.allBeats, [
-        (beat) => beat.titulo.toLowerCase(),
-      ]);
+      return _.sortBy(this.allBeats, [(beat) => beat.titulo.toLowerCase()]);
     },
     listaAllBeatsFiltered: function () {
       let filteredBeats = [];
@@ -1480,9 +1911,7 @@ export default {
       for (let i in this.generos) {
         generosArray.push(this.generos[i]);
       }
-      return _.sortBy(generosArray, [
-        (genero) => genero.text.toLowerCase(),
-      ]);
+      return _.sortBy(generosArray, [(genero) => genero.text.toLowerCase()]);
     },
     generosFiltrados: function () {
       let generosFiltrados = [];
@@ -1510,9 +1939,7 @@ export default {
         moodObject.src = this.moods[i].src;
         moodsArray.push(moodObject);
       }
-      return _.sortBy(moodsArray, [
-        (mood) => mood.text.toLowerCase(),
-      ]);
+      return _.sortBy(moodsArray, [(mood) => mood.text.toLowerCase()]);
     },
     moodsFiltrados: function () {
       let moodsFiltrados = [];
@@ -1552,11 +1979,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (min-height: 900px){
+    @media (min-height: 900px) {
       width: 250px;
       height: 250px;
     }
-    @media (max-height: 900px){
+    @media (max-height: 900px) {
       width: 200px;
       height: 200px;
     }
@@ -1605,22 +2032,22 @@ export default {
   opacity: 0.7;
 }
 .searchBoxHome {
-    left: 2vw;
-    font-weight: 600;
-    background-color: rgba(44, 44, 44, 0.5);
-    border-radius: 5px;
-    margin-left: 1vw;
-    margin-right: 3vw;
-    margin-bottom: 1vh;
-    font-family:PoppinsBold;
-    padding-top: 8px!important;
-    padding-bottom: 12px!important;
-    padding-left: 30px!important;
-    max-width: 25vw;
-  }
-.searchBoxHome .v-icon{
-  font-size:2vw!important;
-  padding-right: 20px!important;
+  left: 2vw;
+  font-weight: 600;
+  background-color: rgba(44, 44, 44, 0.5);
+  border-radius: 5px;
+  margin-left: 1vw;
+  margin-right: 3vw;
+  margin-bottom: 1vh;
+  font-family: PoppinsBold;
+  padding-top: 8px !important;
+  padding-bottom: 12px !important;
+  padding-left: 30px !important;
+  max-width: 25vw;
+}
+.searchBoxHome .v-icon {
+  font-size: 2vw !important;
+  padding-right: 20px !important;
 }
 .iconPlayMiniCoverTopBeats {
   transition: all 325ms ease;
@@ -1702,8 +2129,8 @@ export default {
     background-color: black;
     height: 50px;
     width: 100vw;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 30px;
   }
   .logo {
@@ -1722,16 +2149,16 @@ export default {
   }
   .carrousel {
     position: relative;
-    left: 7vw;
+    left: 1vw;
     border-radius: 10px;
-    width: 85vw;
+    width: 92vw;
     height: 30vh !important;
   }
   #headerCarrousel {
-    margin-top: 5vh;
+    margin-top: 0vh;
     color: white;
     line-height: 1.3;
-    font-size: calc(20px + 0.6vw);
+    font-size: calc(18px + 0.6vw);
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
   }
@@ -1741,13 +2168,13 @@ export default {
     text-align: justify;
     text-justify: inter-word;
     text-shadow: 2px 2px 4px #000000;
-    font-size: calc(16px + 0.1vw);
+    font-size: calc(14px + 0.3vw);
     font-weight: 800;
   }
   #subheader {
     color: white;
     text-shadow: 2px 2px 4px #000000;
-    font-size: calc(10px + 1vw);
+    font-size: calc(16px + 1vw);
     font-weight: 800;
   }
   #botonRegistrate {
@@ -1760,6 +2187,16 @@ export default {
   }
   .custom {
     color: black;
+  }
+  .swiper-slide{
+    height:300px!important;
+  }
+  .caratulaPlaylistRecomendadas {
+    width: 180px;
+    height: 180px;
+    background-color: #e9b800;
+    transition: all 325ms ease;
+    cursor: pointer;
   }
 }
 @media (min-width: 640px) {
@@ -1858,53 +2295,6 @@ export default {
   .custom {
     color: black;
   }
-  .searchMood {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 7px !important;
-    padding-top: 2px !important;
-    padding-left: 3px;
-    width: 14vw;
-    font-weight: 600;
-    top: 10px;
-    background-color: rgba(0, 0, 0, 1);
-    border-radius: 15px;
-  }
-  .searchMood .v-label{
-    font-size: calc(6px + 0.5vw);
-  }
-  .searchGENERO .v-label{
-    font-size: calc(6px + 0.5vw);
-  }
-  .searchSONG .v-label{
-    font-size: calc(6px + 0.5vw);
-  }
-  .searchGENERO {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 7px !important;
-    padding-top: 2px !important;
-    padding-left: 3px;
-    width: 14vw;
-    font-weight: 600;
-    top: 10px;
-    background-color: rgba(173, 173, 173, 1);
-    border-radius: 15px;
-  }
-  .searchSONG {
-    position: relative;
-    margin-left: 2vw;
-    padding-bottom: 7px !important;
-    padding-top: 2px !important;
-    padding-left: 3px;
-    width: 20vw;
-    font-weight: 600;
-    top: 10px;
-    background-color: rgba(173, 173, 173, 1);
-    border-radius: 15px;
-  }
   .caratulaTopBeatsChica {
     margin-top: -5px;
     left: 1.5vw;
@@ -1954,11 +2344,11 @@ export default {
     opacity: 0.5;
   }
   .caratulaPlaylistRecomendadas {
-    @media (min-height: 900px){
+    @media (min-height: 900px) {
       width: 220px;
       height: 220px;
     }
-    @media (max-height: 900px){
+    @media (max-height: 900px) {
       width: 180px;
       height: 180px;
     }

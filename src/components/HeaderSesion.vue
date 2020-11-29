@@ -102,7 +102,7 @@
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title
-                        style="color: white; font-weight: 600; font-size: calc(6px + 0.5vw)"
+                        style="color: white; font-weight: 600; font-size: calc(14px + 0.1vw)"
                         >{{ this.userName }}</v-list-item-title
                       >
                     </v-list-item-content>
@@ -121,7 +121,7 @@
                       style="
                         color: white;
                         font-weight: 600;
-                        font-size: calc(4px + 0.6vw)
+                        font-size: calc(12px + 0.1vw)
                         margin-left: 5px;
                         padding-left:5px;
                       "
@@ -170,7 +170,7 @@
                     </v-list-item-avatar>
                     <v-list-item-content>
                       <v-list-item-title
-                        style="color: white; font-weight: 600; font-size: calc(4px + 0.5vw);margin-right:10px;"
+                        style="color: white; font-weight: 600; font-size: calc(12px + 0.1vw);margin-right:10px;"
                         >Inbox</v-list-item-title
                       >
                     </v-list-item-content>
@@ -231,7 +231,7 @@
                   <v-container style="padding:0!important;">
                     <v-row>
                       <v-col align="left">
-                        <div style="color:white;font-size:calc(5px + 0.8vw);margin-left:20px;margin-right:20px;font-family:PoppinsExtraBold;"> Tu carro ({{ numItems }}) </div>
+                        <div style="color:white;font-size:calc(12px + 0.2vw);margin-left:20px;margin-right:20px;font-family:PoppinsExtraBold;"> Tu carro ({{ numItems }}) </div>
                       </v-col>
                     </v-row>
                   </v-container>
@@ -279,12 +279,12 @@
         </v-col>
         <v-col cols="2" align="right" style="margin-top:1vh">
           <router-link to="/login" v-if="!isLoggedIn" active-class="active">
-            <a class="nav-link">Iniciar Sesión</a>
+            <a class="nav-link iniciar-sesion">Iniciar Sesión</a>
           </router-link>
         </v-col>
         <v-col cols="1" align="left" style="margin-top:1vh;margin-left:1vw">
           <router-link to="/register" v-if="!isLoggedIn" active-class="active">
-            <a class="nav-link">Registrarse</a>
+            <a class="nav-link registrarse">Registrarse</a>
           </router-link>
         </v-col>
       </v-row>
@@ -468,7 +468,6 @@ export default {
   color: white;
   cursor: pointer;
   font-weight: 600;
-  font-size: calc(8px + 0.5vw);
   transition: all 325ms ease;
 }
 .nav-link:hover {
@@ -494,9 +493,21 @@ export default {
     left: 1vw;
     background-color: black;
   }
+  .nav-link {
+    position: absolute;
+    font-size: calc(12px + 0.5vw);
+    bottom:22px;
+  }
+  .iniciar-sesion{
+    right: 35vw;
+  }
+  .registrarse{
+    right: 10vw;
+  }
   .logoHeader {
     position: relative;
-    max-width: 50vh;
+    max-width: 14vh;
+    left:3vw;
     width:30vw;
     top:1vh;
   }

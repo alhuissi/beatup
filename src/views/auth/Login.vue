@@ -148,4 +148,16 @@ export default {
   font-weight: 800;
   font-size: 19px;
 }
+@media (max-width: 640px){
+  #loginForm {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .loginLabel{
+    margin-top:10px;
+  }
+}
+@media (min-width: 640px){
+
+}
 </style>

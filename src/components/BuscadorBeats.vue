@@ -13,7 +13,7 @@
     <v-container fluid id="containerBuscadorBeats">
       <v-row no-gutters style="margin-left: 2vw">
         <v-col cols="12" align="left">
-          <div id="subheader">Encuentra el beat que buscas:</div>
+          <div id="subheaderBuscador">Encuentra el beat que buscas:</div>
         </v-col>
       </v-row>
       <v-row no-gutters style="margin-left: 2vw">
@@ -185,7 +185,11 @@
               dense
               hide-details
             ></v-text-field>
-            <v-row dense style="margin-top: 2vh; margin-left: 1vw">
+            <v-row
+              dense
+              v-if="isWide"
+              style="margin-top: 2vh; margin-left: 1vw"
+            >
               <v-col cols="1" sm="2"></v-col>
               <v-col cols="3" align="left">
                 <div
@@ -274,7 +278,7 @@
                           "
                         >
                           <v-row no-gutters align="center">
-                            <v-col v-if="showCover" cols="1">
+                            <v-col v-if="showCover" xl="1" md="1" cols="2">
                               <v-img
                                 :src="beat.URLCover"
                                 @click="cambiarCancionInner(beat)"
@@ -311,7 +315,7 @@
                               <v-btn
                                 @click="likeBeat(beat)"
                                 icon
-                                style="bottom: 0vh"
+                                class="corazon"
                               >
                                 <v-icon
                                   v-if="!likedBeats[beat.id]"
@@ -330,23 +334,28 @@
                                         <v-icon v-bind:class="{ liked: likedBeats[beat.id] }" size="20">mdi-heart-outline</v-icon>
                                         </v-btn-->
                             </v-col>
-                            <v-col cols="3" align="left">
+                            <v-col cols="5" xl="3" md="3" align="left">
                               <v-list-item-content
+                                class="nombreCancion"
                                 style="padding-top: 5px; padding-bottom: 5px"
                               >
                                 <v-list-item-title
-                                  style="
-                                    color: white;
-                                    font-size: calc(6px + 0.5vw);
-                                    font-family: PoppinsMedium;
-                                    letter-spacing: 0.5px;
-                                    font-weight: 500;
-                                  "
+                                  class="nombreCancionTexto"
                                   v-text="beat.titulo"
                                 ></v-list-item-title>
                               </v-list-item-content>
+                              <v-list-item-content
+                                v-if="!isWide"
+                                @click="irAPerfil(beat.autorID)"
+                                class="nombreArtista"
+                              >
+                                <v-list-item-title
+                                  class="nombreArtistaTexto"
+                                  v-text="beat.autorArtista"
+                                ></v-list-item-title>
+                              </v-list-item-content>
                             </v-col>
-                            <v-col cols="3">
+                            <v-col cols="3" v-if="isWide">
                               <v-list-item-content
                                 @click="irAPerfil(beat.autorID)"
                                 class="nombreArtistaHover"
@@ -378,16 +387,9 @@
                             </v-list-item-content>
                             <v-btn
                               color="#e9b800"
-                              min-width="128px"
                               rounded
                               small
-                              style="
-                                padding: 10px !important;
-                                height: 30px !important;
-                                left: 1vw;
-                                border-radius: 10px !important;
-                                margin-right: 2vw;
-                              "
+                              class="botomComprarBuscador"
                               @click="comprarBeat(beat.id)"
                             >
                               <div class="containerCarrito">
@@ -405,9 +407,7 @@
                                   letter-spacing: 0.1px;
                                 "
                               >
-                                {{
-                                  formatNumber(beat.precioLicenciaBasica, 0)
-                                }}
+                                {{ formatNumber(beat.precioLicenciaBasica, 0) }}
                                 CLP
                               </div>
                             </v-btn>
@@ -554,7 +554,7 @@ export default {
       } else {
         this.isWide = false;
       }
-      if (window.innerWidth > 600) {
+      if (window.innerWidth > 400) {
         this.showCover = true;
       } else {
         this.showCover = false;
@@ -742,6 +742,95 @@ export default {
 </script>
 
 <style>
+#subheaderBuscador {
+  color: white !important;
+  font-family: "PoppinsExtraBold";
+  text-shadow: 2px 2px 4px #000000;
+  font-size: calc(6px + 1.6vw);
+  font-weight: 800;
+}
+.botomComprarBuscador {
+  padding: 10px !important;
+  height: 30px !important;
+  left: 1vw;
+  border-radius: 10px !important;
+  margin-right: 2vw;
+}
+.searchMood {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 7px !important;
+  padding-top: 2px !important;
+  padding-left: 3px;
+  width: 14vw;
+  font-weight: 600;
+  top: 10px;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 15px;
+}
+.searchMood .v-label {
+  font-size: calc(6px + 0.5vw);
+}
+.searchGENERO .v-label {
+  font-size: calc(6px + 0.5vw);
+}
+.searchSONG .v-label {
+  font-size: calc(12px + 0.2vw);
+}
+.searchGENERO {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 7px !important;
+  padding-top: 2px !important;
+  padding-left: 3px;
+  width: 14vw;
+  font-weight: 600;
+  top: 10px;
+  background-color: rgba(173, 173, 173, 1);
+  border-radius: 15px;
+}
+.searchSONG {
+  position: relative;
+  margin-left: 2vw;
+  padding-bottom: 7px !important;
+  padding-top: 2px !important;
+  padding-left: 3px;
+  width: 20vw;
+  font-weight: 600;
+  top: 10px;
+  background-color: rgba(173, 173, 173, 1);
+  border-radius: 15px;
+}
+.nombreCancion {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 325ms ease;
+  cursor: pointer;
+  color: white;
+  font-size: calc(6px + 0.5vw);
+  font-family: PoppinsMedium;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+.nombreArtista {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 325ms ease;
+  cursor: pointer;
+  color: white;
+  font-size: calc(6px + 0.5vw);
+  font-family: PoppinsMedium;
+  font-weight: 400;
+}
+
+.nombreArtista:hover {
+  opacity: 0.7;
+}
+.corazon {
+  bottom: 0vh;
+}
 @media (max-width: 640px) {
   #containerBuscadorBeats {
     position: relative;
@@ -750,9 +839,13 @@ export default {
     width: 100vw;
     height: 100vh;
   }
+  #subheaderBuscador {
+    margin-left: 3vw;
+    font-size: calc(8px + 1.6vw);
+  }
   .ContainerCanciones {
     background-color: #1a1a1a;
-    height: 70vh;
+    height: 75vh;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 92vw;
@@ -770,9 +863,39 @@ export default {
     padding-left: 2vw;
   }
   .scrollContainer {
-    height: 40vh;
+    height: 60vh;
     width: 90vw;
-    margin-top: 5px;
+    margin-top: 25px;
+  }
+  .botomComprarBuscador {
+    left: 3vw;
+    margin-right: 0vw;
+    padding: 5px !important;
+  }
+  .searchSONG {
+    width: 80vw;
+    font-size: 16px !important;
+  }
+  .nombreCancion {
+    margin-left: 20px;
+  }
+  .nombreArtista {
+    margin-left: 20px;
+  }
+  .nombreCancionTexto {
+    font-size: calc(12px + 0.2vw);
+  }
+  .nombreArtistaTexto {
+    font-size: calc(12px + 0.2vw);
+  }
+  .corazon {
+    margin-left: 5px;
+  }
+  .miniCoverBeatsHome {
+    width: 50px !important;
+    min-width: 50px !important;
+    height: 50px !important;
+    min-height: 50px !important;
   }
 }
 @media (min-width: 640px) and (max-width: 960px) {
@@ -805,6 +928,8 @@ export default {
     height: 40vh;
     width: 84vw;
     margin-top: 5px;
+  }
+  .botomComprarBuscador {
   }
 }
 @media (min-width: 960px) {
@@ -839,6 +964,10 @@ export default {
     height: 55vh;
     width: 52vw;
     margin-top: 5px;
+  }
+  .botomComprarBuscador {
+    min-width: 128px !important;
+    width: 128px !important;
   }
 }
 </style>

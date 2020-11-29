@@ -184,7 +184,9 @@ export default {
         margin-left: 0;
     }
 
-    #musicPlayer {}
+    #musicPlayer {
+        display:none;
+    }
 }
 
 @media (min-width: 640px) {
