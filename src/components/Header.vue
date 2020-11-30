@@ -169,7 +169,7 @@ export default {
   color: #E9B800!important;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
   #arrow {
     left:3vw;
     display:flex;
@@ -210,7 +210,7 @@ export default {
     transition: all 725ms ease;
   }
 }
-@media (min-width: 640px) {
+@media (min-width: 960px) {
   .menuIcon{
     filter:invert(100%);
   }

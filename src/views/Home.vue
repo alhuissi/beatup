@@ -380,8 +380,8 @@
       id="view3"
     >
       <v-container v-if="topBeats[1]" fluid id="containerSeccion">
-        <v-row no-gutters style="margin-left: 2vw">
-          <v-col cols="6" xl="2" md="2">
+        <v-row no-gutters style="margin-left: 2vw;margin-bottom:1vh;">
+          <v-col cols="12" md="2">
             <div id="subheader">Hot Beats</div>
           </v-col>
           <v-col cols="3" align="left">
@@ -404,9 +404,9 @@
           </v-col>
         </v-row>
         <v-row no-gutters style="padding-top: 1vh ;">
-          <v-col cols="6" style="padding-left: 2vw">
+          <v-col cols="12" md="6" style="padding-left: 2vw">
             <v-row style="padding-top: 0.5vh; padding-bottom: 10px">
-              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
+              <v-col cols="4">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[0].URLCover != ''"
@@ -465,7 +465,7 @@
                   ></div>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
+              <v-col cols="4">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[1].URLCover != ''"
@@ -525,7 +525,7 @@
                   ></div>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
+              <v-col cols="4">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[2].URLCover != ''"
@@ -588,7 +588,7 @@
             </v-row>
             <v-row>
               <v-col cols="2"></v-col>
-              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
+              <v-col cols="4">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[3].URLCover != ''"
@@ -648,7 +648,7 @@
                   ></div>
                 </v-card>
               </v-col>
-              <v-col cols="4" style="padding-left: 3.5vh; padding-right: 3.5vh">
+              <v-col cols="4">
                 <v-card color="black" dark>
                   <v-img
                     v-if="topBeats[4].URLCover != ''"
@@ -711,7 +711,7 @@
               <v-col cols="2"></v-col>
             </v-row>
           </v-col>
-          <v-col cols="6" style="margin-top: 0vh">
+          <v-col cols="12" md="6" style="margin-top: 1vh">
             <div
               v-for="(topBeats, index) in topBeatsSinPrimerosCinco"
               :key="topBeats.id"
@@ -838,7 +838,7 @@
                         src="../assets/icons/carrito.png"
                       />
                     </div>
-                    <div
+                    <div v-if="isMedium"
                       style="
                         color: black;
                         font-weight: 700;
@@ -883,29 +883,28 @@
       id="view4"
     >
       <v-container fluid id="containerSeccion">
-        <v-row style="margin-left: 1vw">
-          <v-col cols="10" align="left">
-            <div id="subheader" style="font-size: calc(20px + 3vw)">
+        <v-row style="margin-left: 0vw">
+          <v-col cols="12" md="10" align="center">
+            <div id="subheader" class="leftAlignment">
               Top 10 Beatmakers
             </div>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="0" md="2">
             <!--v-img class="logo" :src="imgSrcLogoDoradabaB"></v-img-->
           </v-col>
         </v-row>
         <v-row
           v-if="topBeatmakers[2]"
-          style="margin-left: 2vw; margin-top: -4vh"
+          style="margin-top: -4vh"
         >
-          <v-col cols="8" style="padding-right: 5vw">
+          <v-col cols="12" md="8">
             <v-row style="margin-bottom: 3vh">
               <div
                 id="subheader"
+                class="conoce"
                 style="
                   color: #e9b800;
                   font-weight: 800;
-                  left: 8vw;
-                  font-size: 4vh;
                 "
               >
                 Conoce a los mejores creadores del momento
@@ -925,7 +924,7 @@
                     class="caratulaBeatmaker"
                   >
                     <div class="middlePortafolios">
-                      <v-btn
+                      <v-btn v-if="isMedium"
                         @click="irAPerfil(topBeatmakers.id)"
                         class="textPortafolios"
                         >Ver Perfil</v-btn
@@ -954,7 +953,7 @@
                     class="caratulaBeatmaker"
                   >
                     <div class="middlePortafolios">
-                      <v-btn
+                      <v-btn v-if="isMedium"
                         @click="irAPerfil(topBeatmakers.id)"
                         class="textPortafolios"
                         >Ver Perfil</v-btn
@@ -980,6 +979,7 @@
                       justify-content: center;
                       margin-top: -15px;
                       font-size: 2.2vh;
+                      white-space:nowrap;
                     "
                   ></v-card-title>
                   <div
@@ -1002,7 +1002,7 @@
               </v-card>
             </v-row-->
           </v-col>
-          <v-col cols="4" style="text-align: left; margin-top: -8vh">
+          <v-col cols="12" md="4" class="lista3-10Beatmakers">
             <v-row
               v-for="(topBeatmakers, index) in topBeatmakersSinPrimerosTres"
               :key="topBeatmakers.id"
@@ -1016,7 +1016,7 @@
                       style="
                         color: black;
                         font-weight: 800;
-                        font-size: calc(10px + 1vw);
+                        font-size: calc(12px + 0.7vw);
                       "
                     >
                       {{ index + 4 }}
@@ -1025,7 +1025,7 @@
                 </div>
               </v-col>
 
-              <v-col cols="10" style="margin-left: 1vw">
+              <v-col cols="10" class="down5vh" style="margin-left: 1vw" align="left">
                 <div
                   @click="irAPerfil(topBeatmakers.id)"
                   class="clickable"
@@ -1034,7 +1034,7 @@
                     color: white;
                     font-weight: 600;
                     margin-top: -1.5vh;
-                    font-size: calc(6px + 0.6vw);
+                    font-size: calc(10px + 0.2vw);
                     cursor: pointer;
                     font-family: PoppinsBold;
                   "
@@ -1045,7 +1045,7 @@
                   style="
                     position: relative;
                     color: white;
-                    font-size: calc(6px + 0.4vw);
+                    font-size: calc(10px + 0.1vw);
                     text-transform: uppercase;
                   "
                 >
@@ -1068,16 +1068,16 @@
       id="view5"
     >
       <v-container fluid id="containerSeccion">
-        <v-row style="margin-left: 2vw">
-          <v-col cols="2"></v-col>
-          <v-col cols="8">
+        <v-row>
+          <v-col cols="0" md="2"></v-col>
+          <v-col cols="12" md="8">
             <div
               id="subheader"
               style="
                 color: #e9b800;
                 font-weight: 800;
                 text-shadow: 2px 2px 4px #000000;
-                font-size: 5vh;
+                font-size:calc(14px + 1vw);
               "
             >
               Descubre a tu próximo Beatmaker
@@ -1086,7 +1086,7 @@
               style="
                 color: white;
                 font-weight: 200;
-                font-size: 3vh;
+                font-size:calc(10px + 1vw);
                 letter-spacing: 1px;
                 margin-top: 1vh;
                 font-family: PoppinsLight;
@@ -1095,7 +1095,7 @@
               Marca los estilos para aplicar el filtro
             </div>
           </v-col>
-          <v-col cols="2"></v-col>
+          <v-col cols="0" md="2"></v-col>
         </v-row>
         <v-row
           dense
@@ -1118,6 +1118,7 @@
                 padding: 2vh;
                 letter-spacing: 0px;
                 border-radius: 10px;
+                margin-top:5px;
                 margin-left: 0.5vw;
               "
               >{{ item.text }}</v-btn
@@ -1125,12 +1126,12 @@
           </div>
         </v-row>
         <v-row style="margin-left: 3vw; margin-top: 1vh">
-          <v-col cols="8">
-            <div style="height: 40vh; margin-left: 3vw; margin-right: 1vw">
+          <v-col cols="12" md="8">
+            <div style="height: 40vh; margin-left: 1vw; margin-right: 1vw; margin-bottom:3vh;">
               <vue-scroll :ops="ops">
                 <v-row>
                   <v-col
-                    cols="6"
+                    cols="12" md="6"
                     v-for="beatmaker in allBeatmakersFiltered"
                     :key="beatmaker.id"
                     style="height: 14vh"
@@ -1201,8 +1202,9 @@
               </vue-scroll>
             </div>
           </v-col>
-          <v-col cols="4">
+          <v-col cols="12" md="4">
             <v-card
+            class="down6vh"
               style="
                 background-color: #1a1a1a;
                 margin-right: 5vw;
@@ -1242,10 +1244,10 @@
                       >
                         <v-container style="padding: 0 !important">
                           <v-row no-gutters align="center">
-                            <v-col cols="2">
+                            <v-col cols="3" md="2">
                               <v-list-item-avatar
                                 @click="irAPerfil(item.id)"
-                                size="3vw"
+                                size="50"
                                 class="clickable"
                               >
                                 <v-icon
@@ -1283,7 +1285,7 @@
                                 </v-img>
                               </v-list-item-avatar>
                             </v-col>
-                            <v-col cols="10">
+                            <v-col cols="9" md="10">
                               <v-list-item-content
                                 style="
                                   padding-top: 10px;
@@ -1354,24 +1356,23 @@
           </v-col>
         </v-row>
         <v-row no-gutters style="margin-left: 2vw">
-          <v-col cols="12" align="left">
+          <v-col cols="12" align="center">
             <div
               id="subheader"
-              style="text-transform: uppercase; margin-left: 2vw"
+              style="text-transform: uppercase;"
             >
               Playlists recomendadas
             </div>
           </v-col>
         </v-row>
         <v-row no-gutters style="margin-left: 2vw">
-          <v-col cols="12" align="left">
+          <v-col cols="12" align="center">
             <div
               style="
                 color: #e9b800;
                 font-weight: 600;
-                font-size: calc(18px + 0.8vw);
+                font-size: calc(12px + 1vw);
                 font-family: PoppinsBold;
-                margin-left: 2vw;
               "
             >
               ¡Encuentra la mejor selección para tu mood de hoy!
@@ -1430,14 +1431,14 @@
                       position: relative;
                       justify-content: center;
                       margin-top: -2vh;
-                      font-size: calc(4px + 0.7vw);
+                      font-size: calc(12px + 0.2vw);
                     "
                   ></v-card-title>
                   <v-card-subtitle
                     style="
                       padding-top: 0px;
                       margin-top: -20px;
-                      font-size: calc(4px + 0.5vw);
+                      font-size: calc(11px + 0.2vw);
                     "
                     v-text="'por ' + playlist.autor"
                   ></v-card-subtitle>
@@ -1534,11 +1535,17 @@ export default {
       searchSong: null,
       checkedMoods: [],
       checkedGeneros: [],
+      isMedium:true,
+      isWide:true,
       checkedGenerosDescubreBeatmaker: [],
       radios: "radio-1",
       moods: moods.moods,
       generos: generos.generos,
       item: null,
+      window: {
+        width: 0,
+        height: 0,
+      },
       ops: {
         vuescroll: {
           mode: "native",
@@ -1699,9 +1706,24 @@ export default {
         this.$swal("Debes iniciar sesión primero.");
       }
     },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+      if (window.innerWidth > 640) {
+        this.isMedium = true;
+      } else {
+        this.isMedium = false;
+      }
+      if (window.innerWidth > 960) {
+        this.isWide = true;
+      } else {
+        this.isWide = false;
+      }
+    },
   },
   mounted() {
     this.dataIsLoading = true;
+    this.handleResize();
     document.addEventListener("keydown", this.onKeyDown, false);
     this.dataIsLoading = false;
     if (this.$router.currentRoute.hash) {
@@ -2001,6 +2023,7 @@ export default {
     background-color: rgba(255, 255, 255, 0);
   }
 }
+
 .modal-enter {
   opacity: 0;
 }
@@ -2097,12 +2120,27 @@ export default {
   max-width: 22px;
   margin-left: 10px;
 }
-@media (max-width: 640px) {
+@media (max-width: 960px) {
+  #view3{
+    height:130vh;
+  }
+  #view4{
+    height:150vh;
+  }
+  #view5{
+    height:180vh;
+  }
+  #view6{
+    height:100vh;
+  }
   .example-3d {
     width: 100%;
     height: 80vh;
     padding-top: 2vh;
     padding-bottom: 50px;
+  }
+  .leftAlignment{
+    margin-right:10px;
   }
   .home {
     margin-top: 12vh;
@@ -2123,6 +2161,14 @@ export default {
   .itemCarousel {
     height: 200 !important;
   }
+  .caratulaHotBeats{
+    height: 25vw;
+    margin-left:1vw;
+    margin-right:1vw;
+  }
+  .botonPlay{
+    opacity:0;
+  }
   #containerSeccion {
     position: relative;
     padding: 0;
@@ -2138,6 +2184,48 @@ export default {
     width: 40vw;
     top: 4vh;
   }
+  .tituloBeatHotBeats {
+    justify-content: center;
+    margin-top: -15px;
+    font-size: calc(8px + 0.2vw);
+    font-family: PoppinsSemiBold;
+    white-space: nowrap;
+  }
+  .artistaBeatHotBeats {
+    padding-top: 0px;
+    margin-top: -23px !important;
+    font-size: calc(8px + 0.2vw);
+    justify-content: center;
+    color: white !important;
+    font-family: PoppinsLight;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .generoBeatHotBeats {
+    padding-top: 0px;
+    margin-top: -2px !important;
+    font-size: calc(6px + 0.2vw);
+    justify-content: center;
+    font-family: PoppinsLight;
+    white-space: nowrap;
+    color: white !important;
+  }
+  .botonPlusplaylist {
+    position: absolute;
+    min-width: 10px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin-top: 5px;
+    right: 0;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 99;
+  }
+  .down6vh{
+    margin-top:6vh;
+    margin-bottom:5vh;
+    margin-right:2vw;
+  }
   .searchBox {
     position: relative;
     width: 75vw;
@@ -2147,12 +2235,47 @@ export default {
     background-color: rgba(31, 29, 29, 0.5);
     border-radius: 5px;
   }
+  .posicionTopBeats {
+    top: 1vh;
+    font-weight: 800;
+    font-family: PoppinsExtraBold;
+    font-size: 2.2vh;
+    color: white;
+  }
+  .posicionTop5Beatmakers {
+    position: absolute;
+    left: -2vw;
+    font-family: PoppinsExtraBold;
+    top: -7vh;
+    padding-left: 0px;
+  }
+  .buscarBeatmaker {
+    top: 2vh;
+    position: relative;
+    width: 80vw;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px !important;
+    padding-bottom: 15px !important;
+    background-color: black;
+    font-weight: 800;
+    border-radius: 10px;
+  }
   .carrousel {
     position: relative;
     left: 1vw;
     border-radius: 10px;
     width: 92vw;
     height: 30vh !important;
+  }
+  .posicionTop5Beat {
+    position: absolute;
+    left: -3vw;
+    top: -4vh;
+    padding-left: 0px;
+  }
+  .caratulaBeatmaker {
   }
   #headerCarrousel {
     margin-top: 0vh;
@@ -2161,6 +2284,17 @@ export default {
     font-size: calc(18px + 0.6vw);
     font-weight: 800;
     text-shadow: 2px 2px 4px #000000;
+  }
+  .beatmakerImg {
+    margin-top:9px;
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #e9b800;
+    cursor: pointer;
   }
   #subheaderCarrousel {
     margin-top: 2vh;
@@ -2171,11 +2305,16 @@ export default {
     font-size: calc(14px + 0.3vw);
     font-weight: 800;
   }
+  .top10BeatmakersCintaGris{
+    margin-left:3vw;
+  }
   #subheader {
     color: white;
     text-shadow: 2px 2px 4px #000000;
     font-size: calc(16px + 1vw);
     font-weight: 800;
+    padding-right:10px;
+    padding-left:10px;
   }
   #botonRegistrate {
     position: absolute;
@@ -2184,6 +2323,10 @@ export default {
     font-weight: 800;
     margin-top: 42vh;
     background-color: black;
+  }
+  .down5vh{
+    margin-top:3vh;
+    padding-left:13vw!important;
   }
   .custom {
     color: black;
@@ -2199,7 +2342,15 @@ export default {
     cursor: pointer;
   }
 }
-@media (min-width: 640px) {
+@media (min-width: 960px) {
+  .view{
+    height:100vh;
+  }
+  .leftAlignment{
+    position:absolute;
+    margin-left:1.5vw;
+    bottom:6vh;
+  }
   .example-3d {
     width: 100%;
     height: 50vh;
@@ -2331,7 +2482,9 @@ export default {
     cursor: pointer;
   }
   .caratulaHotBeats {
-    height: 10vw;
+    height: 11vw;
+    margin-left:1vw;
+    margin-right:1vw;
     transition: all 325ms ease;
     cursor: pointer;
   }
@@ -2531,6 +2684,10 @@ export default {
     cursor: pointer;
     z-index: 99;
   }
+  .lista3-10Beatmakers{
+    text-align: left; 
+    margin-top: -8vh
+  }
   .botonPlusplaylist:hover {
     opacity: 0.7;
     cursor: pointer;
@@ -2570,6 +2727,9 @@ export default {
   }
   #view6 {
     margin-bottom: -10vh;
+  }
+  .conoce{
+    margin-left:3vw;
   }
 }
 </style>

@@ -5,10 +5,10 @@
         <div class="modal-wrapper">
           <div class="modal-container">
             <v-row no-gutters>
-              <v-col cols="6" align="left">
-                <div style="color:white;font-weight:600;font-size:1.8vw;">Elije un tipo de licencia</div>
+              <v-col cols="10" md="6" align="left">
+                <div style="color:white;font-weight:600;font-size:calc(14px + 0.5vw);margin-top:1vh;">Elije un tipo de licencia</div>
               </v-col>
-              <v-col cols="6" align="right">
+              <v-col cols="2" md="6" align="right">
                 <div>
                   <v-btn @click="$emit('close')" icon>
                     <v-icon color="grey">mdi-close</v-icon>
@@ -16,9 +16,11 @@
                 </div>
               </v-col>
             </v-row>
-            <v-row>
-              <v-col cols="4" align="center">
-                <v-img :src="coverBeat" @click="cambiarCancionComponente()" width="10vw" height="10vw" cover class="coverBeat" style="margin:20px;border-radius:5px;">
+            <v-row class="adjustMobile">
+              <v-col cols="12" md="4" align="center">
+                <v-row>
+                <v-col cols="6" md="12">
+                <v-img :src="coverBeat" @click="cambiarCancionComponente()" width="calc(70px + 10vw)" height="calc(70px + 10vw)" cover class="coverBeat" style="margin:20px;border-radius:5px;">
                   <v-row class="fill-height ma-0" align="center" justify="center">
                   <v-icon class="iconPlayCover" color="white">
                     mdi-play-circle-outline
@@ -30,29 +32,33 @@
                     </v-row>
                   </template>
                 </v-img>
+                </v-col>
+                <v-col cols="6" md="12">
                 <v-row align="center" justify="center">
-                <div style="color:white;font-family:PoppinsExtraBold;font-size:calc(6px + 0.6vw);">
+                <div class="centerMobile" style="color:white;font-family:PoppinsExtraBold;font-size:calc(12px + 0.3vw);">
                   {{ this.tituloBeat }}
                 </div>
                 </v-row>
                 <v-row align="center" justify="center">
-                <div style="color:white;opacity:0.8;font-size:calc(6px + 0.5vw);font-family:Poppins;">
+                <div style="color:white;opacity:0.8;font-size:calc(12px + 0.2vw);font-family:Poppins;">
                   {{ this.autorBeat }}
                 </div>
                 </v-row>
+                </v-col>
+                </v-row>
               </v-col>
-              <v-col cols="8" align="left">
-                <v-card style="background-color:rgba(25,25,25,1);padding-left:10px;padding-right:20px;margin-top:10px;height:14vh;padding-top:0px;">
+              <v-col cols="12" md="8" align="left" class="adjustMobile2">
+                <v-card style="background-color:rgba(25,25,25,1);padding-left:1vw;padding-right:1vw;margin-top:10px;height:14vh;padding-top:0px;">
                   <v-row no-gutters>
                     <v-col cols="7" align="left">
-                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(2px + 1vw);">Licencia Mp3</v-card-title>
-                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(2px + 0.7vw);">Mp3</v-card-subtitle>
+                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(10px + 0.5vw);">Licencia Mp3</v-card-title>
+                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(8px + 0.3vw);">Mp3</v-card-subtitle>
                     </v-col>
                     <v-col cols="5" align="right">
                       <v-btn v-if="disponibleMp3" small color="#e9b800" style="margin-right:20px;margin-top:20px;height:35px;border-radius:10px;" @click="agregarBeatAlCarrito('Mp3')">
                         <div class="containerCarrito"><v-img class="carrito" contain src="../assets/icons/carrito.png" /></div>
                         <!--v-icon color="black">mdi-cart-plus </v-icon-->
-                        <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaBasica,0) }} CLP</div>
+                        <div style="font-family:PoppinsBold;font-size:calc(8px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaBasica,0) }} CLP</div>
                       </v-btn>
                       <v-btn v-else small disabled color="#e9b800" style="background-color:gray!important;color:white!important;margin-right:20px;margin-top:20px;height:35px;border-radius:10px;">
                         <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;">No disponible</div>
@@ -60,17 +66,17 @@
                     </v-col>
                   </v-row>
                 </v-card>
-                <v-card style="background-color:rgba(25,25,25,1);padding-left:10px;padding-right:20px;margin-top:10px;height:14vh;padding-top:0px;">
+                <v-card style="background-color:rgba(25,25,25,1);padding-left:1vw;padding-right:1vw;margin-top:10px;height:14vh;padding-top:0px;">
                   <v-row no-gutters>
                     <v-col cols="7" align="left">
-                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(2px + 1vw);">Licencia Wav</v-card-title>
-                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(2px + 0.7vw);">Mp3 y Wav</v-card-subtitle>
+                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(10px + 0.5vw);">Licencia Wav</v-card-title>
+                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(8px + 0.3vw);">Mp3 y Wav</v-card-subtitle>
                     </v-col>
                     <v-col cols="5" align="right">
                       <v-btn v-if="disponibleWav" small color="#e9b800" style="margin-right:20px;margin-top:20px;height:35px;border-radius:10px;" @click="agregarBeatAlCarrito('Wav')">
                         <div class="containerCarrito"><v-img class="carrito" contain src="../assets/icons/carrito.png" /></div>
                         <!--v-icon color="black">mdi-cart-plus </v-icon-->
-                        <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaWav,0) }} CLP</div>
+                        <div style="font-family:PoppinsBold;font-size:calc(8px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaWav,0) }} CLP</div>
                       </v-btn>
                       <v-btn v-else small disabled color="#e9b800" style="background-color:gray!important;color:white!important;margin-right:20px;margin-top:20px;height:35px;border-radius:10px;">
                         <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;">No disponible</div>
@@ -78,17 +84,17 @@
                     </v-col>
                   </v-row>
                 </v-card>
-                <v-card style="background-color:rgba(25,25,25,1);padding-left:10px;padding-right:20px;margin-top:10px;height:14vh;padding-top:0px;">
+                <v-card style="background-color:rgba(25,25,25,1);padding-left:1vw;padding-right:1vw;margin-top:10px;height:14vh;padding-top:0px;">
                   <v-row no-gutters>
                     <v-col cols="7" align="left">
-                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(2px + 1vw);">Licencia STEMS</v-card-title>
-                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(2px + 0.7vw);">Mp3, Wav y Stems</v-card-subtitle>
+                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(10px + 0.5vw);">Licencia STEMS</v-card-title>
+                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(8px + 0.3vw);">Mp3, Wav y Stems</v-card-subtitle>
                     </v-col>
                     <v-col cols="5" align="right">
                       <v-btn v-if="disponibleStems" small color="#e9b800" style="margin-right:20px;margin-top:20px;height:35px;border-radius:10px;" @click="agregarBeatAlCarrito('Stems')">
                         <div class="containerCarrito"><v-img class="carrito" contain src="../assets/icons/carrito.png" /></div>
                         <!--v-icon color="black">mdi-cart-plus </v-icon-->
-                        <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaXXX,0) }} CLP</div>
+                        <div style="font-family:PoppinsBold;font-size:calc(8px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaXXX,0) }} CLP</div>
                       </v-btn>
                       <v-btn v-else small disabled color="#e9b800" style="background-color:gray!important;color:white!important;margin-right:20px;margin-top:20px;height:35px;border-radius:10px;">
                         <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;">No disponible</div>
@@ -96,17 +102,17 @@
                     </v-col>
                   </v-row>
                 </v-card>
-                <v-card style="background-color:rgba(25,25,25,1);padding-left:10px;padding-right:20px;margin-top:10px;height:14vh;padding-top:0px;">
+                <v-card style="background-color:rgba(25,25,25,1);padding-left:1vw;padding-right:1vw;margin-top:10px;height:14vh;padding-top:0px;">
                   <v-row no-gutters>
                     <v-col cols="7" align="left">
-                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(2px + 1vw);">Licencia Exclusiva</v-card-title>
-                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(2px + 0.7vw);">Mp3, Wav, STEMS exclusivos</v-card-subtitle>
+                      <v-card-title style="color:white;font-weight:600;text-transform:uppercase;font-family:PoppinsBold;font-size:calc(10px + 0.5vw);">Licencia Exclusiva</v-card-title>
+                      <v-card-subtitle style="color:white;opacity:0.8;font-family:Poppins;font-size:calc(8px + 0.3vw);">Mp3, Wav, STEMS exclusivos</v-card-subtitle>
                     </v-col>
                     <v-col cols="5" align="right">
                       <v-btn v-if="disponibleStems" small color="#e9b800" style="margin-right:20px;margin-top:20px;height:35px;border-radius:10px;" @click="agregarBeatAlCarrito('Exclusiva')">
                         <div class="containerCarrito"><v-img class="carrito" contain src="../assets/icons/carrito.png" /></div>
                         <!--v-icon color="black">mdi-cart-plus </v-icon-->
-                        <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaYYY,0) }} CLP</div>
+                        <div style="font-family:PoppinsBold;font-size:calc(8px + 0.5vw);letter-spacing:0.1px;"> {{ formatNumber(precioLicenciaYYY,0) }} CLP</div>
                       </v-btn>
                       <v-btn v-else small disabled color="#e9b800" style="background-color:gray!important;color:white!important;margin-right:20px;margin-top:20px;height:35px;border-radius:10px;">
                         <div style="font-family:PoppinsBold;font-size:calc(6px + 0.5vw);letter-spacing:0.1px;">No disponible</div>
@@ -116,7 +122,6 @@
                 </v-card>
               </v-col>
             </v-row>
-            
           </div>
         </div>
       </div>
@@ -381,5 +386,35 @@ export default {
 }
 .iconPlayCover:hover{
   opacity:0.8;
+}
+@media (max-width: 960px){
+  .modal-container {
+    width: 95vw;
+    height: 99vh;
+    margin: 0px auto;
+    margin-top:0vh;
+    margin-bottom:0vh;
+    padding: 3vw;
+    background-color: rgb(10, 10, 10);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 325ms ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .iconPlayCover{
+    opacity:0;
+  }
+  .centerMobile{
+    margin-top:8vh;
+  }
+  .adjustMobile{
+    margin-top:-5vh;
+  }
+  .adjustMobile2{
+    margin-top:-8vh;
+  }
+}
+@media (min-width: 960px){
+
 }
 </style>

@@ -2,7 +2,7 @@
   <section class="Login">
     <v-container class="fill-height" fluid>
       <v-row align="center" justify="center">
-        <v-col cols="12" sm="8" md="4">
+        <v-col cols="12" sm="8" md="4" align="center">
           <v-card class="elevation-12" id="loginForm">
             <span class="loginLabel" style="font-size:30px;color:white;">
               Login
@@ -148,7 +148,7 @@ export default {
   font-weight: 800;
   font-size: 19px;
 }
-@media (max-width: 640px){
+@media (max-width: 960px){
   #loginForm {
     margin-left: 10px;
     margin-right: 10px;
@@ -157,7 +157,7 @@ export default {
     margin-top:10px;
   }
 }
-@media (min-width: 640px){
+@media (min-width: 960px){
 
 }
 </style>

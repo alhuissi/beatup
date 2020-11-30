@@ -73,11 +73,11 @@ export default {
 <style>
 @import "../assets/main.css";
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
   #aplayer {
     position: fixed;
     z-index: 99;
-    bottom: 10vh;
+    top: 0.5vh;
     left:1vh;
   /*
     width: 80vw;
@@ -87,7 +87,7 @@ export default {
     height: 70px;*/
   }
 }
-@media (min-width: 640px) {
+@media (min-width: 960px) {
   #aplayer {
     position: fixed;
     z-index: 99;

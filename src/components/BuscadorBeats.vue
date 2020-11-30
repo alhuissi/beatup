@@ -399,11 +399,11 @@
                                   src="../assets/icons/carrito.png"
                                 />
                               </div>
-                              <div
+                              <div v-if="isMedium"
                                 style="
                                   color: black;
                                   font-family: PoppinsBold;
-                                  font-size: calc(8px + 0.4vw);
+                                  font-size: calc(10px + 0.2vw);
                                   letter-spacing: 0.1px;
                                 "
                               >
@@ -460,6 +460,7 @@ export default {
     return {
       showModalComprarBeat: false,
       showCover: false,
+      isMedium:true,
       isWide: true,
       showBPM: false,
       searchMood: null,
@@ -549,12 +550,17 @@ export default {
       } else {
         this.showBPM = false;
       }
+      if (window.innerWidth > 640) {
+        this.isMedium = true;
+      } else {
+        this.isMedium = false;
+      }
       if (window.innerWidth > 960) {
         this.isWide = true;
       } else {
         this.isWide = false;
       }
-      if (window.innerWidth > 400) {
+      if (window.innerWidth > 319) {
         this.showCover = true;
       } else {
         this.showCover = false;
@@ -892,10 +898,10 @@ export default {
     margin-left: 5px;
   }
   .miniCoverBeatsHome {
-    width: 50px !important;
-    min-width: 50px !important;
-    height: 50px !important;
-    min-height: 50px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
   }
 }
 @media (min-width: 640px) and (max-width: 960px) {
@@ -922,12 +928,17 @@ export default {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 86vw;
-    margin-left: 7vw;
+    margin-left: 2vw;
   }
   .scrollContainer {
-    height: 40vh;
+    height: 60vh;
     width: 84vw;
     margin-top: 5px;
+  }
+  .searchSONG {
+    width: 80vw;
+    font-size: 16px !important;
+    margin-bottom:20px;
   }
   .botomComprarBuscador {
   }

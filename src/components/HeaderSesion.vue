@@ -486,10 +486,10 @@ export default {
   background-color: #393939;
   border-radius: 5px;
 }
-@media (max-width: 640px){
+@media (max-width: 960px){
   .containerHeaderSesion {
     width: 100vw;
-    height: 10vh;
+    height: 14vh;
     left: 1vw;
     background-color: black;
   }
@@ -505,6 +505,7 @@ export default {
     right: 10vw;
   }
   .logoHeader {
+    display:none;
     position: relative;
     max-width: 14vh;
     left:3vw;
@@ -524,7 +525,7 @@ export default {
   }
 
 }
-@media (min-width: 640px){
+@media (min-width: 960px){
   .containerHeaderSesion {
     width: 100vw;
     height: 10.2vh;
