@@ -894,7 +894,6 @@ export default {
   .mensajesCard {
     height: 42vh;
   }
-  
   .swiperDashboard {
     height: 80%;
     width: 100%;

@@ -21,7 +21,7 @@
         >
           <span></span>
           <v-tab>
-            <span class="tituloOpcionEditarPerfil">Configuración</span>
+            <span class="tituloOpcionEditarPerfil">Información Personal</span>
           </v-tab>
           <v-tab>
             <span class="tituloOpcionEditarPerfil">Preferencias musicales</span>
@@ -32,19 +32,19 @@
           <v-tab>
             <span class="tituloOpcionEditarPerfil">Información de pago</span>
           </v-tab>
-          <v-tab>
+          <!--v-tab>
             <span class="tituloOpcionEditarPerfil">Discografía</span>
-          </v-tab>
-          <v-tab>
+          </v-tab-->
+          <!--v-tab>
             <span class="tituloOpcionEditarPerfil"
               >Configuración de notificaciones</span
             >
-          </v-tab>
-          <v-tab>
+          </v-tab-->
+          <!--v-tab>
             <span class="tituloOpcionEditarPerfil"
               >Dispositivos conectados</span
             >
-          </v-tab>
+          </v-tab-->
 
           <v-tab-item>
             <v-card class="contenidoOpcionEditarPerfil">
@@ -925,7 +925,7 @@
               </v-row>
             </v-card>
           </v-tab-item>
-          <v-tab-item>
+          <!--v-tab-item>
             <v-card class="contenidoOpcionEditarPerfil">
               <v-row>
                 <span
@@ -952,8 +952,8 @@
                 </v-col>
               </v-row>
             </v-card>
-          </v-tab-item>
-          <v-tab-item>
+          </v-tab-item-->
+          <!--v-tab-item>
             <v-card class="contenidoOpcionEditarPerfil">
               <v-row>
                 <span
@@ -980,8 +980,8 @@
                 </v-col>
               </v-row>
             </v-card>
-          </v-tab-item>
-          <v-tab-item>
+          </v-tab-item-->
+          <!--v-tab-item>
             <v-card class="contenidoOpcionEditarPerfil">
               <v-row>
                 <span
@@ -1008,7 +1008,7 @@
                 </v-col>
               </v-row>
             </v-card>
-          </v-tab-item>
+          </v-tab-item-->
         </v-tabs>
       </v-card>
     </v-container>
@@ -1631,7 +1631,7 @@ export default {
   background-color: rgba(0, 0, 0, 0) !important;
   color: white !important;
   border-radius: 15px !important;
-  margin-top:-10vh;
+
   margin-left:2vw;
 }
 .v-tabs-bar {
@@ -1639,6 +1639,9 @@ export default {
 }
 .v-tabs-items {
   background-color: rgba(0, 0, 0, 0) !important;
+}
+.v-tab{
+  height:7vh!important;
 }
 input[type="file"] {
   position: absolute;

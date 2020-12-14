@@ -16,7 +16,7 @@
 
 <script>
 import Aplayer from "vue-aplayer";
-Aplayer.disableVersionBadge = true
+Aplayer.disableVersionBadge = true;
 
 export default {
   data() {
@@ -24,10 +24,14 @@ export default {
       toggleFull: true,
       toggleNormal: false,
       toggleMini: false,
+      window: {
+        width: 0,
+        height: 0,
+      },
     };
   },
   props: {
-     song: Object
+    song: Object,
   },
   components: {
     Aplayer,
@@ -39,33 +43,22 @@ export default {
     pausar() {
       this.$refs.audioPlayer.pause();
     },
-    testMini(){
-      console.log("toggleMini: "+this.toggleMini);
-      this.toggleMini = true;
-      this.toggleNormal = false;
-      this.toggleFull = false;
-    },
-    testNormal(){
-      console.log("toggleFull: "+this.toggleFull);
-      this.toggleMini = false;
-      this.toggleNormal = true;
-      this.toggleFull = false;
-    },
-    testFull(){
-      console.log("toggleFull: "+this.toggleFull);
-      this.toggleMini = false;
-      this.toggleNormal = false;
-      this.toggleFull = true;
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+      if (window.innerWidth < 960) {
+        this.toggleMini = true;
+        this.toggleFull = false;
+        this.toggleNormal = false;
+      } else {
+        this.toggleMini = false;
+        this.toggleFull = true;
+        this.toggleNormal = false;
+      }
     },
   },
   mounted() {
-    if (window.innerWidth < 640) {
-      this.toggleMini = true;
-    } else {
-      this.toggleMini = false;
-      this.toggleFull = true;
-      this.toggleNormal = false;
-    }
+    this.handleResize();
   },
 };
 </script>
@@ -78,8 +71,8 @@ export default {
     position: fixed;
     z-index: 99;
     top: 0.5vh;
-    left:1vh;
-  /*
+    left: 1vh;
+    /*
     width: 80vw;
     background-color: rgb(218, 218, 218);
     padding: 1vw;
@@ -92,7 +85,7 @@ export default {
     position: fixed;
     z-index: 99;
     bottom: 0vh;
-    right:1vh;
+    right: 1vh;
     /*
     width: 99vw;
     background-color: rgb(218, 218, 218);
@@ -101,14 +94,14 @@ export default {
     */
   }
   .fullPlayer {
-    position:fixed;
+    position: fixed;
     width: 100vw;
-    margin:0px!important;
+    margin: 0px !important;
     background-color: rgb(218, 218, 218);
     padding-left: 1vw;
-    padding-top:1vh;
-    height:10vh;
-    left:0vw;
+    padding-top: 1vh;
+    height: 10vh;
+    left: 0vw;
   }
   .fullPlayer .aplayer-controller {
     justify-content: center;
@@ -165,7 +158,7 @@ export default {
   .fullPlayer .aplayer-icon-play {
     height: 1.2vw !important;
     width: 1.2vw !important;
-    transform:translate(15%,10%);
+    transform: translate(15%, 10%);
   }
   .fullPlayer .aplayer-pause {
     width: 1.5vw !important;
@@ -174,29 +167,29 @@ export default {
   .fullPlayer .aplayer-icon-pause {
     height: 1.2vw !important;
     width: 1.2vw !important;
-    transform:translate(20%,15%);
+    transform: translate(20%, 15%);
   }
   .fullPlayer .aplayer-pic {
     left: 2vw;
-    height:8vh;
-    width:8vh;
+    height: 8vh;
+    width: 8vh;
   }
   .fullPlayer .aplayer-bar-wrap {
     flex: 0.6 !important;
-    margin-bottom:15px;
-    margin-right:5vw;
+    margin-bottom: 15px;
+    margin-right: 5vw;
   }
   .fullPlayer .aplayer-bar {
     background: black !important;
-    height:5px!important;
+    height: 5px !important;
   }
-  .fullPlayer .aplayer-bar .aplayer-played{
-    height:5px!important;
+  .fullPlayer .aplayer-bar .aplayer-played {
+    height: 5px !important;
   }
-  .fullPlayer .aplayer-thumb{
-    height:15px!important;
-    width:15px!important;
-    opacity:0;
+  .fullPlayer .aplayer-thumb {
+    height: 15px !important;
+    width: 15px !important;
+    opacity: 0;
   }
 }
 </style>

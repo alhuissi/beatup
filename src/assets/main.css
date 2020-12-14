@@ -69,6 +69,16 @@
   transition: all 725ms ease;
   box-shadow: 2px 2px 100px rgba(199, 180, 11, 0.1);
 }
+@media (min-width: 960px){
+  .swal2-popup{
+    width:40vw!important;
+  }
+}
+@media (max-width: 960px){
+  .swal2-popup{
+    width:90vw!important;
+  }
+}
 .swal2-popup:hover{
   background-color:rgba(10,10,10,1)!important;
   /*box-shadow: 2px 2px 100px rgba(199, 180, 11, 0.2);*/

@@ -3,12 +3,13 @@
     <v-container fluid class="MiPerfil">
       <v-card dark style="background-color:rgba(0,0,0,0);box-shadow: none;">
         <v-row>
-          <v-col cols="7">
+          <v-col cols="12" md="7">
             <v-row justify="center">
-              <v-col cols="4">
+              <v-col cols="12" md="4">
+                <div class="volver" @click="volver()"><v-icon color="white" size="5vh">mdi-arrow-left</v-icon>  Volver</div>
                 <v-row no-gutters>
                   <v-col>
-                    <v-avatar class="avatarContainer" size="20vh" color="black">
+                    <v-avatar class="avatarContainer" color="black">
                       <v-icon
                         v-if="fotoPerfil == ''"
                         color="#8c8c8c"
@@ -35,7 +36,7 @@
                       style="margin-left:1vw;border-radius:10px;padding:2vh;background-color:#8c8c8c!important;"
                     >
                       <span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:1vw;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:calc(10px + 0.4vw);"
                       >{{ generos[0] }}</span>
                     </v-btn>
                   </v-col>
@@ -46,7 +47,7 @@
                       style="margin-left:1vw;border-radius:10px;padding:2vh;background-color:#8c8c8c!important;"
                     >
                       <span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:1vw;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:calc(10px + 0.4vw);"
                       >{{ generos[1] }}</span>
                     </v-btn>
                   </v-col>
@@ -59,7 +60,7 @@
                       style="margin-left:1vw;border-radius:10px;padding:2vh;background-color:#8c8c8c!important;"
                     >
                       <span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:1vw;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:calc(10px + 0.4vw);"
                       >{{ generos[2] }}</span>
                     </v-btn>
                   </v-col>
@@ -70,7 +71,7 @@
                       style="margin-left:1vw;border-radius:10px;padding:2vh;background-color:#8c8c8c!important;"
                     >
                       <span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:1vw;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-family:PoppinsExtraBold;font-size:calc(10px + 0.4vw);"
                       >{{ generos[3] }}</span>
                     </v-btn>
                   </v-col>
@@ -117,21 +118,21 @@
                   </v-col>
                 </v-row-->
               </v-col>
-              <v-col cols="8">
-                <v-row style="margin-top:3vh;margin-left:6vw;">
-                  <span style="font-weight:600;font-size:3vh;">{{ nombreArtistico }}</span>
+              <v-col cols="12" md="8">
+                <v-row>
+                  <span class="nombreArtistico">{{ nombreArtistico }}</span>
                 </v-row>
-                <v-row style="margin-left:6vw;text-transform:uppercase;font-family:PoppinsLight;">
-                  <span>{{ ciudad }} / {{ pais }}</span>
+                <v-row>
+                  <span class="ciudadPais">{{ ciudad }} / {{ pais }}</span>
                 </v-row>
-                <v-row style="margin-top:10vh;margin-left:6vw;font-size:14px;max-width:22vw;">
-                  <span style="text-align:justify;text-justify:inter-word;">{{ biografia }}</span>
+                <v-row>
+                  <span class="biografia">{{ biografia }}</span>
                 </v-row>
               </v-col>
             </v-row>
           </v-col>
           <v-divider vertical color="#e9b800"></v-divider>
-          <v-col cols="3">
+          <v-col cols="12" md="4">
             <v-row style="margin-left:3vw;">
               <v-col cols="6">
                 <v-row>
@@ -266,6 +267,11 @@ export default {
       generosPerfil: [],
       imgSrc1: require("@/assets/website/Slide1.jpg"),
       imgSrcLogoDoradabaB: require("@/assets/logos/DoradaB.png"),
+      isWide:true,
+      window: {
+        width: 0,
+        height: 0,
+      },
       opsMiPerfil: {
         vuescroll: {
           mode: "native",
@@ -417,10 +423,23 @@ export default {
       this.$emit("cambiarCancionInner", beat);
       //this.sumarPlayBeat(beat.id);
     },
+    volver(){
+      this.$router.go(-1);
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+      if (window.innerWidth > 960) {
+        this.isWide = true;
+      } else {
+        this.isWide = false;
+      }
+    }
   },
   mounted() {
     //this.$store.commit("GET_USER_BEATS");
     goTo(0);
+    this.handleResize();
   },
 };
 </script>
@@ -482,6 +501,8 @@ export default {
 }
 .avatarContainer {
   left: 1vw;
+  height:20vh!important;
+  width:20vh!important;
 }
 .avatarContainer:hover .overlayFotoPerfil {
   opacity: 1;
@@ -502,5 +523,67 @@ export default {
   position: absolute;
   right: 50%;
   bottom: 50%;
+}
+.nombreArtistico{
+  font-weight:600;
+  font-size:3vh;
+  margin-top:3vh;
+  margin-left:7vw;
+}
+.ciudadPais{
+  margin-left:7vw;
+  text-transform:uppercase;
+  font-family:PoppinsLight;
+}
+.biografia{
+  text-align:justify;
+  text-justify:inter-word;
+  margin-top:10vh;
+  margin-left:6vw;
+  font-size:14px;
+  max-width:22vw;
+}
+@media (min-width: 960px) {
+  .volver{
+    display:none;
+  }
+}
+@media (max-width: 960px) {
+  .volver{
+    display:block;
+    position:absolute;
+  }
+  .MiPerfil {
+    margin-top: 10vh !important;
+    height: 200vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .avatarContainer {
+    left: 1vw;
+    height:20vh!important;
+    width:20vh!important;
+    margin-top:3vh;
+  }
+  .nombreArtistico{
+    margin-top:0vh;
+    margin-left:auto;
+    margin-right:auto;
+    
+  }
+  .ciudadPais{
+    margin-left:auto;
+    margin-right:auto;
+    font-size:12px;
+  }
+  .biografia{
+    text-align:justify;
+    text-justify:inter-word;
+    margin-top:5vh;
+    margin-left:5vw;
+    margin-right:5vw;
+    font-size:14px;
+    max-width:95vw;
+  }
 }
 </style>

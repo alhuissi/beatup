@@ -10,12 +10,13 @@
         dark
         style="background-color:rgba(0,0,0,0);box-shadow: none;">
         <v-row>
-          <v-col cols="7">
+          <v-col cols="12" md="7">
             <v-row>
-              <v-col cols="4">
+              <v-col cols="12" md="4">
+                <div class="volver" @click="volver()"><v-icon color="white" size="5vh">mdi-arrow-left</v-icon>  Volver</div>
                 <v-row no-gutters>
                   <v-col cols="12" align="center">
-                    <v-avatar class="avatarContainer" size="20vh" color="black">
+                    <v-avatar class="avatarContainer" color="black">
                       <v-icon
                         v-if="fotoPerfil == ''"
                         color="#8c8c8c"
@@ -50,8 +51,8 @@
                       style="margin-left:1vw;"
                       @click="followUser(userSelected)"
                     >
-                      <v-icon style="font-size:calc(2px + 1vw)!important;">mdi-account-plus</v-icon>
-                      <span style="font-size:calc(6px + 0.5vw);font-family:PoppinsBold;">Seguir</span>
+                      <v-icon style="font-size:calc(10px + 0.4vw)!important;">mdi-account-plus</v-icon>
+                      <span style="font-size:calc(10px + 0.4vw);font-family:PoppinsBold;">Seguir</span>
                     </v-btn>
                     <v-btn
                       light
@@ -62,8 +63,8 @@
                       style="margin-left:1vw;"
                       @click="followUser(userSelected)"
                     >
-                      <v-icon style="font-size:calc(2px + 1vw)!important;">mdi-account-minus</v-icon>
-                      <span style="font-size:calc(6px + 0.5vw);font-family:PoppinsBold;">Siguiendo</span>
+                      <v-icon style="font-size:calc(10px + 0.4vw)!important;">mdi-account-minus</v-icon>
+                      <span style="font-size:calc(10px + 0.4vw);font-family:PoppinsBold;">Siguiendo</span>
                     </v-btn>
                   </v-col>
                   <v-col cols="6">
@@ -75,19 +76,19 @@
                       style="margin-left:1vw;"
                       @click="clickBotonMensaje()"
                     >
-                      <v-icon style="font-size:calc(2px + 1vw)!important;">mdi-message</v-icon>
-                      <span style="font-size:calc(6px + 0.5vw);font-family:PoppinsBold;">Mensaje</span>
+                      <v-icon style="font-size:calc(10px + 0.4vw)!important;">mdi-message</v-icon>
+                      <span style="font-size:calc(10px + 0.4vw);font-family:PoppinsBold;">Mensaje</span>
                     </v-btn>
                   </v-col>
                 </v-row>
-                <v-row dense v-if="generos" style="margin-top:4vh;">
+                <v-row dense v-if="generos" class="espacio">
                   <v-col cols="6">
                     <v-btn
                       disabled
                       block
                       style="margin-left:1vw;border-radius:10px;padding:1vh;background-color:#8c8c8c!important;"
                       ><span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:1vw;font-family:PoppinsExtraBold;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:calc(10px + 0.4vw);font-family:PoppinsExtraBold;"
                       >
                         {{ generos[0] }}
                       </span></v-btn
@@ -99,7 +100,7 @@
                       block
                       style="margin-left:1vw;border-radius:10px;padding:1vh;background-color:#8c8c8c!important;"
                       ><span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:1vw;font-family:PoppinsExtraBold;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:calc(10px + 0.4vw);font-family:PoppinsExtraBold;"
                       >
                         {{ generos[1] }}
                       </span></v-btn
@@ -113,7 +114,7 @@
                       block
                       style="margin-left:1vw;border-radius:10px;padding:1vh;background-color:#8c8c8c!important;"
                       ><span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:1vw;font-family:PoppinsExtraBold;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:calc(10px + 0.4vw);font-family:PoppinsExtraBold;"
                       >
                         {{ generos[2] }}
                       </span></v-btn
@@ -125,7 +126,7 @@
                       block
                       style="margin-left:1vw;border-radius:10px;padding:1vh;background-color:#8c8c8c!important;"
                       ><span
-                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:1vw;font-family:PoppinsExtraBold;"
+                        style="font-weight:800;color:black;letter-spacing:0.01px;font-size:calc(10px + 0.4vw);font-family:PoppinsExtraBold;"
                       >
                         {{ generos[3] }}
                       </span></v-btn
@@ -142,13 +143,13 @@
                       <v-col cols="8">
                         <v-row>
                           <span
-                            style="color:black;font-weight:800;font-size:calc(10px + 0.6vw);font-family:PoppinsExtraBold;"
+                            style="color:black;font-weight:800;font-size:18px;font-family:PoppinsExtraBold;"
                             >Escuchar</span
                           >
                         </v-row>
                         <v-row>
                           <span
-                            style="color:black;font-weight:600;font-size:calc(10px + 0.3vw);font-family:PoppinsSemiBold;"
+                            style="color:black;font-weight:600;font-size:14px;font-family:PoppinsSemiBold;"
                             >Último Beat</span
                           >
                         </v-row>
@@ -182,19 +183,17 @@
                   </v-col>
                 </v-row-->
               </v-col>
-              <v-col cols="8">
-                <v-row style="margin-top:3vh;margin-left:6vw;">
-                  <span style="font-weight:600;font-size:3vh;font-family:Poppins;"
+              <v-col cols="12" md="8">
+                <v-row>
+                  <span class="nombreArtistico"
                     >{{ nombreArtistico }}
                   </span>
                 </v-row>
-                <v-row style="margin-left:6vw;text-transform:uppercase;font-family:PoppinsLight;">
-                  <span>{{ ciudad }} / {{ pais }} </span>
+                <v-row>
+                  <span class="ciudadPais">{{ ciudad }} / {{ pais }} </span>
                 </v-row>
-                <v-row
-                  style="margin-top:10vh;margin-left:6vw;font-size:14px;max-width:22vw;font-family:PoppinsLight;"
-                >
-                  <span style="text-align:justify;text-justify:inter-word;"
+                <v-row>
+                  <span class="biografia"
                     >{{ biografia }}
                   </span>
                 </v-row>
@@ -202,7 +201,7 @@
             </v-row>
           </v-col>
           <v-divider vertical color="#e9b800"></v-divider>
-          <v-col cols="3">
+          <v-col cols="12" md="4">
             <v-row style="margin-left:3vw;">
               <v-col cols="6">
                 <v-row>
@@ -234,8 +233,7 @@
             </v-row>
             <v-row>
               <v-col cols="12">
-                <div
-                  style="height:52vh;width:35vw;margin-top:2vh;margin-left:1vw;padding-left:1vw;background-color:rgba(30,30,30,0);border-radius:10px;">
+                <div class="listaBeatsPerfil">
                   <vue-scroll :ops="opsMiPerfil">
                     <div>
                       <v-list style="background-color:rgba(0,0,0,0);">
@@ -260,7 +258,7 @@
                                 </v-row>
                                 </v-img>
                               </v-col>
-                              <v-col cols="1" align="left">
+                              <v-col cols="2" md="1" align="left">
                                 <v-btn @click="likeBeat(item)" icon style="bottom:0vh;">
                                   <v-icon v-if="!likedBeats[item.id]" size="20" color="white">mdi-heart-outline</v-icon>
                                   <v-icon v-if="likedBeats[item.id]" size="20" color="white">mdi-heart</v-icon>
@@ -280,7 +278,7 @@
                                   ></v-list-item-title>
                                 </v-list-item-content>
                               </v-col>
-                              <v-col cols="1">
+                              <v-col cols="1" v-if="isWide">
                                 <v-row align="center">
                                   <v-list-item-content
                                     style="padding-top:5px;padding-bottom:5px;"
@@ -295,7 +293,7 @@
                                   ></v-row
                                 ></v-col
                               >
-                              <v-col cols="1" style="margin-left:2vw;">
+                              <v-col cols="2" md="1" style="margin-left:2vw;">
                                 <v-row
                                   ><v-icon size="20" color="#bbbbbb"
                                     >mdi-play-circle</v-icon
@@ -308,15 +306,15 @@
                                       v-text="item.nplays"
                                     ></v-list-item-title> </v-list-item-content></v-row></v-col
                               >
-                              <v-col cols="3" align="right">
+                              <v-col cols="2" md="3" align="right">
                                 <v-btn
                                 color="#e9b800"
-                                min-width="140px"
                                 rounded
-                                style="padding:10px!important;left:1vw;border-radius:10px!important;"
+                                small
+                                class="botonComprarPerfil"
                                 @click="comprarBeat(item.id)">
                                 <div class="containerCarrito"><v-img class="carrito" contain src="../../assets/icons/carrito.png" /></div>
-                                <div
+                                <div v-if="isWide"
                                   style="color:black;font-family:PoppinsBold;font-size:16px;letter-spacing:0.1px;">
                                   {{ formatNumber(item.precioLicenciaBasica,0) }} CLP
                                 </div>
@@ -360,6 +358,11 @@ export default {
     return {
       isLoading: false,
       showModalComprarBeat: false,
+      isWide:true,
+      window: {
+        width: 0,
+        height: 0,
+      },
       generosPerfil: [],
       imgSrc1: require("@/assets/website/Slide1.jpg"),
       imgSrcLogoDoradabaB: require("@/assets/logos/DoradaB.png"),
@@ -680,19 +683,31 @@ export default {
     enConstru() {
       alert("En Construcción");
     },
+    volver(){
+      this.$router.go(-1);
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+      if (window.innerWidth > 960) {
+        this.isWide = true;
+      } else {
+        this.isWide = false;
+      }
+    }
   },
   mounted() {
     goTo(0);
+    this.handleResize();
   },
   beforeMount() {
-    /*
     if (!this.userSelected) {
-      if (this.isLoggedIn) {
-        this.$router.push("/dashboard");
-      } else {
+      //if (this.isLoggedIn) {
+      //  this.$router.push("/dashboard");
+      //} else {
         this.$router.push("/");
-      }
-    }*/
+      //}
+    }
   },
 };
 </script>
@@ -709,6 +724,13 @@ export default {
       rgba(0, 0, 0, 0.73)
     ),
     url("../../assets/website/Untitled-1.jpg");
+}
+.botomComprarPerfil {
+  padding: 10px !important;
+  height: 30px !important;
+  left: 1vw;
+  border-radius: 10px !important;
+  margin-right: 2vw;
 }
 .escucharCard {
   padding-left: 5vh;
@@ -753,6 +775,8 @@ export default {
 }
 .avatarContainer {
   left: 1vw;
+  height:20vh!important;
+  width:20vh!important;
 }
 .avatarContainer:hover .overlayFotoPerfil {
   opacity: 1;
@@ -783,5 +807,94 @@ export default {
 .containerCarrito{
   max-width:25px;
   margin-left:10px;
+}
+.nombreArtistico{
+  font-weight:600;
+  font-size:3vh;
+  margin-top:3vh;
+  margin-left:7vw;
+}
+.ciudadPais{
+  margin-left:7vw;
+  text-transform:uppercase;
+  font-family:PoppinsLight;
+}
+.biografia{
+  text-align:justify;
+  text-justify:inter-word;
+  margin-top:10vh;
+  margin-left:6vw;
+  font-size:14px;
+  max-width:22vw;
+}
+.listaBeatsPerfil{
+  height:52vh;
+  width:35vw;
+  margin-top:2vh;
+  margin-left:1vw;
+  padding-left:1vw;
+  background-color:rgba(30,30,30,0);
+  border-radius:10px;
+}
+@media (min-width: 960px) {
+  .volver{
+    display:none;
+  }
+  .espacio{
+    margin-top:4vh;
+  }
+}
+@media (max-width: 960px) {
+  .volver{
+    display:block;
+    position:absolute;
+  }
+  .botomComprarPerfil {
+    left: 3vw;
+    margin-right: 0vw;
+    padding: 5px !important;
+  }
+  .listaBeatsPerfil{
+    width:95vw;
+    margin-left:1vw;
+    padding-left:1vw;
+    margin-right:1vw;
+    padding-right:1vw;
+  }
+  .Perfil {
+    margin-top: 10vh !important;
+    height: 200vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .avatarContainer {
+    left: 1vw;
+    height:20vh!important;
+    width:20vh!important;
+    margin-top:3vh;
+  }
+  .nombreArtistico{
+    margin-top:0vh;
+    margin-left:auto;
+    margin-right:auto;
+    
+  }
+  .ciudadPais{
+    margin-left:auto;
+    margin-right:auto;
+    font-size:12px;
+  }
+  .biografia{
+    text-align:justify;
+    text-justify:inter-word;
+    margin-top:5vh;
+    margin-left:5vw;
+    margin-right:5vw;
+    font-size:14px;
+    max-width:95vw;
+  }
+  .espacio{
+    margin-top:5vh;
+  }
 }
 </style>

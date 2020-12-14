@@ -227,7 +227,7 @@
                     font-size: 14px;
                     margin-bottom: -5px;
                     opacity: 0.8;
-                    margin-left: 1vw;
+                    margin-left: 2vw;
                   "
                 >
                   BPM
@@ -241,6 +241,7 @@
                     font-size: 14px;
                     margin-bottom: -5px;
                     opacity: 0.8;
+                    margin-right:-2vw;
                   "
                 >
                   Añadir
@@ -541,6 +542,11 @@ export default {
     },
     cambiarCancionInner(beat) {
       this.$emit("cambiarCancionInner", beat);
+    },
+    async irAPerfil(id) {
+      await this.$store.commit("SELECT_USER", id);
+      await this.$store.commit("GET_BEATS_SELECTED_USER", id);
+      this.$router.push("/perfil");
     },
     handleResize() {
       this.window.width = window.innerWidth;
