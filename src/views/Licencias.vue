@@ -4,7 +4,7 @@
     <div class="view" id="view7">
       <v-container fluid id="containerSeccion">
         <v-row style="margin-left: 2vw;">
-          <v-col cols="6" align="left">
+          <v-col cols="12" md="6" align="left">
             <v-row>
             <div style="font-weight:600;color:white;font-size:4vh;font-family:PoppinsBold">
               Licencias
@@ -24,7 +24,7 @@
               <div style="content:'';width:20vw;height:12vw;background-color:#e9b800;border-radius:5px;margin-top:3vh;"></div >
             </v-row>
           </v-col>
-          <v-col cols="6">
+          <v-col cols="12" md="6">
             <v-row>
               <v-col cols="12" align="right">
                 <div style="color:white;font-size:calc(20px + 1vw);margin-top:0vh;font-family:PoppinsExtraBold;">Tipos de licencia</div> 
@@ -32,7 +32,7 @@
             </v-row>
             <v-row>
               <v-col align="right">
-                <v-card style="background-color:#333333;padding-right:1vw;padding-top:1vh;padding-bottom:3vh;font-family:PoppinsExtraBold;" width="25vw">
+                <v-card class="LicenciasCard">
                 <div style="color:#e9b800;font-size:3vh;font-weight:800;">
                   Licencia Mp3
                 </div>
@@ -40,7 +40,7 @@
                     Incluye beat en formato mp3
                   </div>
               </v-card>
-              <v-card style="background-color:#333333;padding-right:1vw;padding-top:1vh;padding-bottom:3vh;margin-top:4vh;font-family:PoppinsExtraBold;" width="25vw">
+              <v-card class="LicenciasCard" style="margin-top:4vh;">
                 <div style="color:#e9b800;font-size:3vh;font-weight:800;">
                   Licencia Wav
                 </div>
@@ -48,7 +48,7 @@
                     Incluye beat en formato wav y mp3
                   </div>
               </v-card>
-              <v-card style="background-color:#333333;padding-right:1vw;padding-top:1vh;padding-bottom:3vh;margin-top:4vh;font-family:PoppinsExtraBold;" width="25vw">
+              <v-card class="LicenciasCard" style="margin-top:4vh;">
                 <div style="color:#e9b800;font-size:3vh;font-weight:800;">
                   Licencia STEMS
                 </div>
@@ -56,7 +56,7 @@
                     Incluye stems (pistas), y el beat en wav y mp3
                   </div>
               </v-card>
-              <v-card style="background-color:#333333;padding-right:1vw;padding-top:1vh;padding-bottom:3vh;margin-top:4vh;font-family:PoppinsExtraBold;" width="25vw">
+              <v-card class="LicenciasCard" style="margin-top:4vh;">
                 <div style="color:#e9b800;font-size:3vh;font-weight:800;">
                   Licencia Exclusiva
                 </div>
@@ -99,9 +99,25 @@ export default {
 
 <style>
 .Licencias{
-  margin-top:10vh
+  margin-top:10vh;
+}
+.LicenciasCard{
+  background-color:#333333!important;
+  padding-right:1vw;
+  padding-top:1vh;
+  padding-bottom:3vh;
+  font-family:PoppinsExtraBold;
+  width:25vw;
 }
 @media (max-width: 960px) {
+  .Licencias{
+    margin-top:10vh;
+    width:95vw;
+    height:150vh;
+  }
+  .LicenciasCard{
+    width:95vw;
+  }
 }
 @media (min-width: 960px) {
   #containerSeccion {

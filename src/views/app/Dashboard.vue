@@ -862,7 +862,7 @@ export default {
         width: 130px;
         height: 130px;
       }
-      padding-top: 0vh;
+      margin-top: -10vh;
       text-align: center;
       font-weight: bold;
       font-size: 60px;

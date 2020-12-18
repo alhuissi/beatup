@@ -119,7 +119,7 @@ export default {
     document.addEventListener("keydown", this.onKeyDown, false);
     this.$swal({
         title: '¡BIENVENID@   A LA BETA DE BEATUP!',
-        html: '<div style="font-size:calc(6px + 0.3vw);opacity:0.7;">Beatup v 0.6.1</div><br />Estamos desarrollando esta plataforma para ayudar a los beatmakers a vender y difundir su arte. Agradecemos tu feedback y paciencia frente a eventuales errores, y recordaremos siempre a los que estuvieron con nosotros desde el principio. <br/><br/><div style="text-transform:uppercase;"><b> ¡Esto es el comienzo de algo grande!</b></div>',
+        html: '<div style="font-size:calc(6px + 0.3vw);opacity:0.7;">Beatup v 0.6.2</div><br />Estamos desarrollando esta plataforma para ayudar a los beatmakers a vender y difundir su arte. Agradecemos tu feedback y paciencia frente a eventuales errores, y recordaremos siempre a los que estuvieron con nosotros desde el principio. <br/><br/><div style="text-transform:uppercase;"><b> ¡Esto es el comienzo de algo grande!</b></div>',
         showCloseButton: true
     })
   },
@@ -180,8 +180,7 @@ export default {
   #app {
   }
   #footer {
-    position: fixed;
-    margin-left: 0;
+    display: none;
   }
   #musicPlayer {
   }
