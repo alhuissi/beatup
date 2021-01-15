@@ -213,12 +213,13 @@ export default {
         beat_links_string.concat(element.link);
       });
 
-      let config2 = {
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json,application/json',
-        },
-      };
+      //let config2 = {
+      //  headers: {
+      //    'Accept': 'application/json, text/plain, */*',
+      //    'Content-Type': 'application/json,application/json',
+      //  },
+      //};
+      /*
       let data2 = {
           'email': email,
           'amount': valor,
@@ -237,6 +238,7 @@ export default {
           console.log('error en el handle order');
           alert('error');
         });
+        */
 
         this.$store.commit("COMPRA_EN_PROCESO", this.cartItemList);
     },
