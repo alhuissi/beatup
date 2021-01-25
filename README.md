@@ -1,6 +1,12 @@
 # Beatup
 
-Marketplace of beats and songs for beatmakers and producers. It automates payments and redistribution using payku.cl.
+Marketplace of beats and songs for beatmakers and producers.
+
+Features:
+- Responsive design
+- Music uploading streaming, and selling
+- Social media profiles and interactions (likes, follows and messaging)
+- Automation of payment redistribution for song owners
 
 The application is still in development. It needs finishing and polishing the API communication with the marketplace and payment service provider (Payku) and heavy refactoring.
 
