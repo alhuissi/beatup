@@ -2,6 +2,9 @@
 
 Marketplace of beats and songs for beatmakers and producers. It automates payments and redistribution using payku.cl.
 
+The application is still in development. It needs finishing and polishing the API communication with the marketplace and payment service provider (Payku) and heavy refactoring.
+
+
 
 ## Project setup
 ```
