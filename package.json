@@ -18,7 +18,7 @@
     "jszip": "^3.5.0",
     "lodash": "^4.17.19",
     "moment": "^2.27.0",
-    "swiper": "^5.4.2",
+    "swiper": "^6.5.1",
     "vue": "^2.6.11",
     "vue-aplayer": "^1.6.1",
     "vue-awesome-swiper": "^4.1.1",
